@@ -34,7 +34,7 @@ export default function Home() {
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 3 } as React.CSSProperties}>
-          <h2 className="small">Previously</h2>
+          <h2 className="label">Previously</h2>
         </div>
 
         <div className="grid-wrap" data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
@@ -55,7 +55,7 @@ export default function Home() {
         </p>
 
         <div className="prose section" data-animate style={{ "--stagger": 5 } as React.CSSProperties}>
-          <h2 className="small">Words</h2>
+          <h2 className="label">Words</h2>
           {posts.length === 0 ? (
             <p className="low">Nothing yet. The first post is being written.</p>
           ) : (
@@ -73,14 +73,14 @@ export default function Home() {
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 6 } as React.CSSProperties}>
-          <h2>About</h2>
+          <h2 className="label">About</h2>
           {site.about.map((para) => (
             <p key={para.slice(0, 24)}>{para}</p>
           ))}
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 7 } as React.CSSProperties}>
-          <h2>Connect</h2>
+          <h2 className="label">Connect</h2>
           <p>
             Find me on <a href={site.links.linkedin}>LinkedIn</a>, <a href={site.links.github}>GitHub</a> and{" "}
             <a href={site.links.dribbble}>Dribbble</a>, or by <a href={site.links.email}>email</a>.
