@@ -165,7 +165,7 @@ footer { font-variant-numeric: tabular-nums; }
   --text: #706f6c;
   --strong: #1b1b18;
   --dim: #706f6c;
-  --low: #a1a09c;
+  --low: #767571;
   --underline: #d6d5d1;
   --icon: #a1a09c;
 }
@@ -175,7 +175,7 @@ footer { font-variant-numeric: tabular-nums; }
     --text: #a09f9b;
     --strong: #ededeb;
     --dim: #a09f9b;
-    --low: #6f6e6a;
+    --low: #8a8985;
     --underline: #3a3936;
     --icon: #6f6e6a;
   }
@@ -188,6 +188,7 @@ h1, h2 { font-size: 14px; line-height: 21px; }
 .item-title, .item-title a { color: var(--strong); }
 .lead { color: var(--strong); letter-spacing: -0.005em; }
 h2.label { font-size: 17px; line-height: 21px; }
-.note, footer, .clock-wrap { font-size: 12px; font-weight: 400; }
+.note, footer, .clock-wrap { font-size: 13px; line-height: 20px; font-weight: 400; }
+.note { display: flex; flex-direction: column; gap: 2px; }
 .avatar { width: 64px; height: 64px; }
 .grid6 { gap: 18px 32px; }

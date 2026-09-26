@@ -10,7 +10,7 @@ export const site = {
     link: { label: "Jane", href: "https://jane.app" },
     after: " from Cochrane, near the Canadian Rockies.",
   },
-  alsoLine: "Also Coca-Cola, Santander, William Hill, Suzuki and SnipIt.",
+  alsoLine: "Also worked with Coca-Cola, Santander, William Hill, Suzuki and SnipIt.",
   about: [
     "Essex born, now in Cochrane with my wife, daughter, and two dogs. Forever in pursuit of an incredible wildlife sighting, maybe a little overconfidently. That confidence also extends to my balance. A few too many broken bones later, Alberta healthcare and I are on first-name terms.",
     "I snowboard, paddleboard the Bow, and skateboard with my daughter, who’s getting better than me rather quickly. I write and record music, collect vinyl and gig posters, and own more guitars than my local guitar store, needlessly. There’s usually a camera within reach when I’m not wielding a laptop or guitar, given the unpredictability of every corner I turn in the Rockies.",

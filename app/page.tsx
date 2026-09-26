@@ -50,9 +50,12 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <p className="note" data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
-          {site.alsoLine} Case studies are password protected, <a href={site.links.email}>email me</a> for access.
-        </p>
+        <div className="note" data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
+          <p>{site.alsoLine}</p>
+          <p>
+            Case studies are password protected. <a href={site.links.email}>Email me</a> for access.
+          </p>
+        </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 5 } as React.CSSProperties}>
           <h2 className="label">Words</h2>
