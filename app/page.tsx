@@ -34,7 +34,10 @@ export default function Home() {
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 3 } as React.CSSProperties}>
-          <h2 className="label">Previously</h2>
+          <div className="label-row">
+            <h2 className="label">Previously</h2>
+            <span className="label-aside">Case studies coming soon</span>
+          </div>
         </div>
 
         <div className="grid-wrap" data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
