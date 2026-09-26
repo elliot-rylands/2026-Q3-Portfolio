@@ -4,7 +4,7 @@ export const site = {
   name: "Elliot Rylands",
   url: "https://elliotrylands.com",
   role: "Design engineer",
-  intro: "A design engineer helping product ideas find their feet, then pushing them to production.",
+  intro: "A design engineer of 16 years helping product ideas find their feet, then pushing them to production.",
   current: {
     before: "Currently building ",
     link: { label: "jane.app", href: "https://jane.app" },
