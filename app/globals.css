@@ -158,3 +158,36 @@ h2.label {
 p { text-wrap: pretty; }
 body { font-variant-numeric: oldstyle-nums; }
 footer { font-variant-numeric: tabular-nums; }
+
+/* Samuel Kraft-style density: one size, medium weight, hierarchy by warm colour */
+:root {
+  --bg: #fdfdfc;
+  --text: #706f6c;
+  --strong: #1b1b18;
+  --dim: #706f6c;
+  --low: #a1a09c;
+  --underline: #d6d5d1;
+  --icon: #a1a09c;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110;
+    --text: #a09f9b;
+    --strong: #ededeb;
+    --dim: #a09f9b;
+    --low: #6f6e6a;
+    --underline: #3a3936;
+    --icon: #6f6e6a;
+  }
+}
+body { font-size: 14px; line-height: 21px; font-weight: 500; }
+h1, h2 { font-size: 14px; line-height: 21px; }
+.prose { gap: 12px; }
+.section { margin-top: 48px; }
+.item { min-height: 63px; }
+.item-title, .item-title a { color: var(--strong); }
+.lead { color: var(--strong); letter-spacing: -0.005em; }
+h2.label { font-size: 17px; line-height: 21px; }
+.note, footer, .clock-wrap { font-size: 12px; font-weight: 400; }
+.avatar { width: 48px; height: 48px; }
+.grid6 { gap: 18px 32px; }

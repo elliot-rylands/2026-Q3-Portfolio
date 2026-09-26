@@ -18,7 +18,7 @@ export default function Home() {
       <article>
         <div className="prose">
           <h1 data-animate className="avatar-heading">
-            <Image src="/elliot.png" alt="" width={56} height={56} priority className="avatar" />
+            <Image src="/elliot.png" alt="" width={48} height={48} priority className="avatar" />
             <span className="sr-only">{site.name}</span>
           </h1>
           <p className="lead" data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
