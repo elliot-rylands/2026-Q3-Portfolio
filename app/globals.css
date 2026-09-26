@@ -192,3 +192,7 @@ h2.label { font-size: 17px; line-height: 21px; }
 .note { display: flex; flex-direction: column; gap: 2px; }
 .avatar { width: 64px; height: 64px; }
 .grid6 { gap: 18px 32px; }
+
+.lock-link { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; margin-left: -4px; border-radius: 4px; text-decoration: none; }
+.lock-link:hover { background: var(--underline); }
+.lock-link:hover .ic { color: var(--strong); }

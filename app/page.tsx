@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { posts, projects, site } from "@/lib/site";
+import { clients, posts, projects, site } from "@/lib/site";
 import { Clock } from "./Clock";
 
 function LockIcon() {
   return (
-    <svg className="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="Password protected">
+    <svg className="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
       <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" />
       <path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" />
     </svg>
@@ -42,8 +42,18 @@ export default function Home() {
             {projects.map((p) => (
               <div className="item" key={p.slug}>
                 <div className="item-title">
-                  <Link href={`/work/${p.slug}`}>{p.title}</Link>
-                  {p.locked ? <LockIcon /> : null}
+                  <a href={p.url} target="_blank" rel="noopener">
+                    {p.title}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                  <Link
+                    href={`/work/${p.slug}`}
+                    className="lock-link"
+                    aria-label={`${p.title} case study${p.locked ? ", password protected" : ""}`}
+                    title="Read the case study"
+                  >
+                    <LockIcon />
+                  </Link>
                 </div>
                 <p>{p.summary}</p>
               </div>
@@ -51,7 +61,21 @@ export default function Home() {
           </div>
         </div>
         <div className="note" data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
-          <p>{site.alsoLine}</p>
+          <p>
+            Also worked with{" "}
+            {clients.map((c, i) => (
+              <span key={c.name}>
+                {c.url ? (
+                  <a href={c.url} target="_blank" rel="noopener">
+                    {c.name}
+                  </a>
+                ) : (
+                  c.name
+                )}
+                {i < clients.length - 2 ? ", " : i === clients.length - 2 ? " and " : "."}
+              </span>
+            ))}
+          </p>
           <p>
             Case studies are password protected. <a href={site.links.email}>Email me</a> for access.
           </p>
