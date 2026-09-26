@@ -1,6 +1,6 @@
 # Elliot Rylands
 
-> Design engineer with sixteen years in product and growth. Prototypes in code, ships from GitHub and proves the work with data. Currently designing and building jane.app at Jane (healthcare practice management software). Based in Cochrane, Alberta, Canada.
+> A design engineer helping product ideas find their feet, then pushing them to production. Currently building jane.app at Jane (healthcare practice management software), from Cochrane, Alberta, Canada. Sixteen years in product and growth.
 
 ## Previously
 

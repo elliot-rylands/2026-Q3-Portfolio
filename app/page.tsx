@@ -22,7 +22,7 @@ export default function Home() {
             <span className="sr-only">{site.name}</span>
           </h1>
           <p data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
-            <em>{site.lead}</em> {site.intro}
+            {site.intro}
           </p>
           <p data-animate style={{ "--stagger": 2 } as React.CSSProperties}>
             {site.current.before}
