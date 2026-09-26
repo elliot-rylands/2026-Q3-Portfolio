@@ -21,7 +21,7 @@ export default function Home() {
             <Image src="/elliot.png" alt="" width={56} height={56} priority className="avatar" />
             <span className="sr-only">{site.name}</span>
           </h1>
-          <p data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
+          <p className="lead" data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
             {site.intro}
           </p>
           <p data-animate style={{ "--stagger": 2 } as React.CSSProperties}>
