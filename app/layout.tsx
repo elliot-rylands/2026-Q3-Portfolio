@@ -15,7 +15,7 @@ const serif = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: `${site.name} · ${site.role}`,
-  description: `${site.intro} Currently building jane.app, from Cochrane in the Canadian Rockies.`,
+  description: `${site.intro} Currently designing and building at Jane from Cochrane, near the Canadian Rockies.`,
   openGraph: {
     title: site.name,
     description: site.intro,

@@ -4,11 +4,11 @@ export const site = {
   name: "Elliot Rylands",
   url: "https://elliotrylands.com",
   role: "Design engineer",
-  intro: "A design engineer of 16 years helping product ideas find their feet, then pushing them to production.",
+  intro: "A design engineer with 16 years in product and growth, helping ideas find their feet and pushing them to production.",
   current: {
-    before: "Currently building ",
-    link: { label: "jane.app", href: "https://jane.app" },
-    after: ", from Cochrane in the Canadian Rockies.",
+    before: "Currently designing and building at ",
+    link: { label: "Jane", href: "https://jane.app" },
+    after: " from Cochrane, near the Canadian Rockies.",
   },
   alsoLine: "Also Coca-Cola, Santander, William Hill, Suzuki and SnipIt.",
   now: [
