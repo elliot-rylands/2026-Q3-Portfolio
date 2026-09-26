@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { posts, projects, site } from "@/lib/site";
 import { Clock } from "./Clock";
@@ -16,7 +17,10 @@ export default function Home() {
     <main className="page">
       <article>
         <div className="prose">
-          <h1 data-animate>{site.name}</h1>
+          <h1 data-animate className="avatar-heading">
+            <Image src="/elliot.png" alt="" width={56} height={56} priority className="avatar" />
+            <span className="sr-only">{site.name}</span>
+          </h1>
           <p data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
             <em>{site.lead}</em> {site.intro}
           </p>
