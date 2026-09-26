@@ -20,9 +20,9 @@ export function PostBody({ blocks }: { blocks: PostBlock[] }) {
         switch (b.type) {
           case "h2":
             return (
-              <h2 key={i} className="post-h2">
-                <span>{b.text}</span>
-              </h2>
+              <div key={i} className="label-row post-sub">
+                <h2 className="label">{b.text}</h2>
+              </div>
             );
           case "ul":
             return (

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatDate, posts } from "@/lib/posts";
+import { PostList } from "@/components/PostList";
+import { SiteFooter } from "@/components/SiteFooter";
+import { posts } from "@/lib/posts";
 import { clients, projects, site } from "@/lib/site";
-import { Clock } from "./Clock";
 
 function LockIcon() {
   return (
@@ -92,18 +93,7 @@ export default function Home() {
           {posts.length === 0 ? (
             <p className="low">Nothing yet. The first post is being written.</p>
           ) : (
-            <ul className="post-list">
-              {posts.map((post) => (
-                <li key={post.slug}>
-                  <Link href={`/words/${post.slug}`} className="post-row">
-                    <span className="post-title">{post.title}</span>
-                    <span className="post-meta">
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <PostList posts={posts} />
           )}
         </div>
 
@@ -127,11 +117,7 @@ export default function Home() {
         </div>
       </article>
 
-      <footer data-animate style={{ "--stagger": 8 } as React.CSSProperties}>
-        <span>{site.footer}</span>
-        <span>{new Date().getFullYear()}</span>
-        <Clock />
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

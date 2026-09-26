@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CopyLink } from "@/components/CopyLink";
 import { PostBody } from "@/components/PostBody";
+import { PostList } from "@/components/PostList";
+import { SiteFooter } from "@/components/SiteFooter";
 import { formatDate, getPost, posts } from "@/lib/posts";
 import { site } from "@/lib/site";
 
@@ -28,6 +31,7 @@ export default async function PostPage({ params }: Props) {
   const post = getPost(slug);
   if (!post) notFound();
 
+  const more = posts.filter((p) => p.slug !== post.slug);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -40,31 +44,41 @@ export default async function PostPage({ params }: Props) {
   return (
     <main className="page post">
       <nav className="post-nav" data-animate>
-        <Link href="/#words" className="round-btn" aria-label="Back to home">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-            <path d="M6.5 4L3 7.5 6.5 11" />
-            <path d="M3.5 7.5h6a3.5 3.5 0 0 1 3.5 3.5v1" />
-          </svg>
+        <Link href="/" className="avatar-link" aria-label={`${site.name}, back to home`}>
+          <Image src="/elliot.png" alt="" width={40} height={40} className="avatar avatar-sm" />
+          <span className="avatar-name">{site.name}</span>
         </Link>
         <CopyLink />
       </nav>
 
       <article>
-        <header className="post-header" data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
-          <h1>{post.title}</h1>
-          <p className="post-meta">
+        <header className="post-header prose">
+          <h1 className="lead" data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
+            {post.title}
+          </h1>
+          <p data-animate style={{ "--stagger": 2 } as React.CSSProperties}>
+            {post.dek}
+          </p>
+          <p className="post-meta" data-animate style={{ "--stagger": 3 } as React.CSSProperties}>
             <time dateTime={post.date}>{formatDate(post.date, "long")}</time> · {post.readTime} min read
           </p>
         </header>
 
-        <div data-animate style={{ "--stagger": 2 } as React.CSSProperties}>
+        <div data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
           <PostBody blocks={post.body} />
         </div>
       </article>
 
-      <footer className="post-footer">
-        <Link href="/#words">More words</Link>
-      </footer>
+      {more.length > 0 ? (
+        <div className="prose section" data-animate style={{ "--stagger": 5 } as React.CSSProperties}>
+          <div className="label-row">
+            <h2 className="label">More words</h2>
+          </div>
+          <PostList posts={more} />
+        </div>
+      ) : null}
+
+      <SiteFooter stagger={6} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </main>
