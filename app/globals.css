@@ -215,3 +215,16 @@ footer { margin-top: 136px; }
 
 .label-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .label-aside { font-family: var(--mono); font-size: 13px; line-height: 20px; font-weight: 400; letter-spacing: -0.01em; color: var(--low); }
+
+/* Slightly tighter rhythm */
+.page { padding-block: 128px 72px; }
+.prose h1 { margin-bottom: 24px; }
+.section { margin-top: 68px; }
+.grid6 { row-gap: 26px; }
+.note { margin-top: 22px; }
+footer { margin-top: 104px; }
+@media (max-width: 560px) {
+  .page { padding-block: 80px 48px; }
+  .section { margin-top: 52px; }
+  footer { margin-top: 80px; }
+}
