@@ -74,10 +74,9 @@ export default function Home() {
 
         <div className="prose section" data-animate style={{ "--stagger": 6 } as React.CSSProperties}>
           <h2>About</h2>
-          <p>
-            {site.now[0]} <em>{site.nowQuote}</em>
-          </p>
-          <p>{site.now[1]}</p>
+          {site.about.map((para) => (
+            <p key={para.slice(0, 24)}>{para}</p>
+          ))}
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 7 } as React.CSSProperties}>
