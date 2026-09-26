@@ -196,3 +196,19 @@ h2.label { font-size: 17px; line-height: 21px; }
 .lock-link { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; margin-left: -4px; border-radius: 4px; text-decoration: none; }
 .lock-link:hover { background: var(--underline); }
 .lock-link:hover .ic { color: var(--strong); }
+
+/* Vertical rhythm: generous gaps between sections, tight within them */
+.page { padding-block: 160px 80px; }
+.prose h1 { margin-bottom: 32px; }
+.section { margin-top: 88px; }
+.prose.section { gap: 14px; }
+.prose.section h2.label { margin-bottom: 6px; }
+.grid-wrap { margin-top: 22px; }
+.grid6 { row-gap: 32px; }
+.note { margin-top: 28px; }
+footer { margin-top: 136px; }
+@media (max-width: 560px) {
+  .page { padding-block: 96px 56px; }
+  .section { margin-top: 64px; }
+  footer { margin-top: 96px; }
+}
