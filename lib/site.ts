@@ -50,7 +50,3 @@ export const clients: { name: string; url: string }[] = [
   { name: "SnipIt", url: "" },
 ];
 
-export type Post = { slug: string; title: string; summary: string };
-
-// Words: empty until the first post is written.
-export const posts: Post[] = [];

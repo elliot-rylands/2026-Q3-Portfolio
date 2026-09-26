@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { clients, posts, projects, site } from "@/lib/site";
+import { formatDate, posts } from "@/lib/posts";
+import { clients, projects, site } from "@/lib/site";
 import { Clock } from "./Clock";
 
 function LockIcon() {
@@ -85,32 +86,40 @@ export default function Home() {
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 5 } as React.CSSProperties}>
-          <h2 className="label">Words</h2>
+          <div className="label-row">
+            <h2 className="label" id="words">Words</h2>
+          </div>
           {posts.length === 0 ? (
             <p className="low">Nothing yet. The first post is being written.</p>
           ) : (
-            <div className="items">
+            <ul className="post-list">
               {posts.map((post) => (
-                <div className="item" key={post.slug}>
-                  <div className="item-title">
-                    <Link href={`/words/${post.slug}`}>{post.title}</Link>
-                  </div>
-                  <p>{post.summary}</p>
-                </div>
+                <li key={post.slug}>
+                  <Link href={`/words/${post.slug}`} className="post-row">
+                    <span className="post-title">{post.title}</span>
+                    <span className="post-meta">
+                      <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    </span>
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 6 } as React.CSSProperties}>
-          <h2 className="label">About</h2>
+          <div className="label-row">
+            <h2 className="label">About</h2>
+          </div>
           {site.about.map((para) => (
             <p key={para.slice(0, 24)}>{para}</p>
           ))}
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 7 } as React.CSSProperties}>
-          <h2 className="label">Connect</h2>
+          <div className="label-row">
+            <h2 className="label">Connect</h2>
+          </div>
           <p>
             Find me on <a href={site.links.linkedin}>LinkedIn</a>, <a href={site.links.github}>GitHub</a> and{" "}
             <a href={site.links.dribbble}>Dribbble</a>, or by <a href={site.links.email}>email</a>.
