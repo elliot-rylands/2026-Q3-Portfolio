@@ -73,7 +73,7 @@ export default function Home() {
         </div>
 
         <div className="prose section" data-animate style={{ "--stagger": 6 } as React.CSSProperties}>
-          <h2>Now</h2>
+          <h2>About</h2>
           <p>
             {site.now[0]} <em>{site.nowQuote}</em>
           </p>
