@@ -189,5 +189,5 @@ h1, h2 { font-size: 14px; line-height: 21px; }
 .lead { color: var(--strong); letter-spacing: -0.005em; }
 h2.label { font-size: 17px; line-height: 21px; }
 .note, footer, .clock-wrap { font-size: 12px; font-weight: 400; }
-.avatar { width: 48px; height: 48px; }
+.avatar { width: 64px; height: 64px; }
 .grid6 { gap: 18px 32px; }
