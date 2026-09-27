@@ -3,9 +3,11 @@ import Link from "next/link";
 import { PostList } from "@/components/PostList";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JaneLogo } from "@/components/JaneLogo";
+import { PhotoStrip } from "@/components/photography/PhotoStrip";
 import { LockLink } from "@/components/unlock/LockLink";
 import { UnlockDialog } from "@/components/unlock/UnlockDialog";
 import { SiteFooter } from "@/components/SiteFooter";
+import { photos } from "@/lib/photos";
 import { posts } from "@/lib/posts";
 import { clients, projects, site } from "@/lib/site";
 
@@ -96,6 +98,14 @@ export default function Home() {
               {para}
             </p>
           ))}
+        </div>
+
+        <div className="prose section">
+          <div className="label-row" data-reveal>
+            <h2 className="label">Photography</h2>
+            <Link href="/photography" className="label-link">All photos</Link>
+          </div>
+          <PhotoStrip photos={photos} />
         </div>
 
         <div className="prose section">
