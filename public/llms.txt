@@ -6,7 +6,7 @@
 
 - Scan.com: Staff Product Designer. Booking and charting portals for imaging.
 - Squiz: Senior Product Designer and design lead. Merging a suite of CMS products into one digital experience platform.
-- UK Government: a self-service hub serving 17 departments.
+- UK Government: a self-service hub serving 29 departments.
 - Papa John's: ordering flow and global design system.
 - GCTV: onboarding and multi-race live viewing for a streaming platform.
 - Titan Tennis: native app for a smart tennis ball machine.
