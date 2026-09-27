@@ -421,8 +421,9 @@ footer { margin-top: 104px; }
 .photo-dialog::backdrop { background: color-mix(in srgb, var(--bg) 70%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 .photo-dialog[open] { animation: unlock-in .32s cubic-bezier(.2,.8,.2,1); }
 .photo-dialog figure { margin: 0; }
-/* Fill the screen: as wide as fits, capped by height, whatever the file size */
-.photo-dialog img { display: block; width: min(94vw, calc(88vh * var(--ar, 1.5))); height: auto; max-width: none; border-radius: 10px; box-shadow: 0 24px 64px -20px rgb(0 0 0 / .35); }
+/* Fill the screen: as wide as fits, capped by height. Very small files stop at
+   twice their size so they soften rather than turn blocky. */
+.photo-dialog img { display: block; width: min(94vw, calc(88vh * var(--ar, 1.5)), var(--native-w, 9999px)); height: auto; max-width: none; border-radius: 10px; box-shadow: 0 24px 64px -20px rgb(0 0 0 / .35); }
 .photo-dialog figcaption { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 12px; color: var(--low); }
 .photo-close { position: absolute; top: 12px; right: 12px; background: color-mix(in srgb, var(--bg) 85%, transparent); color: var(--strong); cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .photo-close svg { width: 14px; height: 14px; }

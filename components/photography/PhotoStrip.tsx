@@ -11,7 +11,7 @@ export function PhotoStrip({ photos }: { photos: Photo[] }) {
         ? Array.from({ length: 6 }).map((_, i) => <span key={i} className="photo-strip-cell photo-placeholder" />)
         : shown.map((p) => (
             <span key={p.src} className="photo-strip-cell">
-              <Image src={p.src} alt="" width={p.width} height={p.height} sizes="(max-width: 688px) 33vw, 220px" draggable={false} />
+              <Image src={p.src} alt="" width={p.width} height={p.height} sizes="(max-width: 688px) 33vw, 220px" quality={90} draggable={false} />
             </span>
           ))}
     </Link>

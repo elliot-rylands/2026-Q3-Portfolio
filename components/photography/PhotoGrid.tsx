@@ -40,7 +40,8 @@ export function PhotoGrid({ photos, reveal = false }: { photos: Photo[]; reveal?
                 alt={p.alt}
                 width={p.width}
                 height={p.height}
-                sizes="(max-width: 688px) 50vw, 320px"
+                sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 320px"
+                quality={90}
                 priority={i < 2}
                 draggable={false}
               />
@@ -68,9 +69,9 @@ export function PhotoGrid({ photos, reveal = false }: { photos: Photo[]; reveal?
               width={open.width}
               height={open.height}
               sizes="94vw"
-              quality={85}
+              quality={90}
               draggable={false}
-              style={{ "--ar": open.width / open.height } as React.CSSProperties}
+              style={{ "--ar": open.width / open.height, "--native-w": `${open.width * 2}px` } as React.CSSProperties}
             />
             {open.caption ? <figcaption>{open.caption}</figcaption> : null}
           </figure>
