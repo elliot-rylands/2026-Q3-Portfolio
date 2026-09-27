@@ -48,4 +48,4 @@ export const photos: Photo[] = [
   { src: "/photography/mule-deer-doe.jpg", alt: "A mule deer doe standing in tall green grass, looking back over her shoulder at the camera with big ears up.", width: 768, height: 1024 },
 ];
 
-export const photographyIntro = "Whatever I point a camera at, at home in the Rockies and further afield.";
+export const photographyIntro = "Snaps from GoPros, iPhones, an X100VI, and various DSLRs.";
