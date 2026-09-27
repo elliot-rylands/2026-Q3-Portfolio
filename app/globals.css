@@ -292,3 +292,23 @@ footer { margin-top: 104px; }
 .post-dek { color: var(--low); transition: transform .25s cubic-bezier(.2,.7,.2,1); }
 .post-row:hover .post-dek, .post-row:focus-visible .post-dek { transform: translateX(4px); }
 @media (prefers-reduced-motion: reduce) { .post-dek { transition: none; } }
+
+/* Scroll reveal (homepage). Only hidden once JS has flagged the page,
+   so nothing is lost without JS. */
+.reveal-ready:not(.reveal-fallback) [data-reveal]:not(.is-in) { opacity: 0; transform: translateY(10px); filter: blur(3px); }
+[data-reveal] {
+  transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1), filter .7s cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+/* Section hairlines draw in from the left once their label arrives */
+.label-row[data-reveal]::after { transform-origin: left center; transition: transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--reveal-delay, 0ms) + 150ms); }
+.reveal-ready:not(.reveal-fallback) .label-row[data-reveal]:not(.is-in)::after { transform: scaleX(0); }
+/* Post rows: hairline stays put, content rises */
+.post-list li[data-reveal] { transform: none !important; filter: none !important; }
+.reveal-ready:not(.reveal-fallback) .post-list li[data-reveal]:not(.is-in) .post-row { transform: translateY(8px); }
+.post-list li[data-reveal] .post-row { transition: color .2s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: 0s, var(--reveal-delay, 0ms); }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], .label-row[data-reveal]::after, .post-list li[data-reveal] .post-row { transition: opacity .3s ease; transition-delay: 0ms; }
+  .reveal-ready [data-reveal]:not(.is-in) { transform: none; filter: none; }
+  .reveal-ready .label-row[data-reveal]:not(.is-in)::after { transform: none; }
+}

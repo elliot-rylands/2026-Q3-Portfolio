@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PostList } from "@/components/PostList";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { posts } from "@/lib/posts";
 import { clients, projects, site } from "@/lib/site";
@@ -19,14 +20,14 @@ export default function Home() {
     <main className="page">
       <article>
         <div className="prose">
-          <h1 data-animate className="avatar-heading">
+          <h1 className="avatar-heading" data-reveal>
             <Image src="/elliot.png" alt="" width={64} height={64} priority className="avatar" />
             <span className="sr-only">{site.name}</span>
           </h1>
-          <p className="lead" data-animate style={{ "--stagger": 1 } as React.CSSProperties}>
+          <p className="lead" data-reveal>
             {site.intro}
           </p>
-          <p data-animate style={{ "--stagger": 2 } as React.CSSProperties}>
+          <p data-reveal>
             {site.current.before}
             <a href={site.current.link.href} target="_blank" rel="noopener">
               {site.current.link.label}
@@ -35,17 +36,17 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="prose section" data-animate style={{ "--stagger": 3 } as React.CSSProperties}>
-          <div className="label-row">
+        <div className="prose section">
+          <div className="label-row" data-reveal>
             <h2 className="label">Previously</h2>
             <span className="label-aside">Case studies coming soon</span>
           </div>
         </div>
 
-        <div className="grid-wrap" data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
+        <div className="grid-wrap">
           <div className="grid6">
             {projects.map((p) => (
-              <div className="item" key={p.slug}>
+              <div className="item" key={p.slug} data-reveal>
                 <div className="item-title">
                   <a href={p.url} target="_blank" rel="noopener">
                     {p.title}
@@ -65,8 +66,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="note" data-animate style={{ "--stagger": 4 } as React.CSSProperties}>
-          <p>
+        <div className="note">
+          <p data-reveal>
             Also worked with{" "}
             {clients.map((c, i) => (
               <span key={c.name}>
@@ -81,44 +82,47 @@ export default function Home() {
               </span>
             ))}
           </p>
-          <p>
+          <p data-reveal>
             Case studies are password protected. <a href={site.links.email}>Email me</a> for access.
           </p>
         </div>
 
-        <div className="prose section" data-animate style={{ "--stagger": 5 } as React.CSSProperties}>
-          <div className="label-row">
+        <div className="prose section">
+          <div className="label-row" data-reveal>
             <h2 className="label" id="words">Words</h2>
             <Link href="/words" className="label-link">All words</Link>
           </div>
           {posts.length === 0 ? (
             <p className="low">Nothing yet. The first post is being written.</p>
           ) : (
-            <PostList posts={posts} />
+            <PostList posts={posts} reveal />
           )}
         </div>
 
-        <div className="prose section" data-animate style={{ "--stagger": 6 } as React.CSSProperties}>
-          <div className="label-row">
+        <div className="prose section">
+          <div className="label-row" data-reveal>
             <h2 className="label">About</h2>
           </div>
           {site.about.map((para) => (
-            <p key={para.slice(0, 24)}>{para}</p>
+            <p key={para.slice(0, 24)} data-reveal>
+              {para}
+            </p>
           ))}
         </div>
 
-        <div className="prose section" data-animate style={{ "--stagger": 7 } as React.CSSProperties}>
-          <div className="label-row">
+        <div className="prose section">
+          <div className="label-row" data-reveal>
             <h2 className="label">Connect</h2>
           </div>
-          <p>
+          <p data-reveal>
             Find me on <a href={site.links.linkedin}>LinkedIn</a>, <a href={site.links.github}>GitHub</a> and{" "}
             <a href={site.links.dribbble}>Dribbble</a>, or by <a href={site.links.email}>email</a>.
           </p>
         </div>
       </article>
 
-      <SiteFooter />
+      <SiteFooter reveal />
+      <ScrollReveal />
     </main>
   );
 }

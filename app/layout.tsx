@@ -40,7 +40,17 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
+    <html lang="en-GB" className={`${sans.variable} ${mono.variable} ${serif.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Hide scroll-reveal elements before first paint so they don't flash.
+            If the app never hydrates, show everything after 3s. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('reveal-ready');setTimeout(function(){if(!window.__reveal)document.documentElement.classList.add('reveal-fallback')},3000);",
+          }}
+        />
+      </head>
       <body>
         {children}
         <script
