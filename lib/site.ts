@@ -21,7 +21,10 @@ export const site = {
     email: "mailto:ui.dsgner@gmail.com",
     accessEmail: "mailto:ui.dsgner@gmail.com?subject=Case%20study%20access",
   },
-  footer: "Made by hand in the Rockies.",
+  footer: "Made by hand on Treaty 7 territory.",
+  // Nations and wording follow the Town of Cochrane's own land acknowledgement.
+  landAcknowledgement:
+    "I live and work on Treaty 7 territory, the traditional lands of the Iyarhe Nakoda peoples of the Chiniki, Bearspaw and Goodstoney First Nations, and home to the Tsuut’ina, the Niitsitapi peoples of Siksika, Piikani and Kainai, and the Métis of the Rocky View Métis District.",
 };
 
 export type Project = {

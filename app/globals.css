@@ -433,3 +433,6 @@ footer { margin-top: 104px; }
 
 /* View-only photos: no selection, drag or iOS long-press save sheet */
 .protected img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; pointer-events: auto; }
+
+/* Land acknowledgement, full width above the footer line */
+footer .land-ack { flex-basis: 100%; max-width: 560px; margin: 0 0 8px; text-wrap: pretty; }
