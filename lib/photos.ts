@@ -35,6 +35,9 @@ export const photos: Photo[] = [
   { src: "/photography/float-plane.jpg", alt: "A white float plane moored at a dock on a grey day, the North Shore city and low cloud across the water.", width: 1600, height: 1067 },
   { src: "/photography/autumn-steps.jpg", alt: "Wet concrete steps seen from above, each tread lined with fallen maple leaves in pink, orange, red and yellow.", width: 1600, height: 1067 },
   { src: "/photography/golden-puppy.jpg", alt: "A golden retriever puppy lying on a beige ottoman, head tilted at the camera, a decorated Christmas tree behind.", width: 360, height: 480 },
+  { src: "/photography/snowboard-selfie.jpg", alt: "A snowboarder in a grey helmet and sunglasses filming himself with a pole camera on a sunlit run between snowy pines.", width: 1024, height: 768 },
+  { src: "/photography/donkey.jpg", alt: "A shaggy donkey with a white nose and tall ears by a wire fence, backlit by a low golden sun beside an old stone barn.", width: 1600, height: 1067 },
+  { src: "/photography/copper-bar.jpg", alt: "A long copper bar top under a wood-panelled ceiling, shelves of bottles glowing behind and a caddy of limes and sauces in front.", width: 768, height: 1024 },
 ];
 
 export const photographyIntro = "Whatever I point a camera at, at home in the Rockies and further afield.";
