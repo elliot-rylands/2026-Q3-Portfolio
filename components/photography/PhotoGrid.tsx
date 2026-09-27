@@ -62,7 +62,16 @@ export function PhotoGrid({ photos, reveal = false }: { photos: Photo[]; reveal?
       >
         {open ? (
           <figure>
-            <Image src={open.src} alt={open.alt} width={open.width} height={open.height} sizes="92vw" draggable={false} />
+            <Image
+              src={open.src}
+              alt={open.alt}
+              width={open.width}
+              height={open.height}
+              sizes="94vw"
+              quality={85}
+              draggable={false}
+              style={{ "--ar": open.width / open.height } as React.CSSProperties}
+            />
             {open.caption ? <figcaption>{open.caption}</figcaption> : null}
           </figure>
         ) : null}
