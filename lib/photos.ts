@@ -21,7 +21,7 @@ export const photos: Photo[] = [
   { src: "/photography/bike-rack.jpg", alt: "A bike-shaped bike rack covered in painted flecks on a quiet desert sidewalk, palm trees and a white modernist building behind.", width: 724, height: 1086 },
   { src: "/photography/rrl-garage.jpg", alt: "A hand-painted RRL Garage sign on a white brick wall at No. 8150 Melrose: Demand the Genuine, Quality Service.", width: 724, height: 1086 },
   { src: "/photography/pink-wall.jpg", alt: "A long, windowless bright pink building on a street corner, one small tree in front of it under a grey sky.", width: 540, height: 360 },
-  { src: "/photography/horses-foothills.jpg", alt: "Horses grazing in a dry golden field behind a wire fence at dusk, the Rockies stretching across the horizon.", width: 1086, height: 724 },
+  { src: "/photography/horses-at-dusk.jpg", alt: "Horses grazing in a dry golden field behind a wire fence at dusk, the Rockies stretching across the horizon.", width: 1086, height: 724 },
   { src: "/photography/comedy-store.jpg", alt: "The Comedy Store on the Sunset Strip, its curved black walls covered in comedians' names in white script, red curtains in the windows.", width: 1600, height: 1200 },
   { src: "/photography/banff-avenue.jpg", alt: "Looking down an icy Banff Avenue on a clear winter morning, Cascade Mountain lit up at the end of the street.", width: 768, height: 1024 },
   { src: "/photography/desert-sunset.jpg", alt: "Last light turning a desert mountain range deep orange above a dark motel car park and a lone palm tree.", width: 540, height: 360 },
@@ -38,6 +38,12 @@ export const photos: Photo[] = [
   { src: "/photography/snowboard-selfie.jpg", alt: "A snowboarder in a grey helmet and sunglasses filming himself with a pole camera on a sunlit run between snowy pines.", width: 1024, height: 768 },
   { src: "/photography/donkey.jpg", alt: "A shaggy donkey with a white nose and tall ears by a wire fence, backlit by a low golden sun beside an old stone barn.", width: 1600, height: 1067 },
   { src: "/photography/copper-bar.jpg", alt: "A long copper bar top under a wood-panelled ceiling, shelves of bottles glowing behind and a caddy of limes and sauces in front.", width: 768, height: 1024 },
+  { src: "/photography/trail-ride.jpg", alt: "Looking between a horse's ears on a trail ride, riders strung out ahead along a grassy ridge towards jagged Rockies peaks.", width: 768, height: 1024 },
+  { src: "/photography/mountain-reflection-bw.jpg", alt: "Black and white: still water mirroring snow-dusted peaks and a dark band of forest.", width: 540, height: 360 },
+  { src: "/photography/wedge-pond-sunrise.jpg", alt: "Early sun lighting two limestone mountains, both reflected perfectly in a calm pond with a thin layer of mist.", width: 1024, height: 768 },
+  { src: "/photography/pond-and-bench.jpg", alt: "A quiet pond in evening light, pine forest and a sharp peak reflected in the water, an empty bench in the long grass.", width: 1086, height: 724 },
+  { src: "/photography/reservoir-shore.jpg", alt: "A pale sandy shoreline curving along a blue mountain lake under forested slopes and grey limestone cliffs.", width: 1086, height: 724 },
+  { src: "/photography/canoe-rack.jpg", alt: "A rack stacked with orange, yellow and cream canoes beside a grey building, mountains and pines behind.", width: 1086, height: 724 },
 ];
 
 export const photographyIntro = "Whatever I point a camera at, at home in the Rockies and further afield.";
