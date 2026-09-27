@@ -28,6 +28,11 @@ export const photos: Photo[] = [
   { src: "/photography/mule-deer.jpg", alt: "Black and white: a young buck with small antlers walking along a grassy ridge against a pale, cloudy sky.", width: 768, height: 1024 },
   { src: "/photography/tube-train.jpg", alt: "A London Underground train pulling through a dim station, its red doors and lit windows streaked with motion.", width: 1086, height: 724 },
   { src: "/photography/black-dog.jpg", alt: "Black and white: a black dog wrapped in a blanket, looking up at the camera with big, round eyes.", width: 540, height: 360 },
+  { src: "/photography/orange-sculpture.jpg", alt: "Looping bright orange steel sculpture in front of a white mid-century building, palm trees and desert hills behind.", width: 540, height: 360 },
+  { src: "/photography/diner-booths.jpg", alt: "Empty diner with rows of orange and green vinyl booths, sun pouring through the windows and a Closed sign by the door.", width: 1536, height: 2048 },
+  { src: "/photography/pine-forest.jpg", alt: "Looking straight up through tall, straight pines from a snowy forest floor, a thin trail winding between the trunks.", width: 1536, height: 2048 },
+  { src: "/photography/autumn-seawall.jpg", alt: "Two people walking up wet, leaf-covered steps between bright orange autumn trees, the harbour and marina below.", width: 1448, height: 2172 },
+  { src: "/photography/float-plane.jpg", alt: "A white float plane moored at a dock on a grey day, the North Shore city and low cloud across the water.", width: 2172, height: 1448 },
 ];
 
 export const photographyIntro = "Whatever I point a camera at, at home in the Rockies and further afield. Feel free to download any of them.";
