@@ -44,6 +44,7 @@ export const photos: Photo[] = [
   { src: "/photography/pond-and-bench.jpg", alt: "A quiet pond in evening light, pine forest and a sharp peak reflected in the water, an empty bench in the long grass.", width: 1086, height: 724 },
   { src: "/photography/reservoir-shore.jpg", alt: "A pale sandy shoreline curving along a blue mountain lake under forested slopes and grey limestone cliffs.", width: 1086, height: 724 },
   { src: "/photography/canoe-rack.jpg", alt: "A rack stacked with orange, yellow and cream canoes beside a grey building, mountains and pines behind.", width: 1086, height: 724 },
+  { src: "/photography/bow-river-bridge.jpg", alt: "The turquoise Bow River in Banff, a curved wooden footbridge full of walkers crossing to a pine-covered island, a hazy mountain behind.", width: 1600, height: 1200 },
 ];
 
 export const photographyIntro = "Whatever I point a camera at, at home in the Rockies and further afield.";
