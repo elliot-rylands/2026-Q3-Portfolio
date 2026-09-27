@@ -22,6 +22,12 @@ export const photos: Photo[] = [
   { src: "/photography/rrl-garage.jpg", alt: "A hand-painted RRL Garage sign on a white brick wall at No. 8150 Melrose: Demand the Genuine, Quality Service.", width: 724, height: 1086 },
   { src: "/photography/pink-wall.jpg", alt: "A long, windowless bright pink building on a street corner, one small tree in front of it under a grey sky.", width: 540, height: 360 },
   { src: "/photography/horses-foothills.jpg", alt: "Horses grazing in a dry golden field behind a wire fence at dusk, the Rockies stretching across the horizon.", width: 1086, height: 724 },
+  { src: "/photography/comedy-store.jpg", alt: "The Comedy Store on the Sunset Strip, its curved black walls covered in comedians' names in white script, red curtains in the windows.", width: 2048, height: 1536 },
+  { src: "/photography/banff-avenue.jpg", alt: "Looking down an icy Banff Avenue on a clear winter morning, Cascade Mountain lit up at the end of the street.", width: 768, height: 1024 },
+  { src: "/photography/desert-sunset.jpg", alt: "Last light turning a desert mountain range deep orange above a dark motel car park and a lone palm tree.", width: 540, height: 360 },
+  { src: "/photography/mule-deer.jpg", alt: "Black and white: a young buck with small antlers walking along a grassy ridge against a pale, cloudy sky.", width: 768, height: 1024 },
+  { src: "/photography/tube-train.jpg", alt: "A London Underground train pulling through a dim station, its red doors and lit windows streaked with motion.", width: 1086, height: 724 },
+  { src: "/photography/black-dog.jpg", alt: "Black and white: a black dog wrapped in a blanket, looking up at the camera with big, round eyes.", width: 540, height: 360 },
 ];
 
 export const photographyIntro = "Whatever I point a camera at, at home in the Rockies and further afield. Feel free to download any of them.";
