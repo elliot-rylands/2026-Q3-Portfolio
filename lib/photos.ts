@@ -33,6 +33,8 @@ export const photos: Photo[] = [
   { src: "/photography/pine-forest.jpg", alt: "Looking straight up through tall, straight pines from a snowy forest floor, a thin trail winding between the trunks.", width: 1536, height: 2048 },
   { src: "/photography/autumn-seawall.jpg", alt: "Two people walking up wet, leaf-covered steps between bright orange autumn trees, the harbour and marina below.", width: 1448, height: 2172 },
   { src: "/photography/float-plane.jpg", alt: "A white float plane moored at a dock on a grey day, the North Shore city and low cloud across the water.", width: 2172, height: 1448 },
+  { src: "/photography/autumn-steps.jpg", alt: "Wet concrete steps seen from above, each tread lined with fallen maple leaves in pink, orange, red and yellow.", width: 2172, height: 1448 },
+  { src: "/photography/golden-puppy.jpg", alt: "A golden retriever puppy lying on a beige ottoman, head tilted at the camera, a decorated Christmas tree behind.", width: 360, height: 480 },
 ];
 
 export const photographyIntro = "Whatever I point a camera at, at home in the Rockies and further afield. Feel free to download any of them.";
