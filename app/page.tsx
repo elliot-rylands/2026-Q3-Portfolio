@@ -2,18 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { PostList } from "@/components/PostList";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { LockLink } from "@/components/unlock/LockLink";
+import { UnlockDialog } from "@/components/unlock/UnlockDialog";
 import { SiteFooter } from "@/components/SiteFooter";
 import { posts } from "@/lib/posts";
 import { clients, projects, site } from "@/lib/site";
-
-function LockIcon() {
-  return (
-    <svg className="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" />
-      <path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" />
-    </svg>
-  );
-}
 
 export default function Home() {
   return (
@@ -52,14 +45,7 @@ export default function Home() {
                     {p.title}
                     <span className="sr-only"> (opens in a new tab)</span>
                   </a>
-                  <Link
-                    href={`/work/${p.slug}`}
-                    className="lock-link"
-                    aria-label={`${p.title} case study${p.locked ? ", password protected" : ""}`}
-                    title="Read the case study"
-                  >
-                    <LockIcon />
-                  </Link>
+                  <LockLink slug={p.slug} title={p.title} locked={p.locked} />
                 </div>
                 <p>{p.summary}</p>
               </div>
@@ -132,6 +118,7 @@ export default function Home() {
 
       <SiteFooter reveal />
       <ScrollReveal />
+      <UnlockDialog />
     </main>
   );
 }

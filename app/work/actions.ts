@@ -22,6 +22,14 @@ export async function unlock(_prev: UnlockState, formData: FormData): Promise<Un
     path: "/",
     maxAge: 60 * 60 * 24 * 30,
   });
+  // Readable hint so the homepage can skip the lightbox for people already in.
+  // It grants nothing: the server still checks the httpOnly cookie above.
+  jar.set("er_unlocked", "1", {
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 30,
+  });
 
   redirect(next.startsWith("/work/") ? next : "/");
 }

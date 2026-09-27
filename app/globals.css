@@ -312,3 +312,71 @@ footer { margin-top: 104px; }
   .reveal-ready [data-reveal]:not(.is-in) { transform: none; filter: none; }
   .reveal-ready .label-row[data-reveal]:not(.is-in)::after { transform: none; }
 }
+
+/* Case study password lightbox */
+.unlock-dialog {
+  width: min(400px, calc(100vw - 32px));
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  overflow: visible;
+}
+.unlock-dialog::backdrop {
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  backdrop-filter: blur(10px) saturate(120%);
+}
+.unlock-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 28px 24px;
+  background: var(--bg);
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px var(--rule),
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 12px 32px -8px rgb(0 0 0 / 0.12),
+    0 32px 64px -24px rgb(0 0 0 / 0.14);
+}
+.unlock-icon {
+  width: 36px; height: 36px; margin-bottom: 6px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  color: var(--strong);
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+.unlock-icon svg { width: 16px; height: 16px; }
+.unlock-heading { margin: 0; }
+.unlock-heading .label { font-size: 21px; line-height: 26px; color: var(--strong); }
+.unlock-copy { margin: 0 0 8px; font-size: 14px; line-height: 21px; color: var(--text); }
+.unlock-close { position: absolute; top: 14px; right: 14px; color: var(--low); cursor: pointer; }
+.unlock-close:hover { color: var(--strong); }
+.unlock-close svg { width: 14px; height: 14px; }
+.unlock-dialog .unlock { max-width: none; }
+.unlock-dialog .unlock input,
+.unlock-dialog .unlock button { font-size: 14px; line-height: 20px; padding: 8px 12px; border-radius: 8px; }
+.unlock-dialog .unlock input { background: transparent; border-color: var(--rule); }
+.unlock-dialog .unlock input:focus-visible { outline: 0; border-color: var(--low); box-shadow: 0 0 0 3px color-mix(in srgb, var(--low) 18%, transparent); }
+.unlock-dialog .unlock button { padding-inline: 16px; font-weight: 500; }
+.unlock-dialog .unlock-error { font-size: 13px; line-height: 20px; color: #b3402a; }
+@media (prefers-color-scheme: dark) { .unlock-dialog .unlock-error { color: #e0876f; } }
+
+/* Open and close motion */
+.unlock-dialog[open] { animation: unlock-in .32s cubic-bezier(.2,.8,.2,1); }
+.unlock-dialog[open]::backdrop { animation: unlock-fade .32s ease; }
+.unlock-dialog[data-closing] { animation: unlock-out .18s ease forwards; }
+.unlock-dialog[data-closing]::backdrop { animation: unlock-fade .18s ease reverse forwards; }
+.unlock-dialog[aria-busy="true"] .unlock-card { opacity: .8; }
+@keyframes unlock-in { from { opacity: 0; transform: translateY(8px) scale(.97); filter: blur(2px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes unlock-out { to { opacity: 0; transform: translateY(4px) scale(.98); } }
+@keyframes unlock-fade { from { opacity: 0; } to { opacity: 1; } }
+/* A wrong password gives the card a small shake */
+.unlock-card:has(.unlock-error) { animation: unlock-shake .36s cubic-bezier(.36,.07,.19,.97); }
+@keyframes unlock-shake { 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
+@media (prefers-reduced-motion: reduce) {
+  .unlock-dialog[open], .unlock-dialog[open]::backdrop, .unlock-card:has(.unlock-error) { animation: none; }
+}

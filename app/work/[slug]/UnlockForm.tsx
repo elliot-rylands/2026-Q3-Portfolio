@@ -3,13 +3,13 @@
 import { useActionState } from "react";
 import { unlock, type UnlockState } from "../actions";
 
-export function UnlockForm({ next }: { next: string }) {
+export function UnlockForm({ next, autoFocus = false }: { next: string; autoFocus?: boolean }) {
   const [state, action, pending] = useActionState<UnlockState, FormData>(unlock, {});
 
   return (
     <form action={action} className="unlock">
       <input type="hidden" name="next" value={next} />
-      <label htmlFor="password" className="unlock-label">
+      <label htmlFor="password" className="unlock-label sr-only">
         Password
       </label>
       <div className="unlock-row">
@@ -19,6 +19,8 @@ export function UnlockForm({ next }: { next: string }) {
           type="password"
           autoComplete="current-password"
           required
+          autoFocus={autoFocus}
+          placeholder="Password"
           aria-invalid={state.error ? true : undefined}
           aria-describedby={state.error ? "unlock-error" : undefined}
         />
