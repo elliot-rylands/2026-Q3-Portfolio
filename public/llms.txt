@@ -12,6 +12,10 @@
 - Titan Tennis: native app for a smart tennis ball machine.
 - Also: Coca-Cola, Santander, William Hill, Suzuki and SnipIt.
 
+## Words
+
+- [Words](https://elliotrylands.com/words): all posts on designing, building and shipping.
+
 ## Notes
 
 Case studies are password protected. Contact Elliot for access.

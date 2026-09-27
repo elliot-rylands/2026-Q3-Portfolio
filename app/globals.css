@@ -280,3 +280,15 @@ footer { margin-top: 104px; }
 .post-demo { margin: 12px 0; }
 .demo-placeholder { border: 1px dashed var(--underline); border-radius: 12px; padding: 40px 20px; text-align: center; color: var(--low); font-family: var(--mono); font-size: 13px; font-weight: 400; }
 @media (prefers-reduced-motion: reduce) { .post-title, .post-arrow { transition: none; } }
+
+/* Label row link, sits after the hairline on the right */
+.label-link { order: 2; font-family: var(--mono); font-size: 13px; line-height: 20px; font-weight: 400; letter-spacing: -0.01em; color: var(--low); text-decoration: none; transition: color .2s ease; }
+.label-link:hover, .label-link:focus-visible { color: var(--strong); }
+
+/* Words index: title with summary */
+.post-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.post-list-dek .post-row { padding: 16px 0; }
+.post-list-dek .post-title { color: var(--strong); }
+.post-dek { color: var(--low); transition: transform .25s cubic-bezier(.2,.7,.2,1); }
+.post-row:hover .post-dek, .post-row:focus-visible .post-dek { transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) { .post-dek { transition: none; } }

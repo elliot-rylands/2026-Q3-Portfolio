@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CopyLink } from "@/components/CopyLink";
+import { PageNav } from "@/components/PageNav";
 import { PostBody } from "@/components/PostBody";
 import { PostList } from "@/components/PostList";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -43,13 +42,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <main className="page post">
-      <nav className="post-nav" data-animate>
-        <Link href="/" className="avatar-link" aria-label={`${site.name}, back to home`}>
-          <Image src="/elliot.png" alt="" width={40} height={40} className="avatar avatar-sm" />
-          <span className="avatar-name">{site.name}</span>
-        </Link>
-        <CopyLink />
-      </nav>
+      <PageNav />
 
       <article>
         <header className="post-header prose">
@@ -73,6 +66,7 @@ export default async function PostPage({ params }: Props) {
         <div className="prose section" data-animate style={{ "--stagger": 5 } as React.CSSProperties}>
           <div className="label-row">
             <h2 className="label">More words</h2>
+            <Link href="/words" className="label-link">All words</Link>
           </div>
           <PostList posts={more} />
         </div>

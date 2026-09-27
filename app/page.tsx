@@ -89,6 +89,7 @@ export default function Home() {
         <div className="prose section" data-animate style={{ "--stagger": 5 } as React.CSSProperties}>
           <div className="label-row">
             <h2 className="label" id="words">Words</h2>
+            <Link href="/words" className="label-link">All words</Link>
           </div>
           {posts.length === 0 ? (
             <p className="low">Nothing yet. The first post is being written.</p>
