@@ -4,20 +4,9 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import type { Photo } from "@/lib/photos";
 
-function DownloadLink({ photo, className }: { photo: Photo; className: string }) {
-  const name = photo.src.split("/").pop();
-  return (
-    <a href={photo.src} download={name} className={className} aria-label={`Download photo: ${photo.alt}`}>
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" />
-      </svg>
-      <span>Download</span>
-    </a>
-  );
-}
-
 // Masonry-style grid. Clicking a photo opens it large in a native <dialog>
-// over the same blurred backdrop as the case study lightbox.
+// over the same blurred backdrop as the case study lightbox. Photos are view
+// only: no download links, right-click and drag-to-save are blocked.
 export function PhotoGrid({ photos, reveal = false }: { photos: Photo[]; reveal?: boolean }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState<Photo | null>(null);
@@ -34,7 +23,7 @@ export function PhotoGrid({ photos, reveal = false }: { photos: Photo[]; reveal?
 
   return (
     <>
-      <ul className="photo-grid">
+      <ul className="photo-grid protected" onContextMenu={(e) => e.preventDefault()}>
         {photos.map((p, i) => (
           <li key={p.src} className="photo-tile" data-reveal={reveal || undefined}>
             <button
@@ -53,19 +42,18 @@ export function PhotoGrid({ photos, reveal = false }: { photos: Photo[]; reveal?
                 height={p.height}
                 sizes="(max-width: 688px) 50vw, 320px"
                 priority={i < 2}
+                draggable={false}
               />
             </button>
-            <div className="photo-meta">
-              {p.caption ? <p className="photo-caption">{p.caption}</p> : <span />}
-              <DownloadLink photo={p} className="photo-download" />
-            </div>
+            {p.caption ? <p className="photo-caption">{p.caption}</p> : null}
           </li>
         ))}
       </ul>
 
       <dialog
         ref={ref}
-        className="photo-dialog"
+        className="photo-dialog protected"
+        onContextMenu={(e) => e.preventDefault()}
         aria-label={open?.alt ?? "Photo"}
         onClick={(e) => {
           if (e.target === e.currentTarget) ref.current?.close();
@@ -74,11 +62,8 @@ export function PhotoGrid({ photos, reveal = false }: { photos: Photo[]; reveal?
       >
         {open ? (
           <figure>
-            <Image src={open.src} alt={open.alt} width={open.width} height={open.height} sizes="92vw" />
-            <figcaption>
-              <span>{open.caption ?? ""}</span>
-              <DownloadLink photo={open} className="photo-download photo-download-strong" />
-            </figcaption>
+            <Image src={open.src} alt={open.alt} width={open.width} height={open.height} sizes="92vw" draggable={false} />
+            {open.caption ? <figcaption>{open.caption}</figcaption> : null}
           </figure>
         ) : null}
         <button type="button" className="round-btn photo-close" onClick={() => ref.current?.close()} aria-label="Close">
