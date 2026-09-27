@@ -83,7 +83,7 @@ export default function Home() {
             ))}
           </p>
           <p data-reveal>
-            Case studies are password protected. <a href={site.links.email}>Email me</a> for access.
+            Case studies are password protected. <a href={site.links.accessEmail}>Email me</a> for access.
           </p>
         </div>
 
@@ -115,8 +115,17 @@ export default function Home() {
             <h2 className="label">Connect</h2>
           </div>
           <p data-reveal>
-            Find me on <a href={site.links.linkedin}>LinkedIn</a>, <a href={site.links.github}>GitHub</a> and{" "}
-            <a href={site.links.dribbble}>Dribbble</a>, or by <a href={site.links.email}>email</a>.
+            Find me on <a href={site.links.linkedin} target="_blank" rel="noopener">
+              LinkedIn
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>, <a href={site.links.github} target="_blank" rel="noopener">
+              GitHub
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a> and{" "}
+            <a href={site.links.dribbble} target="_blank" rel="noopener">
+              Dribbble
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>, or by <a href={site.links.email}>email</a>.
           </p>
         </div>
       </article>

@@ -43,7 +43,10 @@ export default async function WorkPage({ params }: Props) {
         </section>
       ) : (
         <section className="case">
-          <p>This case study is password protected. Enter the password I sent you, or email me for access.</p>
+          <p>
+            This case study is password protected. Enter the password I sent you, or{" "}
+            <a href={site.links.accessEmail}>email me</a> for access.
+          </p>
           <UnlockForm next={`/work/${project.slug}`} />
         </section>
       )}

@@ -35,7 +35,8 @@ const personJsonLd = {
   jobTitle: "Design Engineer",
   worksFor: { "@type": "Organization", name: "Jane", url: "https://jane.app" },
   address: { "@type": "PostalAddress", addressLocality: "Cochrane", addressRegion: "AB", addressCountry: "CA" },
-  sameAs: [site.links.github],
+  sameAs: [site.links.linkedin, site.links.github, site.links.dribbble],
+  email: site.links.email,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

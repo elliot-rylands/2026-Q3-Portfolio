@@ -15,10 +15,11 @@ export const site = {
     "I snowboard, paddleboard the Bow, and skateboard with my daughter, who’s getting better than me rather quickly. I write and record music, collect vinyl and gig posters, and own more guitars than my local guitar store, needlessly. There’s usually a camera within reach when I’m not wielding a laptop or guitar, given the unpredictability of every corner I turn in the Rockies.",
   ],
   links: {
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/elliotrylands",
     github: "https://github.com/elliot-rylands",
-    dribbble: "#",
-    email: "#",
+    dribbble: "https://dribbble.com/elliotrylands",
+    email: "mailto:ui.dsgner@gmail.com",
+    accessEmail: "mailto:ui.dsgner@gmail.com?subject=Case%20study%20access",
   },
   footer: "Made by hand in the Rockies.",
 };
