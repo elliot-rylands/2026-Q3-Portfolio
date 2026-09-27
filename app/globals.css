@@ -384,7 +384,7 @@ footer { margin-top: 104px; }
 /* Jane logo inline in the intro, in place of the word */
 .brand-link {
   display: inline-flex;
-  vertical-align: -0.28em;
+  vertical-align: -0.38em;
   margin-inline: -1px -2px;
   padding: 2px;
   border-radius: 5px;
@@ -393,5 +393,5 @@ footer { margin-top: 104px; }
   transition: transform .2s cubic-bezier(.2,.7,.2,1), background-color .2s ease;
 }
 .brand-link:hover { background: color-mix(in srgb, #00c1ca 12%, transparent); transform: translateY(-1px) rotate(-3deg); }
-.brand-logo { display: block; height: 1.2em; width: auto; }
+.brand-logo { display: block; height: 1.4em; width: auto; }
 @media (prefers-reduced-motion: reduce) { .brand-link:hover { transform: none; } }
