@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: `Words · ${site.name}`,
   description: intro,
   alternates: { canonical: "/words" },
+  openGraph: { title: `Words · ${site.name}`, description: intro, url: "/words", type: "website" },
+  twitter: { title: `Words · ${site.name}`, description: intro },
 };
 
 export default function WordsPage() {
