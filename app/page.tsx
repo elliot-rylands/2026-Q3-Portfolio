@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PostList } from "@/components/PostList";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { JaneLogo } from "@/components/JaneLogo";
 import { LockLink } from "@/components/unlock/LockLink";
 import { UnlockDialog } from "@/components/unlock/UnlockDialog";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -22,8 +23,9 @@ export default function Home() {
           </p>
           <p data-reveal>
             {site.current.before}
-            <a href={site.current.link.href} target="_blank" rel="noopener">
-              {site.current.link.label}
+            <a href={site.current.link.href} target="_blank" rel="noopener" className="brand-link" title="Jane">
+              <JaneLogo className="brand-logo" />
+              <span className="sr-only">{site.current.link.label} (opens in a new tab)</span>
             </a>
             {site.current.after}
           </p>

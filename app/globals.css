@@ -380,3 +380,18 @@ footer { margin-top: 104px; }
 @media (prefers-reduced-motion: reduce) {
   .unlock-dialog[open], .unlock-dialog[open]::backdrop, .unlock-card:has(.unlock-error) { animation: none; }
 }
+
+/* Jane logo inline in the intro, in place of the word */
+.brand-link {
+  display: inline-flex;
+  vertical-align: -0.28em;
+  margin-inline: -1px -2px;
+  padding: 2px;
+  border-radius: 5px;
+  color: #00c1ca;
+  text-decoration: none;
+  transition: transform .2s cubic-bezier(.2,.7,.2,1), background-color .2s ease;
+}
+.brand-link:hover { background: color-mix(in srgb, #00c1ca 12%, transparent); transform: translateY(-1px) rotate(-3deg); }
+.brand-logo { display: block; height: 1.2em; width: auto; }
+@media (prefers-reduced-motion: reduce) { .brand-link:hover { transform: none; } }
