@@ -167,11 +167,29 @@ export const scan: CaseStudy = {
     },
     {
       type: "p",
+      text: "When I joined, bookings ran on email. The Series C, raised in August 2026, describes search, scheduling and results delivery in one system, and notes that 85% of US scans are still booked by fax or phone. That's the problem the patient flow and centre worklist were built to replace. The raise isn't mine to claim, but the foundation it scaled on started with that work.",
+    },
+    {
+      type: "p",
       text: "The honest limit: I left for Canada in April 2025, before I could see long-term results myself. The product has moved on since, as products should. The foundation, from zero, was mine.",
     },
     {
       type: "p",
       text: "**Credits:** Scan.com's founders set the direction and took the product to investors. The engineering team built it. I designed the referral journey, booking flow, mobile search, centre worklist and token system, and built the prototypes.",
     },
+  ],
+  scale: {
+    heading: "Scan.com in context",
+    note: "Company figures from Scan.com and Sacra, for a sense of the business this work sat inside. They describe the company, not results of my work.",
+    stats: [
+      { value: "$43M", label: "Series B, 2023" },
+      { value: "$220M", label: "Series C, August 2026: $90M equity and $130M debt" },
+      { value: "2x", label: "revenue year on year, to a $165M annualised run rate" },
+      { value: "900K+", label: "patients served through the network" },
+    ],
+  },
+  sources: [
+    { label: "Scan.com Series C press release", href: "https://scan.com/media/press-releases/scan-com-series-c-2026" },
+    { label: "Sacra", href: "https://sacra.com/c/scan-com/" },
   ],
 };
