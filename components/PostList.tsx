@@ -1,14 +1,22 @@
 import Link from "next/link";
 import type { Post } from "@/lib/posts";
 
-// Words list: separated by hairlines, chevron on the right.
+// Words list: a small page icon, the title, and a chevron on the right.
+// Rows sit on a soft pill on hover.
 // `withDek` adds the one-line summary under each title (used on /words).
 export function PostList({ posts, withDek = false, reveal = false }: { posts: Post[]; withDek?: boolean; reveal?: boolean }) {
   return (
-    <ul className={withDek ? "post-list post-list-dek" : "post-list"}>
+    <ul className={withDek ? "post-list post-list-dek post-list-icons" : "post-list post-list-icons"}>
       {posts.map((post) => (
         <li key={post.slug} data-reveal={reveal || undefined}>
           <Link href={`/words/${post.slug}`} className="post-row">
+            <span className="post-icon" aria-hidden="true">
+              <span className="post-icon-page">
+                <span />
+                <span />
+                <span />
+              </span>
+            </span>
             <span className="post-text">
               <span className="post-title">{post.title}</span>
               {withDek ? <span className="post-dek">{post.dek}</span> : null}
