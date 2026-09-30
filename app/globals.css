@@ -528,7 +528,7 @@ footer { margin-top: 104px; }
 .item-logo-jane svg { display: block; width: 19px; height: auto; color: #00c1ca; }
 
 /* Homepage project cards: a quiet container per study, the whole card clickable. */
-.grid6 { gap: 12px; }
+.grid6 { gap: 24px 16px; }
 .grid6 .item { position: relative; padding: 16px 18px 18px; border: 1px solid #efefef; border-radius: 12px; background: #fafafa; transition: background-color .2s ease, border-color .2s ease; }
 .grid6 .item:hover { background: #f2f2f2; border-color: #e6e6e6; }
 .grid6 .item-title a:first-of-type::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
