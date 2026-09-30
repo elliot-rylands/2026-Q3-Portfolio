@@ -55,7 +55,7 @@ export function PostBody({ blocks }: { blocks: PostBlock[] }) {
                   // Password-protected case study image: served by a route that checks
                   // the cookie, so it skips Next's (public, cached) image optimiser.
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={b.image.src} alt={b.image.alt} width={1757} height={1318} loading={i < 2 ? "eager" : "lazy"} decoding="async" />
+                  <img src={b.image.src} alt={b.image.alt} width={b.image.width ?? 1757} height={b.image.height ?? 1318} loading={i < 2 ? "eager" : "lazy"} decoding="async" />
                 ) : (
                   <Image src={b.image.src} alt={b.image.alt} width={1280} height={800} sizes="(max-width: 688px) 100vw, 640px" />
                 )}

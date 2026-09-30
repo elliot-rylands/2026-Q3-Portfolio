@@ -3,6 +3,7 @@
 // app/work/[slug]/media/[file], which checks the password cookie first.
 import type { PostBlock } from "./posts";
 import { scan } from "./work/scan";
+import { squiz } from "./work/squiz";
 
 export type Stat = { value: string; label: string };
 
@@ -18,7 +19,7 @@ export type CaseStudy = {
   sources?: { label: string; href: string }[];
 };
 
-export const studies: CaseStudy[] = [scan];
+export const studies: CaseStudy[] = [scan, squiz];
 
 export function getStudy(slug: string) {
   return studies.find((s) => s.slug === slug);

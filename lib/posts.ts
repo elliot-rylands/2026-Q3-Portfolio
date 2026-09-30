@@ -4,7 +4,7 @@ import { clockingOff } from "./posts/clocking-off";
 import { holdNote } from "./posts/rethinking-booking-ux-with-motion";
 import { theGapGetsSmaller } from "./posts/the-gap-gets-smaller";
 
-export type PostImage = { src: string; alt: string; caption?: string };
+export type PostImage = { src: string; alt: string; caption?: string; width?: number; height?: number };
 
 export type PostBlock = {
   type: "p" | "h2" | "code" | "demo" | "image" | "ul" | "quote" | "repo";
