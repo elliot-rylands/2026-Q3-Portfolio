@@ -23,10 +23,10 @@ const TASKS = [
 
 const INFO: Record<string, { title: string; text: string }> = {
   depts: { title: "29 departments, 29 vocabularies", text: "Each had its own intranet or portal, its own words for things and its own way of doing admin." },
-  phone: { title: "The contact centre", text: "Every call that could have been a click lands here. At this scale, the cost was enormous and almost invisible." },
-  hub: { title: "myHub", text: "One structure for 29 departments, designed first for the least confident person in the building." },
+  phone: { title: "The contact centre", text: "Every call that could have been a click lands here, as contact centre time." },
+  hub: { title: "myHub", text: "A shared framework under the departmental hubs (nine when Squiz published its story), with one structure and one search, designed first for the person most likely to phone." },
   fed: { title: "Two instances, one search", text: "Security meant two separate instances of the Squiz DXP. Federated search means nobody has to know that." },
-  done: { title: "Done online", text: "The measure that mattered: tasks finished and calls avoided, not colours and hero images." },
+  done: { title: "Done online", text: "The measure that mattered: tasks finished without a call." },
   chat: { title: "Live chat", text: "For the questions that still need a person, without a phone queue." },
 };
 

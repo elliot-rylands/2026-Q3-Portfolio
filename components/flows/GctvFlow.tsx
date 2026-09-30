@@ -57,7 +57,7 @@ export default function GctvFlow() {
   return (
     <FlowFrame
       skin="gctv"
-      eyebrow="GCTV · concurrently watching races during large events"
+      eyebrow="GCTV · classes running side by side"
       problem="At the big events, classes run side by side across the weekend. A fan shouldn't have to go looking for the one that's live."
       minWidth={600}
       detail={

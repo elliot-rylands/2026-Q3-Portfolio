@@ -29,69 +29,56 @@ const shot = (file: string, alt: string, caption: string): PostBlock => ({
   image: { src: `/work/gctv/media/${file}`, alt, caption, width: sizes[file]?.[0], height: sizes[file]?.[1] },
 });
 
-const aim = (metric: string, text: string): PostBlock => ({ type: "callout", label: `Built to move: ${metric}`, text });
-
+// Two linked journeys: following the competition, then joining. Watching comes
+// first, because it's what the membership sells.
 export const gctv: CaseStudy = {
   slug: "gctv",
   title: "Turning show jumping fans into subscribers, on every screen",
-  dek: "Through Flipside, I designed GCTV's sign-up, subscription and onboarding, and a live experience built for concurrently watching races during large events, across web, mobile and TV.",
+  dek: "At a major show jumping event, following one class can mean missing another. Through Flipside, I designed the routes between live competition, schedules and replays, alongside the sign-up and subscription journey that pays for them.",
   accent: "light-dark(#c8102e, #ff5a6a)",
   meta: [
     { label: "Role", value: "Senior Product Designer (contract), Flipside Group" },
     { label: "Client", value: "Global Champions, GCTV" },
-    { label: "Owned", value: "Sign-up, passes, onboarding, live viewing" },
-    { label: "Platforms", value: "Web, iOS, Android, TV" },
+    { label: "Owned", value: "Live viewing, schedule and results, sign-up, passes, onboarding" },
+    { label: "Platforms", value: "Designed for web, mobile and TV" },
   ],
   work: [
-    { value: "3", label: "platforms: web, mobile and TV" },
+    { value: "2", label: "linked journeys: following the competition, and joining" },
     { value: "3", label: "steps from join to paid: account, pass, payment" },
-    { value: "3", label: "passes, from free audio to full Pro" },
     { value: "2", label: "versions of the pass picker; the second replaced the first" },
   ],
   notice:
-    "GCTV's results aren't mine to publish, so this one is told through the decisions and the metric each was built to move. Riders and names in the favourites screen, prices and payment details are demo data or blurred.",
+    "GCTV's results aren't mine to publish. Riders, teams, results, schedules, prices and payment details in these screens are demo data or blurred.",
   body: [
     shot(
       "hero.webp",
       "GCTV web home: a strip of live, replay and current events above the navigation, and The Insider series hero with Watch, Subscribe and Buy Series Pass.",
-      "The web home. Every race running right now sits in the strip across the top.",
+      "The web home. Whatever is live sits in the strip across the top.",
     ),
-
-    { type: "h2", text: "Several rings, one weekend" },
     {
       type: "p",
-      text: "Global Champions runs elite show jumping around the world, and most fans will never sit in the stands. At the big events, classes run side by side across the weekend, so the brief had a very specific ask: **let fans concurrently watch races during large events**, from wherever they are.",
+      text: "Global Champions runs elite show jumping around the world, and most fans will never sit in the stands. At the big events, classes run side by side across the weekend. The brief put it as “concurrently watching races during large events”. In show jumping they're classes and rounds rather than races, but the ask was right: a fan following one ring shouldn't lose track of the others.",
     },
     {
       type: "p",
-      text: "The business wanted something else from the same product: people who arrive for one round and stay as paying members, on web, mobile and TV. I designed both halves: the way in, and the reason to stay.",
-    },
-    {
-      type: "stats",
-      text: "",
-      stats: [
-        { value: "Sign up", label: "more people finishing the account they started" },
-        { value: "Upgrade", label: "more free fans moving to a paid pass" },
-        { value: "Rating", label: "a healthier app store score" },
-      ],
+      text: "The business needed the same product to turn those fans into paying members. So there were two journeys to design, and they depend on each other: following the competition, which is what a pass buys, and joining, which is how you get one.",
     },
 
     { type: "demo", text: "", demo: "flow-gctv" },
 
-    { type: "h2", text: "Every ring, one strip" },
+    { type: "h2", text: "Following the competition" },
     {
       type: "p",
-      text: "When three classes are running at once, the worst thing you can do is make people go looking. So every page carries a strip of what's live, what's replaying and what's current, and one tap moves you between them without losing your place.",
+      text: "Every page carries a strip of what's live, what's replaying and what's current, so switching between rings is one tap from anywhere, without losing your place.",
     },
     shot(
       "event-strip.webp",
       "Event strip showing a live event, a replay and a current programme side by side.",
-      "Live, replay and current, side by side on every page.",
+      "Live, replay and current, on every page.",
     ),
-    { type: "h2", text: "Watching several races at once" },
     {
       type: "p",
-      text: "The event page is the hub for the whole weekend. Whatever is live sits at the top, with **Watch**, **Listen** and the **Time Schedule** one tap away, and the rest of the tour lines up underneath: the previous event, the next one and what's coming.",
+      text: "The event page is the hub for a weekend: what's live at the top with Watch, Listen and the Time Schedule one tap away, and the rest of the tour underneath.",
     },
     shot(
       "event-hub.webp",
@@ -100,25 +87,21 @@ export const gctv: CaseStudy = {
     ),
     {
       type: "p",
-      text: "The Time Schedule is where the brief gets answered. At a big event, classes run across rings and two competitions share the weekend, so every class is one row. Each tour has its own colour: blue for the Longines Global Champions Tour, red for the Global Champions League. You can filter by day and by class level, and the live class is flagged. Every row carries the same four actions: **course plan, remind me, results, watch**. Nobody has to hunt for the next round, or miss it.",
+      text: "The Time Schedule does the heavy lifting. Every class is one row, coloured by competition (blue for the Longines Global Champions Tour, red for the Global Champions League), filtered by day and class level, with the live one flagged. Each row carries the same four actions: course plan, reminder, results and watch. On mobile the rows become cards and the filters become two dropdowns.",
     },
     shot(
       "schedule.webp",
       "Time Schedule on web: filters for day and class level, and six class rows colour-coded by tour, one marked live, each with course plan, reminder, results and watch buttons.",
-      "One row per class, one colour per tour, the same four actions on every row.",
+      "One row per class, one colour per competition, the same four actions on each.",
     ),
-    {
-      type: "p",
-      text: "On mobile the rows become cards and the filters become two dropdowns, so the same decision fits under a thumb.",
-    },
     shot(
       "schedule-mobile.webp",
       "Mobile Time Schedule with All Days and class level dropdowns, and a live class card with course plan, reminder, results and watch buttons.",
-      "Same schedule, one thumb.",
+      "The same schedule on a phone.",
     ),
     {
       type: "p",
-      text: "When a class ends, the results take over. League teams get a podium, and every ride in the table has its own play button for each round, so a fan who was watching another ring can go straight to the round they missed.",
+      text: "When a class ends, results take over, and every ride in the table has its own replay for each round. A fan who was watching another ring can go straight to the round they missed. That loop, from schedule to live to replay, is what the design supports: following several classes by switching quickly between them, rather than watching several streams at once on one screen.",
     },
     shot(
       "results.webp",
@@ -127,55 +110,43 @@ export const gctv: CaseStudy = {
     ),
     {
       type: "p",
-      text: "And inside a live class, the useful things sit under the video: the current competition, height and prize money, the start time and the course plan. A language picker sits next to **Listen**, which drops the pictures and keeps the commentary, for fans following on the move.",
+      text: "Inside a live class, the details a fan checks sit under the video: the competition, height, prize money, start time and course plan. Next to the language picker, **Listen** drops the pictures and keeps the commentary, for following on the move.",
     },
     shot(
       "live-event.webp",
       "Mobile live event page with the video, an English language picker, a Listen button and the current competition details.",
-      "The live event on mobile. Listen keeps the commentary going when you can't watch.",
+      "The live class on mobile, with Listen for when you can't watch.",
     ),
-    aim("upgrades", "Following several rings at once is exactly what a paid pass sells. The easier it is to feel, from the schedule to the replay of a round you missed, the easier the upgrade is to justify."),
 
-    { type: "h2", text: "A front door that says free first" },
+    { type: "h2", text: "Joining without a toll booth" },
     {
       type: "p",
-      text: "The first screen says it plainly: sign up for free, or subscribe. Nobody meets a price before they've met the product.",
-    },
-    {
-      type: "p",
-      text: "The join form asks for the essentials and nothing clever. Allowing location fills in the country for you, and says why it's asking. Only the terms box is required: GCTV news and Global Champions marketing are two separate, unticked choices. Sign Up stays disabled until the form is valid, so the button never lies about what will happen.",
+      text: "The first screen offers two plain choices: sign up for free, or subscribe. The join form asks for the essentials. Allowing location fills in the country and says why it's asking, only the terms box is required, and marketing from GCTV and Global Champions are two separate, unticked choices. Sign Up stays disabled until the form is valid, and errors appear at the field that caused them.",
     },
     shot(
       "sign-up.webp",
       "Three mobile screens: the GCTV welcome with Sign up and Login, the join form with a location prompt, and the completed form with Sign Up enabled.",
-      "Welcome, join, ready. The button only lights up when everything's in.",
+      "Welcome, join, ready. The button lights up when everything's in.",
     ),
-    {
-      type: "p",
-      text: "Errors appear at the field that caused them, in words a person would use: “Password doesn't match”, “Not a valid email address”. No red banner at the top of a long form.",
-    },
     shot(
       "form-errors.webp",
       "Inline errors: a confirm password field reading Password doesn't match on mobile, and an email field reading Not a valid email address on web.",
       "Mistakes flagged where they happen, on mobile and web.",
     ),
-
-    { type: "h2", text: "Verify without a dead end" },
     {
       type: "p",
-      text: "Email verification is where sign-ups quietly die. The waiting screen shows the address you used, so a typo is obvious, with a Send Again link right under it. The email itself is branded, has one button, tells you the link lasts seven days, and tells you what to do if it wasn't you.",
+      text: "Verification is where sign-ups tend to stall. The waiting screen shows the address you used, so a typo is obvious, with Send Again right under it. The email itself has one button, says how long the link lasts, and says what to do if it wasn't you.",
     },
     shot(
       "verify.webp",
       "Confirm email screen showing the address used and Send Again, next to the branded verification email with a Verify my account button.",
       "The waiting screen and the email it's waiting for.",
     ),
-    aim("sign-up completion", "Every step between “Sign up” and a verified account is a place to lose someone. Showing the address, offering a resend and keeping the email to one job all protect the finish."),
 
     { type: "h2", text: "The pass picker, twice" },
     {
       type: "p",
-      text: "The first version put the choice on its own page after verification: Pro, Live and Free side by side, nothing preselected. The button read “Select your option” until you chose, then named the pass and the price you were about to pay.",
+      text: "Version one put the choice on its own page after verification: Pro, Live and Free side by side, with a button that named the pass and price once you'd chosen.",
     },
     shot(
       "passes-v1.webp",
@@ -184,7 +155,7 @@ export const gctv: CaseStudy = {
     ),
     {
       type: "p",
-      text: "Version two replaced it. The pass became step two of one flow, **join, pass, pay**, with progress dots so you always know how far is left. Each pass shows its monthly and yearly price as the buttons themselves, so choosing a price is choosing a pass. The yearly saving is stated up front, and the free tier became the Access Pass: audio-only events and commentary, a real product rather than a consolation prize.",
+      text: "Version two replaced it, and changed three things. The pass became step two of one flow, join, pass, pay, with progress dots. Each pass shows its monthly and yearly prices as the buttons themselves, so choosing a price is choosing a pass. And the free tier became the Access Pass, with audio-only events and commentary, a product in its own right rather than the option you're steered away from.",
     },
     shot(
       "passes-v2.webp",
@@ -194,69 +165,51 @@ export const gctv: CaseStudy = {
     shot(
       "passes-v2-mobile.webp",
       "Version two on mobile: Subscribe pinned at the bottom, disabled until a price is chosen, then enabled.",
-      "On mobile, Subscribe stays pinned and wakes up once you've picked a price.",
+      "On mobile, Subscribe stays pinned and wakes up once a price is picked.",
     ),
-    aim("upgrades", "A price you can tap, a saving you can see and a free tier that's still worth having all make the step from free to paid feel like a choice, not a toll."),
-
-    { type: "h2", text: "Pay the way you already pay" },
     {
       type: "p",
-      text: "Payment keeps the pass you chose, and everything in it, above the options: Apple Pay, card or PayPal, with the order total before the button. The fastest checkout is the one where you don't type a card number.",
+      text: "Payment keeps the chosen pass, and what it includes, above Apple Pay, card and PayPal, with the total before the button. Afterwards, an optional step asks for favourite tournaments and riders, with “Skip this for now” right there.",
     },
     shot(
       "payment.webp",
       "Select payment method with Apple Pay chosen and the order total, next to the Apple Pay sheet with personal details blurred.",
       "What you're buying stays on screen while you pay for it.",
     ),
-
-    { type: "h2", text: "Make it yours before you watch" },
-    {
-      type: "p",
-      text: "Once you're in, one last, optional step: pick the tournaments and riders you care about, so the app can put them first. “Skip this for now” is right there, and the button only lights up once you've picked something.",
-    },
     shot(
       "favourites.webp",
       "Select your favourite tournaments and riders, with several selected, Skip this for now, and a Select favourites button.",
-      "Favourite tournaments and riders. Skippable, but worth thirty seconds.",
+      "Favourites: optional, and skippable.",
     ),
 
-    { type: "h2", text: "A sponsor people actually tap" },
+    { type: "h2", text: "The sponsor, inside the product" },
     {
       type: "p",
-      text: "Longines is the title sponsor, and sponsors usually get a banner people learn to ignore. I designed the placement as something to watch instead: a Longines Stories strip, Instagram-style, sitting inside the app among the live rows. Each card is a short story with Start Watching on it, and it looks like content because it is.",
+      text: "Longines, the title sponsor, needed a placement. I designed it as Longines Stories, an Instagram-style strip of short stories with Start Watching on each card, sitting among the live rows on TV. It gives the sponsor presence in the product, and gives fans something they can choose to open rather than a banner to scroll past.",
     },
     shot(
       "longines-stories.webp",
       "Longines Stories strip on TV: portrait story cards with Start Watching buttons, above a row of live championship events.",
-      "Longines Stories. The sponsor's placement is the thing people came for: more horses.",
+      "Longines Stories on TV, among the live rows.",
     ),
-    aim("sponsor value", "A placement people choose to open is worth more to a sponsor than one they scroll past, and it doesn't cost the viewer anything to enjoy it."),
 
-    { type: "h2", text: "It shipped" },
+    { type: "h2", text: "What went live" },
     {
       type: "p",
-      text: "These aren't mockups. This is the flow running on gctv.gcglobalchampions.com on a phone: join, choose a pass, pay, confirm.",
+      text: "The flows were prototyped in code and kept in GitHub, then shipped in steps rather than as one launch, with the pass picker's second version replacing the first. Here is the join, pass, pay and confirm flow running on the live site in Safari on a phone. The TV and native app screens in this study are my designs; the web flow is the part shown here in production.",
     },
     shot(
       "shipped.webp",
       "Four screenshots from Safari on a phone at gctv.gcglobalchampions.com: join, select your pass, select payment method and confirm email.",
-      "Live on the real site, in Safari on a phone.",
+      "Live on the site, in Safari on a phone.",
     ),
-
-    { type: "callout", label: "Prototyped in GitHub, shipped small", text: "The flows were prototyped in code and kept in GitHub, then shipped in steps rather than one launch. The pass picker shows it best: version one went live, then version two replaced it, with the price as the button. Sign-up, passes, payment and onboarding are live on the site." },
-
-    { type: "h2", text: "What I could point to" },
     {
       type: "p",
-      text: "Sign-up, passes, payment, onboarding, the event hub, the time schedule and results designed across web, mobile and TV, and shipped on the live site. Two versions of the pass picker, with the second replacing the first. A sponsor placement people want to open.",
+      text: "The commercial idea was simple: make following the sport easy enough that a pass feels worth having. GCTV holds the numbers on whether it worked.",
     },
     {
       type: "p",
-      text: "The honest limit: the numbers live with GCTV, and I rolled off before I saw them. What I can point to is that every screen here was aimed at one of three things the business cared about: finished sign-ups, free fans upgrading, and the app's rating.",
-    },
-    {
-      type: "p",
-      text: "**Credits:** the Flipside Group team, and Global Champions' GCTV product and engineering teams. I designed the sign-up, subscription and onboarding journeys and the live viewing experience.",
+      text: "**Credits:** the Flipside Group team, and Global Champions' GCTV product and engineering teams. I designed the live viewing, schedule and results journeys, sign-up, subscription and onboarding.",
     },
   ],
   scale: {

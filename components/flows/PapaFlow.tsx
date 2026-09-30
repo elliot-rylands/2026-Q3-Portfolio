@@ -22,9 +22,9 @@ const STOPS: Stop[] = [
   { id: "more", x: 600, y: 228, label: "Want more?", m: ["basket"], after: true, text: "A 45p dip or a reward you've earned, and Apple Pay above Checkout." },
   { id: "pay", x: 650, y: Y, label: "Checkout", m: ["finish"], big: true, text: "Pay without typing a card number." },
   { id: "dead", x: 650, y: 236, label: "Store closed", m: ["finish"], before: true, text: "The worst time to find out the store is shut: at checkout, with a full basket." },
-  { id: "rate", x: 760, y: Y, label: "Enjoying it?", m: ["rating"], big: true, text: "One question first, at a good moment." },
-  { id: "review", x: 815, y: 90, label: "Review", m: ["rating"], after: true, up: true, text: "Happy customers are invited to leave a review." },
-  { id: "fb", x: 815, y: 210, label: "Feedback", m: ["rating"], after: true, text: "Unhappy ones get a private form, straight to the people who can fix it." },
+  { id: "rate", x: 760, y: Y, label: "Enjoying it?", m: ["rating"], big: true, text: "What shipped asked “Enjoying the app?” before the store review prompt." },
+  { id: "review", x: 815, y: 90, label: "Review", m: ["rating"], after: true, up: true, text: "What shipped: happy customers were invited to review. Today I'd give everyone the same chance." },
+  { id: "fb", x: 815, y: 210, label: "Feedback", m: ["rating"], after: true, text: "What shipped: unhappy customers were offered a private form. Today I'd offer it alongside the review, not instead." },
 ];
 
 // Labels that sit above the line, clear of the branches that drop below it.
@@ -56,7 +56,7 @@ export default function PapaFlow() {
     <FlowFrame
       skin="papa"
       eyebrow="Papa John's · hungry to “Add to order”"
-      problem="Nobody opens a pizza app to browse. Every screen either moves a hungry person towards “Add to order”, or gets in the way."
+      problem="A simple order can still fail in small places: a closing store, an unreadable deal, a basket that's hard to fix."
       minWidth={620}
       controls={
         <>

@@ -102,9 +102,11 @@ export default function Home() {
               </span>
             ))}
           </p>
-          <p data-reveal>
-            Case studies are password protected. <a href={site.links.accessEmail}>Email me</a> for access.
-          </p>
+          {projects.some((p) => p.locked) ? (
+            <p data-reveal>
+              Some case studies are password protected. <a href={site.links.accessEmail}>Email me</a> for access.
+            </p>
+          ) : null}
         </div>
 
         <div className="prose section">

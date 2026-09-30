@@ -13,7 +13,7 @@ const STEPS = [
   { id: "pick", label: "Pick a drill", title: "Sports and names, not slots", text: "A tennis ball or a pickleball, and the name you gave the drill. D1 to D8 became an engineering detail." },
   { id: "see", label: "See it", title: "The court, not a table", text: "The target zone lights up and each ball's arc is drawn. Height, speed, direction, delay and spin, per ball." },
   { id: "sim", label: "Simulate", title: "Watch it before it fires", text: "Play the drill out on screen before a single ball leaves the machine." },
-  { id: "session", label: "MegaDrill", title: "One tap, a whole session", text: "Tick several drills and they queue in a tray with one Start, so the session doesn't end on the walk back to the phone." },
+  { id: "session", label: "MegaDrill", title: "One tap, a whole session", text: "Tick several drills and they queue in a tray, in order, with one Start." },
   { id: "share", label: "Share by QR", title: "Drills that travel", text: "A coach builds a session and posts it with a QR code. Anyone watching scans it straight onto their machine." },
   { id: "coach", label: "Community", title: "Where players already are", text: "Search shared drills, find players who play like you, and jump out to the channels where coaches post. Then back to picking a drill." },
 ];

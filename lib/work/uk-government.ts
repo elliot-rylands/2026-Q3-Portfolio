@@ -2,12 +2,12 @@ import type { CaseStudy } from "../work";
 
 const SOURCE = "https://www.squiz.net/customer-stories/sscl";
 
-// No product imagery for legal reasons: the story is carried by strategy,
-// numbers and a subtle accent colour instead of screenshots.
+// No product imagery for legal reasons: the story is carried by a task, the
+// documented architecture and the rollout, with public facts from Squiz's story.
 export const ukGovernment: CaseStudy = {
   slug: "uk-government",
   title: "Making self-service faster than the phone",
-  dek: "SSCL runs HR, pay and support for 29 UK government departments. Its portals were so fragmented that calling was quicker. Through Squiz, I led design on myHub, the single hub built to make self-service the easy option for more than 300,000 civil servants.",
+  dek: "Calling was quicker than finding the right form. That was the behaviour myHub had to change. Through Squiz, I led design on a shared self-service experience across SSCL's departmental hubs.",
   accent: "light-dark(#1f6f5c, #6cc9ab)",
   meta: [
     { label: "Role", value: "Design Lead at Squiz, for SSCL" },
@@ -16,18 +16,16 @@ export const ukGovernment: CaseStudy = {
     { label: "Client", value: "SSCL, a Cabinet Office and Sopra Steria joint venture" },
   ],
   work: [
-    { value: "£300m", label: "saved in the first three years, as reported by SSCL" },
     { value: "29", label: "government departments served by SSCL" },
-    { value: "300k+", label: "civil servants the hub was built for" },
-    { value: "1", label: "hub replacing a patchwork of departmental portals" },
+    { value: "9", label: "hubs built on one shared myHub framework" },
+    { value: "2", label: "secure CMS instances behind one federated search" },
   ],
   notice:
-    "For legal reasons I can't show the product, so this one is told through strategy and numbers instead of screens. Public figures and quotes come from Squiz's SSCL customer story; the savings figure is SSCL's own.",
+    "For legal reasons I can't show the product, so this one is told through the service, the architecture and the rollout instead of screens. Public facts and quotes come from Squiz's SSCL customer story. The savings figure is SSCL's own and isn't in that story.",
   body: [
-    { type: "h2", text: "The phone was winning" },
     {
       type: "p",
-      text: "SSCL is the organisation behind a surprising amount of the UK government's plumbing. A joint venture between the Cabinet Office and Sopra Steria, it runs HR, payroll, finance and contact centre services, and it pays a fair few of government's bills along the way.",
+      text: "SSCL, a joint venture between the Cabinet Office and Sopra Steria, runs HR, payroll, finance and contact centre services for a large part of the UK government. Each department had its own intranet or portal, with its own words for things and its own way of doing admin.",
     },
     {
       type: "stats",
@@ -41,24 +39,15 @@ export const ukGovernment: CaseStudy = {
     },
     {
       type: "p",
-      text: "Every one of those departments had its own intranet or portal, with its own words for things and its own way of doing admin. Want your payslip? Depends where you work. Need a form? Depends what your department calls it. So civil servants did the sensible thing. **They picked up the phone.**",
-    },
-    {
-      type: "p",
-      text: "That's a perfectly rational choice for one person and a very expensive one for government. Every call that could have been a click lands on a contact centre, and at this scale the cost was enormous and almost entirely invisible, because nobody had ever added it up in one place.",
-    },
-    {
-      type: "callout",
-      label: "The strategic call",
-      text: "The competition wasn't another portal. It was the phone. If the digital route wasn't genuinely faster than calling, nothing else we designed would matter, so every decision got measured against that one question.",
+      text: "Picture a civil servant who needs a form. Where it lives depends on their department, and what it's called depends on the department too. A call to the contact centre gets them a person who knows. For them, calling is the sensible choice. For SSCL, every one of those calls is contact centre time spent on a task a web page could have handled.",
     },
 
     { type: "demo", text: "", demo: "flow-gov" },
 
-    { type: "h2", text: "Nobody needed a fancy website" },
+    { type: "h2", text: "A website brief, a behaviour problem" },
     {
       type: "p",
-      text: "Briefs like this tend to arrive dressed as a website. New look, new homepage, job done. SSCL's real objective was harder and far more useful: reduce the cost of support by getting people to serve themselves. That's not a visual problem. It's a behaviour problem, and behaviour only changes when the new way is easier than the old one.",
+      text: "Projects like this tend to arrive dressed as a website: new look, new homepage. SSCL's real aim was to reduce the cost of support by making self-service the easier route, and that is a question about behaviour. People change routes when the new one is faster. They don't change for a nicer homepage.",
     },
     {
       type: "quote",
@@ -67,28 +56,27 @@ export const ukGovernment: CaseStudy = {
     },
     {
       type: "p",
-      text: "Getting from the first half of that sentence to the second was most of my job. It meant keeping the conversation on outcomes, calls avoided and tasks finished, rather than on colours and hero images, and making sure the people paying for it could see the line from a design decision to a business result.",
+      text: "A lot of my job was keeping the conversation on that: calls avoided and tasks finished, rather than colours and hero images, so the people funding it could see how a design decision connected to the support it was meant to reduce.",
     },
 
-    { type: "h2", text: "Designing for the least confident person in the building" },
+    { type: "h2", text: "Designing for the person most likely to phone" },
     {
       type: "p",
-      text: "I led research across departments, talking to civil servants at every career stage. The range was wide. Some people lived in software all day. Others had gone an entire career without needing a web portal, and had no intention of starting now just because someone launched one.",
+      text: "I led research across departments and career stages. Some people lived in software all day. Others had gone a whole career without needing a web portal and weren't planning to start now.",
     },
     {
       type: "p",
-      text: "Those were the people I designed for first. If myHub worked for someone who'd happily phone rather than log in, it would work for everyone else, and it would work faster. Confident users don't mind a clearer path. Unconfident users abandon an unclear one, and then they call.",
-    },
-    {
-      type: "callout",
-      label: "The strategic call",
-      text: "Design for the person most likely to give up and phone. Every improvement for them is a shortcut for everyone else, and they're the calls that cost the most to keep taking.",
+      text: "I designed for that second group first. They were the people most likely to give up on an unclear page and call, so a route that worked for them had the best chance of pulling calls away from the contact centre. Confident users lose nothing from a clearer path.",
     },
 
-    { type: "h2", text: "One hub, twenty-nine vocabularies" },
+    { type: "h2", text: "Following one task through" },
     {
       type: "p",
-      text: "The information architecture had to do something slightly thankless: make sense to people from 29 departments who had each learned different words for the same things. The structure couldn't belong to any one department. It had to be built around what people came to do, so it read the same whichever door you'd walked in through.",
+      text: "Take that form again. The first problem is vocabulary: 29 departments had learned different names for the same things. So the information architecture couldn't belong to any one of them. It was organised around what people came to do, and read the same whichever department you worked in.",
+    },
+    {
+      type: "p",
+      text: "The second problem was security. The platform ran on two separate instances of the Squiz DXP content management system, because different content had different security requirements. That's the right call for government and the wrong thing to make a user think about. A federated search crawls both, with permission-aware results, so the form turns up in one search box whichever side of the wall it lives on.",
     },
     {
       type: "compare",
@@ -106,7 +94,7 @@ export const ukGovernment: CaseStudy = {
         after: {
           label: "With myHub",
           items: [
-            "One hub, one single sign-on",
+            "Departmental hubs on one shared framework and structure",
             "A personal dashboard with your payslip on it",
             "Predictive search with a search concierge, plus a form-finder chatbot",
             "Live chat when you're stuck, before you reach for the phone",
@@ -116,80 +104,38 @@ export const ukGovernment: CaseStudy = {
     },
     {
       type: "p",
-      text: "Underneath, security meant the platform ran on two separate instances of the Squiz DXP content management system. That's the right call for government and the wrong thing to make users think about. Federated search across both instances meant nobody had to know which side of the wall their answer lived on. They searched, and it was there.",
-    },
-    {
-      type: "callout",
-      label: "The strategic call",
-      text: "Keep the complexity where it belongs. Security needed two instances; people needed one search box. The architecture carried the separation so the experience didn't have to.",
+      text: "The architecture Squiz describes is nine hubs on a shared myHub framework, not one site replacing everything at once. Departments keep their own hub; the structure, components and search underneath are shared.",
     },
 
-    { type: "h2", text: "Ship confidence, not features" },
+    { type: "h2", text: "Rollout, a habit at a time" },
     {
       type: "p",
-      text: "A platform this size can't be switched on for 300,000 people in an afternoon, and it shouldn't be. I planned the rollout so features arrived a step at a time. Each release gave people one new thing they could do without calling, and time to make it a habit before the next one landed.",
+      text: "People who have phoned for years don't switch because a platform launches. I planned the rollout so features arrived a step at a time, each giving people one new thing they could do without calling, and time to make it a habit before the next one landed, while agencies moved across from their old intranets.",
     },
     {
       type: "timeline",
       text: "",
       steps: [
-        {
-          when: "2019",
-          title: "Discovery",
-          text: "Discovery sessions with SSCL to understand the services, the departments and where the calls were really coming from.",
-        },
-        {
-          when: "Research",
-          title: "Across departments and career stages",
-          text: "Interviews with civil servants from very different departments, from daily power users to people who'd never needed a portal.",
-        },
-        {
-          when: "Design",
-          title: "Information architecture and core flows",
-          text: "One structure built around tasks rather than departments, and the core flows that sit on it: the dashboard, search, forms and help.",
-        },
-        {
-          when: "Rollout",
-          title: "A feature at a time, an agency at a time",
-          text: "Features released in steps so habits could form, while agencies migrated off their old intranets onto myHub.",
-        },
-        {
-          when: "Nov 2022",
-          title: "First back-office connected form",
-          text: "The first web form wired straight into SSCL's back office went live, so a request could be completed end to end without a call.",
-        },
+        { when: "2019", title: "Discovery", text: "Sessions with SSCL to understand the services, the departments and where the calls were coming from." },
+        { when: "Research", title: "Across departments and career stages", text: "Interviews with civil servants from very different departments, from daily power users to people who'd never needed a portal." },
+        { when: "Design", title: "Information architecture and core flows", text: "A structure built around tasks rather than departments, and the core flows on it: the dashboard, search, forms and help." },
+        { when: "Rollout", title: "A feature at a time, an agency at a time", text: "Features released in steps so habits could form, while agencies migrated onto myHub." },
+        { when: "Nov 2022", title: "First back-office connected form", text: "The first web form wired straight into SSCL's back office went live, so a request could be completed end to end without a call." },
       ],
     },
-    {
-      type: "callout",
-      label: "The strategic call",
-      text: "Adoption is a design problem too. A phased rollout isn't caution for its own sake: it's how you change the habits of people who've been phoning for years, one successful task at a time.",
-    },
 
-    { type: "callout", label: "Shipped small, on purpose", text: "Nothing launched all at once. Features arrived a step at a time so each one could become a habit before the next, while agencies moved off their old intranets. In November 2022 the first form wired into SSCL's back office went live, and SSCL reported £300m saved in the platform's first three years." },
-
-    { type: "h2", text: "What I could point to" },
+    { type: "h2", text: "What SSCL reported" },
     {
-      type: "stats",
-      text: "",
-      stats: [
-        { value: "£300m", label: "saved in the first three years, as reported by SSCL" },
-        { value: "9", label: "agencies migrated to myHub when Squiz published the story" },
-        { value: "100,000s", label: "of civil servants using it regularly" },
-        { value: "2", label: "secure instances, joined by one federated search" },
-      ],
+      type: "p",
+      text: "When Squiz published the customer story in December 2022, nine agencies had migrated to myHub, hundreds of thousands of civil servants were using it regularly, and contact centre calls had come down as people served themselves or used live chat. SSCL has separately reported £300m saved over the platform's first three years. That figure is SSCL's, it isn't in the Squiz story, and it describes their programme as a whole rather than my work.",
     },
     {
       type: "p",
-      text: "Contact centre calls came down as people served themselves online or used live chat instead. Hundreds of thousands of civil servants now use myHub regularly, and SSCL reported £300m saved in the platform's first three years. That's the number I'm proudest to have been part of, because it's the one the whole project was really about: public money not spent on calls that should have been clicks.",
+      text: "I left Squiz in January 2023, while agencies were still moving across. My part was the research, the information architecture, the core flows and the rollout plan.",
     },
     {
       type: "p",
-      text: "The honest limits: that savings figure is SSCL's, not something I measured, and it belongs to a lot of people. Squiz's engineering and delivery teams built the platform, SSCL drove the change inside government, and I left Squiz in January 2023, while myHub was still rolling out. What I owned was the research, the structure, the core flows and the plan for how people would move across.",
-    },
-    {
-      type: "p",
-      text: "**Credits:** Carl Johnson and the SSCL team set the ambition and drove the change. Squiz's teams built and delivered myHub on the Squiz DXP. I led design: research, information architecture, core flows and the rollout plan. Public details are from [Squiz's SSCL customer story](" + SOURCE + ").",
+      text: "**Credits:** Carl Johnson and the SSCL team set the ambition and drove the change. Squiz's teams built and delivered myHub on the Squiz DXP. Public details are from [Squiz's SSCL customer story](" + SOURCE + ").",
     },
   ],
 };

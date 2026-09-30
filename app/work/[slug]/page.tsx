@@ -17,8 +17,13 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
+  const study = getStudy(slug);
+  const title = study ? `${study.title} · ${project?.title} · ${site.name}` : project ? `${project.title} · ${site.name}` : site.name;
+  const description = study && project && !project.locked ? study.dek : project?.summary;
   return {
-    title: project ? `${project.title} · ${site.name}` : site.name,
+    title,
+    description,
+    openGraph: { title, description },
     robots: { index: false, follow: false },
   };
 }

@@ -35,23 +35,22 @@ const shot = (file: string, alt: string, caption: string): PostBlock => ({
   image: { src: `/work/squiz/media/${file}`, alt, caption, width: sizes[file]?.[0], height: sizes[file]?.[1] },
 });
 
-// Images follow the story: the finished launchpad first, then the front door,
-// the navigation, products moving in, and the system underneath.
+// One organising metaphor (the front door). The story is the boundary between
+// what was shared and what each product kept, then one migration in depth.
 export const squiz: CaseStudy = {
   slug: "squiz",
   title: "Giving eight products one front door",
-  dek: "Squiz had eight good products that behaved like strangers. As design lead, I gave them one front door, one set of manners and one design system underneath, without rebuilding any of them.",
+  dek: "Squiz sold eight products as one suite, and customers met them as eight separate apps. As design lead, I led the shared layer that let them become a platform while each product kept its own codebase and roadmap.",
   meta: [
     { label: "Role", value: "Senior Product Designer, Design Lead" },
     { label: "When", value: "Jun 2018 to Jan 2023" },
     { label: "Team", value: "The designers I led, product managers, product engineering teams" },
-    { label: "Tools", value: "Figma, React, Storybook, design tokens" },
+    { label: "Tools", value: "Figma, React, Storybook, GitHub, design tokens" },
   ],
   work: [
-    { value: "8", label: "products brought into one platform" },
-    { value: "1", label: "sign-in, shell and navigation across the suite" },
-    { value: "1", label: "tokenised design system, in code" },
-    { value: "3", label: "sectors: government, healthcare, fintech" },
+    { value: "8", label: "products, each keeping its own codebase" },
+    { value: "1", label: "shared shell: sign-in, navigation and launchpad" },
+    { value: "1", label: "token system, built as React components in Storybook" },
   ],
   notice:
     "Squiz's platform and customers are confidential. Organisations, people and figures in these screens are demo data, and anything that could identify a real person is blurred.",
@@ -59,159 +58,127 @@ export const squiz: CaseStudy = {
     shot(
       "launchpad-hero.webp",
       "The Squiz DXP launchpad: eight product tiles including Matrix CMS, Funnelback, Connect and Datastore, with help and resources below.",
-      "The launchpad that shipped. Eight products, one front door.",
+      "The launchpad that shipped.",
     ),
-
-    { type: "h2", text: "Eight products, eight front doors" },
     {
       type: "p",
-      text: "Squiz made eight products for organisations in government, healthcare and fintech. Matrix ran the content. Funnelback ran the search. Connect, Datastore and a customer data platform did the plumbing. On their own, they were good. Together, they behaved like strangers seated at the same wedding table.",
-    },
-    {
-      type: "p",
-      text: "Each had its own sign-in, its own header and its own idea of where the settings lived. A customer would buy Matrix and never find out Funnelback was sitting next door. The suite was the thing being sold. Nobody could actually see it.",
+      text: "Eight products, eight sign-ins and eight versions of the same everyday interactions. Matrix ran the content, Funnelback ran the search, and Connect, Datastore and a customer data platform did the plumbing. A customer could buy Matrix and never discover Funnelback sitting next door. The suite was what Squiz sold. Customers experienced it one product at a time.",
     },
 
     { type: "demo", text: "", demo: "flow-squiz" },
 
-    { type: "h2", text: "The obvious answer was the wrong one" },
+    { type: "h2", text: "Deciding what not to rebuild" },
     {
       type: "p",
-      text: "The tempting move was to pour all eight products into one codebase and start again. It would have taken years, frozen every roadmap, and delivered a lovely platform to customers who'd have left by the time it arrived.",
+      text: "The tempting answer was one codebase and a fresh start. It would have stopped every product roadmap for years, and customers would have waited that long to see anything change.",
     },
     {
       type: "p",
-      text: "So the brief got smaller and harder: **make eight products feel like one, without rebuilding any of them.** That meant designing the things every product shares, and leaving each product's own screens to the teams who knew them best.",
-    },
-
-    { type: "h2", text: "Start at the front door" },
-    {
-      type: "p",
-      text: "The first thing anyone touches is the sign-in, so that's where the platform started. Every product now opens the same way: the platform's name first, the product's name second.",
+      text: "So the line was drawn early. The products kept their own codebases, and their teams kept ownership of their own screens. I concentrated on the pieces every customer met every day: sign-in, navigation, the shared shell and the components underneath. **Make eight products feel like one, without rebuilding any of them.**",
     },
     shot(
       "matrix-signin.webp",
       "Matrix CMS sign-in page branded as part of the Squiz Digital Experience Platform.",
-      "Same door, whichever product you came for. Platform first, product second.",
+      "Every product signs in the same way: the platform's name first, the product's second.",
     ),
     {
       type: "p",
-      text: "Once you're in, one drawer holds the whole suite, and the dashboard shows which products your organisation has switched on and what changed recently. It sounds small. It's the first moment a customer can see everything they're paying for.",
+      text: "Once you're in, one drawer holds the whole suite, and the dashboard shows which products your organisation has switched on and what changed recently. For many customers it was the first time the thing they were paying for was visible in one place.",
     },
     shot(
       "platform-dashboard.webp",
       "Platform dashboard with the navigation drawer open, listing every product, next to active products and an activity log.",
-      "One drawer for the whole suite, and one place to see what's switched on.",
+      "One drawer for the suite, and one place to see what's switched on.",
     ),
 
     { type: "h2", text: "The first navigation followed the org chart" },
     {
       type: "p",
-      text: "Version one listed the products by name. It was tidy, logical and wrong. Card sorts and tree tests made that obvious quickly: people went looking for the job, not the product. Nobody wakes up wanting Funnelback. They want their search to work.",
+      text: "The first launchpad listed the products by name. It was tidy and logical, and organised exactly like our org chart, which in hindsight was the warning sign. Card sorts and tree tests showed people looking for the job, not the product. Nobody wakes up wanting Funnelback. They want their search to work.",
     },
     {
       type: "p",
-      text: "So every tile leads with what it does and puts the product underneath. **Content management first, Matrix CMS second.** One line on every tile, and it's the whole argument.",
+      text: "So every tile now leads with what it does and puts the product underneath: content management first, Matrix CMS second. The order holds from a wide admin monitor down to a phone, so the layout people learn on one screen still works on the next.",
     },
     shot(
       "launchpad-desktop.webp",
       "Redlined desktop launchpad with column widths, gutters and spacing annotated.",
-      "Desktop, specced for handover: three columns, 20px gutters, the job above the product name.",
+      "Desktop handover: three columns and 20px gutters, with the job above the product name.",
     ),
-    {
-      type: "p",
-      text: "It also had to survive every screen, from a wide admin monitor to a phone in a corridor, dropping from three columns to one without shuffling the order people had just learned.",
-    },
     shot(
       "launchpad-mobile.webp",
       "Redlined mobile launchpad, one column of product tiles followed by help and resources cards.",
-      "Mobile: the same tiles in the same order, one column, 16px margins.",
+      "Mobile: the same tiles in the same order, one column with 16px margins.",
     ),
 
-    { type: "h2", text: "Moving in, one product at a time" },
+    { type: "h2", text: "One migration, start to finish" },
     {
       type: "p",
-      text: "With the front door built, products could move in one at a time. The customer data platform was designed inside the shell, so it never had an accent to lose. Sources, segments and events all use the same cards, forms and page structure.",
+      text: "Products moved in one at a time. The customer data platform was the easy case: it was designed inside the shell from the start, so sources, segments and events simply used the shared cards, forms and page structure.",
     },
     shot(
       "cdp-sources-cards.webp",
       "Customer data platform sources page with third-party, default and custom sources as cards.",
-      "The customer data platform, designed inside the shell from day one.",
-    ),
-    shot(
-      "cdp-add-event.webp",
-      "Add event form mapping attributes from event data to a single customer view.",
-      "Mapping event data into a single customer view, with the same form components as everything else.",
+      "The customer data platform, designed inside the shell from the start.",
     ),
     {
       type: "p",
-      text: "Funnelback had more history. Setting up a data source used to mean knowing where every setting lived before you'd done anything useful. On the new system it became five steps, each one explaining itself in plain words, with a review before anything runs.",
+      text: "Funnelback was the hard one, with years of history. Setting up a data source meant knowing where every setting lived before you'd done anything useful. Rebuilt on the shared components, it became five steps, each explaining itself in plain words, with sensible defaults ticked and a review before anything runs. A five-minute test crawl comes first, so mistakes surface in minutes rather than the morning after.",
     },
     shot(
       "funnelback-step1-type.webp",
       "Funnelback create a data source wizard, step one: choose web, Facebook, Twitter, YouTube or an index.",
-      "Step one asks where your data lives, in plain words, before it asks anything technical.",
+      "Step one asks where your data lives before it asks anything technical.",
     ),
     shot(
       "funnelback-step3-config.webp",
       "Funnelback wizard step three: the site to crawl, paths to exclude and file types to include.",
-      "The sensible file types arrive already ticked, so a first crawl works without guesswork.",
+      "Common file types arrive already ticked, so a first crawl works without guesswork.",
     ),
     shot(
       "funnelback-step5-finish.webp",
       "Funnelback wizard final step offering a five-minute crawl, a custom crawl, a full crawl or later.",
-      "A five-minute test crawl first, so you find your mistakes in minutes, not the morning after.",
+      "A short test crawl first, before committing to a full one.",
     ),
 
     { type: "h2", text: "Consistency has to be the lazy option" },
     {
       type: "p",
-      text: "Here's the thing about design systems: teams don't adopt them because they're right. They adopt them because they're easier. So I built it as tokens and React components in Storybook, where using the system was quicker than copying it.",
+      text: "Teams don't adopt a design system because it's right. They adopt it because it's easier than not. So it lived as tokens and React components in Storybook, where using the system was quicker than copying it, and two new core colours, `dxp-lightblue` and `dxp-darkblue`, anchored every product. Components were named in tokens rather than hex codes, so one palette change moved the whole suite.",
     },
-    {
-      type: "p",
-      text: "Two new core colours, `dxp-lightblue` and `dxp-darkblue`, anchored every product. Every component was specced to the pixel and named in tokens, not hex codes, so engineers weren't guessing and one palette change moved the whole suite.",
-    },
-    shot(
-      "spec-header.webp",
-      "Header specification with colour tokens, 34px buttons, 12px spacing and hover states.",
-      "The shared header, down to 60% icon opacity at rest and 100% on hover.",
-    ),
     shot(
       "spec-tile-large.webp",
       "Product tile specification: 96px tall, 48px icon, 24px padding, token names on each element.",
-      "One tile, every value named: 96px tall, a 48px icon, 24px padding, tokens instead of hex codes.",
+      "One tile with every value named: 96px tall, a 48px icon, 24px padding.",
     ),
     shot(
-      "spec-resource-card.webp",
-      "Resource card specification with padding, spacing and colour tokens annotated.",
-      "Same tokens, different component. Change the palette once and every product follows.",
+      "spec-header.webp",
+      "Header specification with colour tokens, 34px buttons, 12px spacing and hover states.",
+      "The shared header, down to icon opacity at rest and on hover.",
     ),
     {
       type: "p",
-      text: "Accessibility went into the components, not onto a checklist. Focus states, contrast and keyboard behaviour were solved once, audited, and inherited by every team that used them. When a good share of your customers are governments, that isn't a nice-to-have.",
+      text: "Focus states, contrast and keyboard behaviour were built into the components, so teams inherited them rather than rediscovering them. With governments among the customers, that mattered.",
     },
 
-    { type: "h2", text: "Nobody said no. That was the risk." },
+    { type: "h2", text: "Clickable beats agreeable" },
     {
       type: "p",
-      text: "There wasn't a fight to win. Everyone agreed one platform was the right idea, which is exactly how good ideas quietly die. What moved it from agreement to action was a coded prototype of the shell, running on the real tokens: something you could click through, put in front of customers in usability sessions, and plan a sprint around. **Clickable beats agreeable.**",
+      text: "Nobody argued against one platform. Everyone agreed, which is how good ideas quietly stall. What turned agreement into sprints was a coded prototype of the shell, running on the real tokens and kept in GitHub, that people could click through, test with customers and plan work around.",
+    },
+    {
+      type: "p",
+      text: "From there it shipped in order: sign-in first, then the shell and launchpad, then products moving in one by one on the shared components. No roadmap had to stop for it.",
     },
 
-    { type: "callout", label: "Prototyped in GitHub, shipped small", text: "The shell started as a coded prototype on the real tokens, kept in GitHub, and that prototype is what turned agreement into action. It shipped a piece at a time: sign-in first, then the shell and launchpad, then products moved in one by one on shared tokens and components, without freezing a single roadmap." },
-
-    { type: "h2", text: "What I could point to" },
+    { type: "h2", text: "Where I left it" },
     {
       type: "p",
-      text: "The sign-in, shell, launchpad and design system shipped, and products moved in on shared tokens and components. I led the designers on it, and worked with product managers and each product's engineering team.",
+      text: "By January 2023, when I left, the sign-in, shell, launchpad and design system had shipped, the customer data platform had been built inside the shell and Funnelback's setup had moved onto the shared components. How far adoption went after that is a question for the people still there.",
     },
     {
       type: "p",
-      text: "The honest limit: I left in January 2023, so I can't tell you what adoption looked like after that. What I can point to is the foundation. One front door, one set of manners, one system underneath eight products.",
-    },
-    {
-      type: "p",
-      text: "**Credits:** product managers and engineering teams across the suite built the platform. I led design on the shell, launchpad and design system, led the designers on it, and built the tokens, components and prototypes.",
+      text: "**Credits:** product managers and engineering teams across the suite built the platform. I led design on the shell, launchpad and design system, led the designers working on it, and built the tokens, components and prototypes.",
     },
   ],
 };

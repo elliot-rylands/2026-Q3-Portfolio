@@ -4,7 +4,7 @@ export const site = {
   name: "Elliot Rylands",
   url: "https://elliotrylands.com",
   role: "Design engineer",
-  intro: "A design engineer with 16 years in product and growth, helping ideas find their feet and pushing them to production.",
+  intro: "A product designer and design engineer with 16 years in product and growth, helping ideas find their feet and pushing them to production.",
   current: {
     before: "Currently designing and building at ",
     link: { label: "Jane", href: "https://jane.app" },
@@ -36,12 +36,12 @@ export type Project = {
 
 // Order is the grid order: three across.
 export const projects: Project[] = [
-  { slug: "scan", title: "Scan.com", summary: "Referral, booking and centre worklist for imaging.", url: "https://scan.com", locked: false },
-  { slug: "squiz", title: "Squiz", summary: "Merging a suite of CMS products into one DXP.", url: "https://squiz.net", locked: false },
-  { slug: "uk-government", title: "UK Government", summary: "29 departments, one hub, £300m saved.", url: "https://www.gov.uk", locked: false },
-  { slug: "papa-johns", title: "Papa John's", summary: "Ordering flow and global design system.", url: "https://papajohns.com", locked: false },
-  { slug: "gctv", title: "GCTV", summary: "Onboarding and multi-race live viewing.", url: "https://gctv.gcglobalchampions.com", locked: false },
-  { slug: "titan-tennis", title: "Titan Tennis", summary: "Native app for a smart ball machine.", url: "https://titanballmachines.com/", locked: false },
+  { slug: "scan", title: "Scan.com", summary: "Patient booking and centre operations, joined around one referral.", url: "https://scan.com", locked: false },
+  { slug: "squiz", title: "Squiz", summary: "Eight products brought together without eight rebuilds.", url: "https://squiz.net", locked: false },
+  { slug: "uk-government", title: "UK Government", summary: "Self-service designed to make calling the slower option.", url: "https://www.gov.uk", locked: false },
+  { slug: "papa-johns", title: "Papa John's", summary: "The UK app ordering journey, from store timing to checkout.", url: "https://papajohns.com", locked: false },
+  { slug: "gctv", title: "GCTV", summary: "Following the competition, choosing a pass and getting back to the action.", url: "https://gctv.gcglobalchampions.com", locked: false },
+  { slug: "titan-tennis", title: "Titan Tennis", summary: "Turning ball-machine settings into drills players can see.", url: "https://titanballmachines.com/", locked: false },
 ];
 
 // "Also worked with" line. Leave url empty to show a name without a link.

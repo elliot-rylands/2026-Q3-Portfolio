@@ -22,7 +22,7 @@ export const aiCraftBar: Post = {
       { type: "h2", text: "Mediocrity was always here. It was just slow." },
       {
         type: "p",
-        text: "The panic goes like this: AI floods the industry with plausible-looking mediocrity, the bar drops, craft dies. I've been designing for seventeen years and I think this has it exactly backwards.",
+        text: "The panic goes like this: AI floods the industry with plausible-looking mediocrity, the bar drops, craft dies. I've been designing for sixteen years and I think this has it exactly backwards.",
       },
       {
         type: "p",
