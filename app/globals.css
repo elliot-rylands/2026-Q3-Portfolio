@@ -527,16 +527,19 @@ footer { margin-top: 104px; }
 .item-wide { grid-column: 1 / -1; min-height: 0; }
 .item-logo-jane svg { display: block; width: 19px; height: auto; color: #00c1ca; }
 
-/* Homepage project cards: a quiet container per study, the whole card clickable. */
+/* Homepage project cards: an outer frame with a small gap, then the card itself
+   (a bezel, like jakub.kr). The whole card is clickable. */
 .grid6 { gap: 24px 16px; }
-.grid6 .item { position: relative; padding: 16px 18px 18px; border: 1px solid #efefef; border-radius: 12px; background: #fafafa; transition: background-color .2s ease, border-color .2s ease; }
-.grid6 .item:hover { background: #f2f2f2; border-color: #e6e6e6; }
-.grid6 .item-title a:first-of-type::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.grid6 .item { position: relative; padding: 4px; border: 1px solid #ececec; border-radius: 16px; background: transparent; min-height: 0; display: flex; }
+.grid6 .item-inner { flex: 1; padding: 14px 16px 16px; border: 1px solid #efefef; border-radius: 12px; background: #fafafa; transition: background-color .2s ease, border-color .2s ease; }
+.grid6 .item:hover .item-inner { background: #f2f2f2; border-color: #e6e6e6; }
+.grid6 .item-title a:first-of-type::after { content: ""; position: absolute; inset: 0; border-radius: 16px; }
 .grid6 .item .lock-link { position: relative; z-index: 1; }
 .grid6 .item:has(a:focus-visible) { outline: 2px solid var(--strong); outline-offset: 2px; }
 .grid6 .item p { margin: 0; }
 @media (prefers-color-scheme: dark) {
-  .grid6 .item { background: #161616; border-color: #202020; }
-  .grid6 .item:hover { background: #1c1c1c; border-color: #2a2a2a; }
+  .grid6 .item { border-color: #1e1e1e; }
+  .grid6 .item-inner { background: #161616; border-color: #222; }
+  .grid6 .item:hover .item-inner { background: #1c1c1c; border-color: #2a2a2a; }
 }
-@media (max-width: 560px) { .grid6 { grid-template-columns: 1fr; gap: 10px; } .grid6 .item { padding: 14px 16px; min-height: 0; } }
+@media (max-width: 560px) { .grid6 { grid-template-columns: 1fr; gap: 12px; } .grid6 .item-inner { padding: 12px 14px 14px; } }

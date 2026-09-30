@@ -74,6 +74,7 @@ export default function Home() {
           <div className="grid6">
             {[...projects.filter((p) => !p.current), ...projects.filter((p) => p.current)].map((p) => (
               <div className={p.current ? "item item-wide" : "item"} key={p.slug} data-reveal>
+                <div className="item-inner">
                 <div className="item-title">
                   <ProjectLogo slug={p.slug} />
                   {getStudy(p.slug) ? (
@@ -89,6 +90,7 @@ export default function Home() {
                   {p.locked ? <LockLink slug={p.slug} title={p.title} locked={p.locked} /> : null}
                 </div>
                 <p>{p.summary}</p>
+                </div>
               </div>
             ))}
           </div>
