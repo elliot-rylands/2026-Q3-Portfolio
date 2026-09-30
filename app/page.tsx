@@ -72,8 +72,12 @@ export default function Home() {
 
         <div className="grid-wrap">
           <div className="grid6">
-            {[...projects.filter((p) => !p.current), ...projects.filter((p) => p.current)].map((p) => (
-              <div className={p.current ? "item item-wide" : "item"} key={p.slug} data-reveal>
+            {[...projects.filter((p) => !p.current), ...projects.filter((p) => p.current)].map((p, i, all) => {
+              // Two cards left on the last row share it evenly rather than leaving a gap.
+              const past = all.filter((x) => !x.current).length;
+              const pair = !p.current && past % 3 === 2 && i >= past - 2;
+              return (
+              <div className={p.current ? "item item-wide" : pair ? "item item-pair" : "item"} key={p.slug} data-reveal>
                 <div className="item-inner">
                 <div className="item-title">
                   <ProjectLogo slug={p.slug} />
@@ -92,7 +96,8 @@ export default function Home() {
                 <p>{p.summary}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
         <div className="note">

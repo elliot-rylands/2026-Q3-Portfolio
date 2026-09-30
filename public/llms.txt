@@ -9,7 +9,6 @@
 - UK Government: a self-service hub serving 29 departments.
 - Papa John's: ordering flow and global design system.
 - GCTV: onboarding and multi-race live viewing for a streaming platform.
-- Titan Tennis: native app for a smart tennis ball machine.
 - Also: Coca-Cola, Santander, William Hill, Suzuki and SnipIt.
 
 ## Words

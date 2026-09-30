@@ -542,6 +542,13 @@ footer { margin-top: 104px; }
   .grid6 .item-inner { background: #161616; border-color: #222; }
   .grid6 .item:hover .item-inner { background: #1c1c1c; border-color: #2a2a2a; }
 }
+/* Six narrow tracks: cards take two, so a last row of two can take three each. */
+@media (min-width: 561px) {
+  .grid6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .grid6 .item { grid-column: span 2; }
+  .grid6 .item-pair { grid-column: span 3; }
+  .grid6 .item-wide { grid-column: 1 / -1; }
+}
 @media (max-width: 560px) { .grid6 { grid-template-columns: 1fr; gap: 12px; } .grid6 .item-inner { padding: 12px 14px 14px; } }
 
 /* Words list: page icon (a framed sheet with three lines) and a soft hover pill. */

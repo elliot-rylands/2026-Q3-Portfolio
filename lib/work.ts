@@ -7,7 +7,6 @@ import { squiz } from "./work/squiz";
 import { papaJohns } from "./work/papa-johns";
 import { ukGovernment } from "./work/uk-government";
 import { gctv } from "./work/gctv";
-import { titanTennis } from "./work/titan-tennis";
 
 export type Stat = { value: string; label: string };
 
@@ -24,7 +23,7 @@ export type CaseStudy = {
   sources?: { label: string; href: string }[];
 };
 
-export const studies: CaseStudy[] = [scan, squiz, ukGovernment, papaJohns, gctv, titanTennis];
+export const studies: CaseStudy[] = [scan, squiz, ukGovernment, papaJohns, gctv];
 
 export function getStudy(slug: string) {
   return studies.find((s) => s.slug === slug);

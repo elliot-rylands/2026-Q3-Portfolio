@@ -29,7 +29,6 @@
     "/work/papa-johns",
     "/work/scan",
     "/work/squiz",
-    "/work/titan-tennis",
     "/work/uk-government"
   ],
   "locked_on_purpose": [
@@ -82,7 +81,7 @@
       "check": "Case studies readable as text",
       "possible": 6,
       "earned": 6.0,
-      "detail": "6 of 6 readable; too short: []; locked on purpose: ['/work/jane']",
+      "detail": "5 of 5 readable; too short: []; locked on purpose: ['/work/jane']",
       "fix": ""
     },
     {
@@ -106,7 +105,7 @@
       "check": "Previous employers named on the home page",
       "possible": 4,
       "earned": 4,
-      "detail": "7 projects linked",
+      "detail": "6 projects linked",
       "fix": ""
     },
     {
@@ -138,7 +137,7 @@
       "check": "Every image has alt text (empty only if decorative)",
       "possible": 4,
       "earned": 4.0,
-      "detail": "75/75 have alt",
+      "detail": "65/65 have alt",
       "fix": ""
     },
     {
