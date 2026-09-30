@@ -20,15 +20,8 @@ export const scan: CaseStudy = {
     { value: "9", label: "order statuses, each on an SLA clock" },
     { value: "1", label: "token system behind every surface" },
   ],
-  scale: {
-    heading: "Where it went",
-    note: "Public figures from Scan.com's Series C, August 2026, after I left. The scale the platform reached, not a result I claim.",
-    stats: [
-      { value: "900,000+", label: "patients through the network" },
-      { value: "$165M", label: "annualised revenue run rate, doubled in a year" },
-      { value: "$220M", label: "Series C raised in equity and debt" },
-    ],
-  },
+  notice:
+    "Scan.com's product is confidential. Names, addresses, prices and numbers in these screens are placeholders or blurred, and no real patient, partner or business data is shown.",
   body: [
     {
       type: "image",
@@ -166,18 +159,15 @@ export const scan: CaseStudy = {
     { type: "h2", text: "What I could point to" },
     {
       type: "p",
-      text: "The referral journey, booking flow, mobile search and centre worklist shipped, and were piloted with imaging centres. The product was part of what investors saw when Scan.com raised its Series B.",
+      text: "The referral journey, booking flow, mobile search and centre worklist shipped, and were piloted with imaging centres. It became part of how Scan.com told its story to investors.",
     },
     {
       type: "p",
-      text: "The honest limit: I left for Canada in April 2025, before I could see long-term results myself. Scan.com has since grown into a US imaging network, and the product has moved on from what I designed. The foundation, from zero, was mine.",
+      text: "The honest limit: I left for Canada in April 2025, before I could see long-term results myself. The product has moved on since, as products should. The foundation, from zero, was mine.",
     },
     {
       type: "p",
       text: "**Credits:** Scan.com's founders set the direction and took the product to investors. The engineering team built it. I designed the referral journey, booking flow, mobile search, centre worklist and token system, and built the prototypes.",
     },
-  ],
-  sources: [
-    { label: "Scan.com Series C announcement, Aug 2026", href: "https://scan.com/media/press-releases/scan-com-series-c-2026" },
   ],
 };

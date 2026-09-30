@@ -96,7 +96,17 @@ export default async function WorkPage({ params }: Props) {
             <Stats stats={study.work} />
           </div>
 
-          <div className="case-body" data-animate style={s(6)}>
+          {study.notice ? (
+            <aside className="case-alert" role="note" data-animate style={s(6)}>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <circle cx="8" cy="8" r="6.25" />
+                <path d="M8 7.25v3.5M8 5.2v.05" strokeLinecap="round" />
+              </svg>
+              <p>{study.notice}</p>
+            </aside>
+          ) : null}
+
+          <div className="case-body" data-animate style={s(7)}>
             <PostBody blocks={study.body} />
           </div>
 

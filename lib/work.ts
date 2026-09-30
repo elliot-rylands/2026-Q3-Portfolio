@@ -13,6 +13,7 @@ export type CaseStudy = {
   meta: { label: string; value: string }[];
   work: Stat[]; // what I did, counted from the work itself
   scale?: { heading: string; note: string; stats: Stat[] }; // company context, never claimed as my result
+  notice?: string; // shown in an alert box above the story
   body: PostBlock[];
   sources?: { label: string; href: string }[];
 };
