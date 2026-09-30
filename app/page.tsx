@@ -13,6 +13,28 @@ import { posts } from "@/lib/posts";
 import { clients, projects, site } from "@/lib/site";
 import { getStudy } from "@/lib/work";
 
+// Small client marks beside each project. Sizes are the display size; the files are 3x.
+const logos: Record<string, { w: number; h: number; dark?: boolean }> = {
+  scan: { w: 88, h: 14, dark: true },
+  squiz: { w: 20, h: 20 },
+  "uk-government": { w: 21, h: 20, dark: true },
+  "papa-johns": { w: 67, h: 13 },
+  gctv: { w: 49, h: 15, dark: true },
+  "titan-tennis": { w: 30, h: 24, dark: true },
+};
+
+function ProjectLogo({ slug }: { slug: string }) {
+  const l = logos[slug];
+  if (!l) return null;
+  return (
+    <picture className="item-logo">
+      {l.dark ? <source srcSet={`/logos/${slug}-dark.png`} media="(prefers-color-scheme: dark)" /> : null}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`/logos/${slug}.png`} alt="" width={l.w} height={l.h} loading="lazy" decoding="async" />
+    </picture>
+  );
+}
+
 export default function Home() {
   return (
     <main className="page">
@@ -46,6 +68,7 @@ export default function Home() {
           <div className="grid6">
             {projects.map((p) => (
               <div className="item" key={p.slug} data-reveal>
+                <ProjectLogo slug={p.slug} />
                 <div className="item-title">
                   {getStudy(p.slug) ? (
                     <CaseTitleLink slug={p.slug} title={p.title} locked={p.locked}>
