@@ -565,3 +565,6 @@ footer { margin-top: 104px; }
   .post-icon-page { border-color: #2c2c2c; background: #1d1d1d; }
   .post-icon-page span { background: #353535; }
 }
+
+/* "Also worked with" sits directly under the project cards. */
+.grid-wrap + .note { margin-top: 14px; }
