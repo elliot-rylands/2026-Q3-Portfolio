@@ -515,7 +515,7 @@ footer { margin-top: 104px; }
 .pb-videos-vertical .pb-video { aspect-ratio: 9 / 16; }
 .pb-clip video { display: block; width: 100%; max-width: 360px; height: auto; margin-inline: auto; border-radius: 14px; background: #000; }
 @media (max-width: 560px) { .pb-videos:not(.pb-videos-vertical) .pb-video-row { grid-auto-flow: row; } }
-.pb-clip { background: #000; border-radius: 14px; padding: 20px 0; }
+.pb-clip-stage { background: #000; border-radius: 14px; padding: 20px 0; }
 .post-body .pb-quote { margin: 14px 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent); gap: 10px; }
 .post-body .pb-quote blockquote { margin: 0; }
 .post-body .pb-quote figcaption a { color: var(--low); }

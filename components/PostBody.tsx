@@ -146,7 +146,9 @@ export function PostBody({ blocks }: { blocks: PostBlock[] }) {
             if (b.clip) {
               return (
                 <figure key={i} className="pb-clip">
-                  <video src={b.clip.src} poster={b.clip.poster} width={b.clip.width} height={b.clip.height} aria-label={b.clip.label} autoPlay muted loop playsInline controls preload="metadata" />
+                  <div className="pb-clip-stage">
+                    <video src={b.clip.src} poster={b.clip.poster} width={b.clip.width} height={b.clip.height} aria-label={b.clip.label} autoPlay muted loop playsInline controls preload="metadata" />
+                  </div>
                   {b.text ? <figcaption>{b.text}</figcaption> : null}
                 </figure>
               );
