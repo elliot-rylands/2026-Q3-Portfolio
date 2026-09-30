@@ -40,9 +40,8 @@ const personJsonLd = {
   email: site.links.email,
 };
 
-// Google Analytics 4. Set NEXT_PUBLIC_GA_ID (e.g. G-XXXXXXXXXX) in Vercel to switch
-// it on; without it, no tracking script loads at all.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+// Google Analytics 4 (elliotrylands.com stream). NEXT_PUBLIC_GA_ID in Vercel overrides it.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-4RG566TMBN";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
