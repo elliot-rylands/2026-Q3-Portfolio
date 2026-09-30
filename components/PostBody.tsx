@@ -125,6 +125,34 @@ export function PostBody({ blocks }: { blocks: PostBlock[] }) {
                 {b.image.caption ? <figcaption>{b.image.caption}</figcaption> : null}
               </figure>
             ) : null;
+          case "video":
+            if (b.clip) {
+              return (
+                <figure key={i} className="pb-clip">
+                  <video src={b.clip.src} poster={b.clip.poster} width={b.clip.width} height={b.clip.height} aria-label={b.clip.label} autoPlay muted loop playsInline controls preload="metadata" />
+                  {b.text ? <figcaption>{b.text}</figcaption> : null}
+                </figure>
+              );
+            }
+            return b.videos?.length ? (
+              <figure key={i} className={b.vertical ? "pb-videos pb-videos-vertical" : "pb-videos"}>
+                <div className="pb-video-row">
+                  {b.videos.map((v) => (
+                    <div key={v.id} className="pb-video">
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/${v.id}?rel=0${v.start ? `&start=${v.start}` : ""}`}
+                        title={v.title}
+                        loading="lazy"
+                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                        allowFullScreen
+                        referrerPolicy="strict-origin-when-cross-origin"
+                      />
+                    </div>
+                  ))}
+                </div>
+                {b.text ? <figcaption>{b.text}</figcaption> : null}
+              </figure>
+            ) : null;
           case "demo":
             return (
               <div key={i} className="post-demo">

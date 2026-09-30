@@ -7,7 +7,7 @@ import { theGapGetsSmaller } from "./posts/the-gap-gets-smaller";
 export type PostImage = { src: string; alt: string; caption?: string; width?: number; height?: number };
 
 export type PostBlock = {
-  type: "p" | "h2" | "code" | "demo" | "image" | "ul" | "quote" | "repo" | "stats" | "compare" | "timeline" | "callout";
+  type: "p" | "h2" | "code" | "demo" | "image" | "ul" | "quote" | "repo" | "stats" | "compare" | "timeline" | "callout" | "video";
   text: string;
   lang?: string;
   demo?: string;
@@ -19,6 +19,9 @@ export type PostBlock = {
   steps?: { when: string; title: string; text: string }[];
   label?: string; // callout eyebrow, e.g. "The strategic call"
   cite?: { name: string; role?: string; href?: string }; // quote attribution
+  videos?: { id: string; title: string; start?: number }[]; // YouTube embeds, side by side
+  vertical?: boolean; // Shorts: narrow 9:16 players
+  clip?: { src: string; poster: string; width: number; height: number; label: string }; // silent looping screen recording
 };
 
 export type Post = {
