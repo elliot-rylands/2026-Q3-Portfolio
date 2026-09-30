@@ -4,6 +4,7 @@
 import type { PostBlock } from "./posts";
 import { scan } from "./work/scan";
 import { squiz } from "./work/squiz";
+import { papaJohns } from "./work/papa-johns";
 import { ukGovernment } from "./work/uk-government";
 
 export type Stat = { value: string; label: string };
@@ -21,7 +22,7 @@ export type CaseStudy = {
   sources?: { label: string; href: string }[];
 };
 
-export const studies: CaseStudy[] = [scan, squiz, ukGovernment];
+export const studies: CaseStudy[] = [scan, squiz, ukGovernment, papaJohns];
 
 export function getStudy(slug: string) {
   return studies.find((s) => s.slug === slug);
