@@ -60,7 +60,6 @@ export default function Home() {
         <div className="prose section">
           <div className="label-row" data-reveal>
             <h2 className="label">Previously</h2>
-            <span className="label-aside">More case studies coming soon</span>
           </div>
         </div>
 
