@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PostList } from "@/components/PostList";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JaneLogo } from "@/components/JaneLogo";
+import { NowCard } from "@/components/NowCard";
 import { PhotoStrip } from "@/components/photography/PhotoStrip";
 import { CaseTitleLink } from "@/components/unlock/CaseTitleLink";
 import { LockLink } from "@/components/unlock/LockLink";
@@ -57,6 +58,10 @@ export default function Home() {
           </p>
         </div>
 
+        {projects.filter((p) => p.current).map((p) => (
+          <NowCard key={p.slug} slug={p.slug} title={p.title} locked={p.locked} />
+        ))}
+
         <div className="prose section">
           <div className="label-row" data-reveal>
             <h2 className="label">Previously</h2>
@@ -65,7 +70,7 @@ export default function Home() {
 
         <div className="grid-wrap">
           <div className="grid6">
-            {projects.map((p) => (
+            {projects.filter((p) => !p.current).map((p) => (
               <div className="item" key={p.slug} data-reveal>
                 <div className="item-title">
                   <ProjectLogo slug={p.slug} />
@@ -102,7 +107,7 @@ export default function Home() {
               </span>
             ))}
           </p>
-          {projects.some((p) => p.locked) ? (
+          {projects.some((p) => p.locked && !p.current) ? (
             <p data-reveal>
               Some case studies are password protected. <a href={site.links.accessEmail}>Email me</a> for access.
             </p>
