@@ -57,7 +57,7 @@ export default function Home() {
                       <span className="sr-only"> (opens in a new tab)</span>
                     </a>
                   )}
-                  <LockLink slug={p.slug} title={p.title} locked={p.locked} />
+                  {p.locked ? <LockLink slug={p.slug} title={p.title} locked={p.locked} /> : null}
                 </div>
                 <p>{p.summary}</p>
               </div>
