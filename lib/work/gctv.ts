@@ -4,6 +4,7 @@ import type { CaseStudy } from "../work";
 // Screens cropped out of their mockups onto one dark backdrop, each cropped to
 // the part its section is about.
 const sizes: Record<string, [number, number]> = {
+  "event-hub.webp": [1536, 1186],
   "event-strip.webp": [2200, 209],
   "favourites.webp": [2200, 1689],
   "form-errors.webp": [1528, 844],
@@ -14,6 +15,9 @@ const sizes: Record<string, [number, number]> = {
   "passes-v2-mobile.webp": [1204, 1044],
   "passes-v2.webp": [1384, 834],
   "payment.webp": [1218, 904],
+  "results.webp": [1536, 756],
+  "schedule-mobile.webp": [1500, 1035],
+  "schedule.webp": [1536, 1036],
   "shipped.webp": [2092, 1044],
   "sign-up.webp": [1868, 1244],
   "verify.webp": [1502, 1144],
@@ -27,7 +31,6 @@ const shot = (file: string, alt: string, caption: string): PostBlock => ({
 
 const aim = (metric: string, text: string): PostBlock => ({ type: "callout", label: `Built to move: ${metric}`, text });
 
-// TODO: add the concurrent multi-race view in "Every ring, one strip" when the screen arrives.
 export const gctv: CaseStudy = {
   slug: "gctv",
   title: "Turning show jumping fans into subscribers, on every screen",
@@ -83,16 +86,53 @@ export const gctv: CaseStudy = {
       "Event strip showing a live event, a replay and a current programme side by side.",
       "Live, replay and current, side by side on every page.",
     ),
+    { type: "h2", text: "Watching several races at once" },
     {
       type: "p",
-      text: "Inside an event, the useful things sit under the video: the current competition, height and prize money, the start time, the course plan and the start list. A language picker sits next to **Listen**, which drops the pictures and keeps the commentary, for fans following on the move.",
+      text: "The event page is the hub for the whole weekend. Whatever is live sits at the top, with **Watch**, **Listen** and the **Time Schedule** one tap away, and the rest of the tour lines up underneath: the previous event, the next one and what's coming.",
+    },
+    shot(
+      "event-hub.webp",
+      "Event page: a live competition hero with Watch, Listen and Time Schedule, a row of featured streams, and previous, next and upcoming events.",
+      "The event hub. Live first, then everything around it.",
+    ),
+    {
+      type: "p",
+      text: "The Time Schedule is where the brief gets answered. At a big event, classes run across rings and two competitions share the weekend, so every class is one row. Each tour has its own colour: blue for the Longines Global Champions Tour, red for the Global Champions League. You can filter by day and by class level, and the live class is flagged. Every row carries the same four actions: **course plan, remind me, results, watch**. Nobody has to hunt for the next round, or miss it.",
+    },
+    shot(
+      "schedule.webp",
+      "Time Schedule on web: filters for day and class level, and six class rows colour-coded by tour, one marked live, each with course plan, reminder, results and watch buttons.",
+      "One row per class, one colour per tour, the same four actions on every row.",
+    ),
+    {
+      type: "p",
+      text: "On mobile the rows become cards and the filters become two dropdowns, so the same decision fits under a thumb.",
+    },
+    shot(
+      "schedule-mobile.webp",
+      "Mobile Time Schedule with All Days and class level dropdowns, and a live class card with course plan, reminder, results and watch buttons.",
+      "Same schedule, one thumb.",
+    ),
+    {
+      type: "p",
+      text: "When a class ends, the results take over. League teams get a podium, and every ride in the table has its own play button for each round, so a fan who was watching another ring can go straight to the round they missed.",
+    },
+    shot(
+      "results.webp",
+      "Team results: a podium of three league teams, then a results table where each rider's round A and round B has its own play button.",
+      "Every ride in the results is one tap from its replay.",
+    ),
+    {
+      type: "p",
+      text: "And inside a live class, the useful things sit under the video: the current competition, height and prize money, the start time and the course plan. A language picker sits next to **Listen**, which drops the pictures and keeps the commentary, for fans following on the move.",
     },
     shot(
       "live-event.webp",
       "Mobile live event page with the video, an English language picker, a Listen button and the current competition details.",
       "The live event on mobile. Listen keeps the commentary going when you can't watch.",
     ),
-    aim("upgrades", "Following several rings at once is exactly what a paid pass sells. The easier it is to feel, the easier the upgrade is to justify."),
+    aim("upgrades", "Following several rings at once is exactly what a paid pass sells. The easier it is to feel, from the schedule to the replay of a round you missed, the easier the upgrade is to justify."),
 
     { type: "h2", text: "A front door that says free first" },
     {
@@ -204,7 +244,7 @@ export const gctv: CaseStudy = {
     { type: "h2", text: "What I could point to" },
     {
       type: "p",
-      text: "Sign-up, passes, payment, onboarding and live viewing designed across web, mobile and TV, and shipped on the live site. Two versions of the pass picker, with the second replacing the first. A sponsor placement people want to open.",
+      text: "Sign-up, passes, payment, onboarding, the event hub, the time schedule and results designed across web, mobile and TV, and shipped on the live site. Two versions of the pass picker, with the second replacing the first. A sponsor placement people want to open.",
     },
     {
       type: "p",
@@ -214,5 +254,19 @@ export const gctv: CaseStudy = {
       type: "p",
       text: "**Credits:** the Flipside Group team, and Global Champions' GCTV product and engineering teams. I designed the sign-up, subscription and onboarding journeys and the live viewing experience.",
     },
+  ],
+  scale: {
+    heading: "GCTV in context",
+    note: "Global Champions' own published figures, for a sense of scale. They describe the product and the tour, not results of my work.",
+    stats: [
+      { value: "600+", label: "hours of live streaming, at launch" },
+      { value: "4", label: "commentary languages for the headline classes" },
+      { value: "2021", label: "GCTV launched, the start of Global Champions' “digital transformation journey”" },
+      { value: "16", label: "tour events in the 2023 season" },
+    ],
+  },
+  sources: [
+    { label: "GCTV launch", href: "https://www.gcglobalchampions.com/en-us/news/global-champions-launches-new-exclusive-streaming-service" },
+    { label: "2023 calendar", href: "https://www.gcglobalchampions.com/en-us/news/longines-global-champions-tour-announces-16-stage-calendar-for-2023" },
   ],
 };
