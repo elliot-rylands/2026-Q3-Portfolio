@@ -7,7 +7,7 @@ const img = (file: string) => `/work/scan/media/${file}`;
 export const scan: CaseStudy = {
   slug: "scan",
   title: "Taking imaging bookings out of the inbox",
-  dek: "As Scan.com's first design hire, I turned an email-and-phone booking process into a referral-led booking flow for patients and one worklist for imaging centres.",
+  dek: "As Scan.com's first design hire, I reimagined two portals, one for patients and one for imaging centres, to help people with serious symptoms facing long NHS waiting lists get scanned and seen sooner.",
   meta: [
     { label: "Role", value: "Staff Product Designer, first design hire" },
     { label: "When", value: "Aug 2023 to Apr 2025, remote" },
