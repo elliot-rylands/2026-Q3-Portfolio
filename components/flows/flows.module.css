@@ -50,8 +50,11 @@
 .ordered li:not(:first-child) { counter-increment: ship; }
 .ordered li:not(:first-child)::after { content: counter(ship); order: -1; font-family: var(--mono); font-size: 10px; color: var(--f-dim); }
 
-/* Scan.com: soft clinical cards, pink. */
-.scan { --f-accent: #d9477a; --f-on-accent: #fff; --f-panel: color-mix(in srgb, #f5a3c0 14%, var(--bg)); --f-line: color-mix(in srgb, #f5a3c0 45%, var(--bg)); --f-radius: 22px; }
+/* Scan.com: clinical cards in Scan.com's dark green, AA contrast in both themes. */
+.scan { --f-accent: #0d5a43; --f-on-accent: #fff; --f-panel: color-mix(in srgb, #0d5a43 7%, var(--bg)); --f-line: color-mix(in srgb, #0d5a43 28%, var(--bg)); --f-dim: var(--dim); --f-radius: 22px; }
+@media (prefers-color-scheme: dark) {
+  .scan { --f-accent: #5fd0a4; --f-on-accent: #0b1f18; --f-panel: color-mix(in srgb, #5fd0a4 9%, var(--bg)); --f-line: color-mix(in srgb, #5fd0a4 30%, var(--bg)); }
+}
 
 /* Squiz: navy blueprint, mono, square corners. */
 .squiz {
