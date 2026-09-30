@@ -75,12 +75,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 /* Previously: a fixed grid, three across, two on phones */
 .grid-wrap { margin-top: 20px; }
-.grid6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 32px; }
-@media (max-width: 560px) { .grid6 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; } }
+.grid6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 32px; }
+@media (max-width: 560px) { .grid6 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; } }
 
 .items { display: flex; flex-direction: column; gap: 12px; }
 .item { min-height: 84px; }
-.item-title { display: flex; align-items: center; gap: 6px; color: var(--strong); }
+.item-title { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; color: var(--strong); }
 .item-title a { color: var(--strong); }
 .item p { color: var(--dim); }
 .item-logo { display: inline-flex; align-items: center; flex: none; margin-right: 4px; }
@@ -223,7 +223,7 @@ footer { margin-top: 136px; }
 .prose h1 { margin-bottom: 24px; }
 .section { margin-top: 68px; }
 .grid6 { row-gap: 26px; }
-.note { margin-top: 22px; }
+.note { margin-top: 36px; }
 footer { margin-top: 104px; }
 @media (max-width: 560px) {
   .page { padding-block: 80px 48px; }
