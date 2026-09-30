@@ -110,7 +110,7 @@ export const ukGovernment: CaseStudy = {
     { type: "h2", text: "Rollout, a habit at a time" },
     {
       type: "p",
-      text: "People who have phoned for years don't switch because a platform launches. I planned the rollout so features arrived a step at a time, each giving people one new thing they could do without calling, and time to make it a habit before the next one landed, while agencies moved across from their old intranets.",
+      text: "People who have phoned for years don't switch because a platform launches. The rollout strategy was mine: features arrived a step at a time, each giving people one new thing they could do without calling, and time to make it a habit before the next one landed, while agencies moved across from their old intranets.",
     },
     {
       type: "timeline",

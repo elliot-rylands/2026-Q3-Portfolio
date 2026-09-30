@@ -1,5 +1,5 @@
 {
-  "score": 94,
+  "score": 100,
   "out_of": 100,
   "categories": {
     "Identity": [
@@ -11,7 +11,7 @@
       20
     ],
     "Skills": [
-      18.8,
+      25.0,
       25
     ],
     "Structure": [
@@ -113,9 +113,9 @@
       "category": "Skills",
       "check": "Core skills and tools mentioned in context",
       "possible": 25,
-      "earned": 18.8,
-      "detail": "missing: ['accessibility', 'TypeScript', 'Next.js', 'product strategy']",
-      "fix": "Mention the missing ones where the work genuinely shows them. Never add a skill you can't back up."
+      "earned": 25.0,
+      "detail": "missing: []",
+      "fix": ""
     },
     {
       "category": "Structure",

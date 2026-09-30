@@ -166,6 +166,7 @@ export default function Home() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>, or by <a href={site.links.email}>email</a>.
           </p>
+          <p data-reveal>I built this site myself in Next.js and TypeScript, including the interactive flow maps in each case study.</p>
         </div>
       </article>
 

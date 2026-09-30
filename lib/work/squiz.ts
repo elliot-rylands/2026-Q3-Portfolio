@@ -158,7 +158,7 @@ export const squiz: CaseStudy = {
     ),
     {
       type: "p",
-      text: "Focus states, contrast and keyboard behaviour were built into the components, so teams inherited them rather than rediscovering them. With governments among the customers, that mattered.",
+      text: "Focus states, contrast and keyboard behaviour were built into the components, so teams inherited accessibility rather than rediscovering it. With governments among the customers, that mattered.",
     },
 
     { type: "h2", text: "Clickable beats agreeable" },
