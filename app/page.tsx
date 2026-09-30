@@ -3,7 +3,6 @@ import Link from "next/link";
 import { PostList } from "@/components/PostList";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JaneLogo } from "@/components/JaneLogo";
-import { NowCard } from "@/components/NowCard";
 import { PhotoStrip } from "@/components/photography/PhotoStrip";
 import { CaseTitleLink } from "@/components/unlock/CaseTitleLink";
 import { LockLink } from "@/components/unlock/LockLink";
@@ -25,6 +24,13 @@ const logos: Record<string, { w: number; h: number; dark?: boolean }> = {
 };
 
 function ProjectLogo({ slug }: { slug: string }) {
+  if (slug === "jane") {
+    return (
+      <span className="item-logo item-logo-jane">
+        <JaneLogo />
+      </span>
+    );
+  }
   const l = logos[slug];
   if (!l) return null;
   return (
@@ -58,10 +64,6 @@ export default function Home() {
           </p>
         </div>
 
-        {projects.filter((p) => p.current).map((p) => (
-          <NowCard key={p.slug} slug={p.slug} title={p.title} locked={p.locked} />
-        ))}
-
         <div className="prose section">
           <div className="label-row" data-reveal>
             <h2 className="label">Previously</h2>
@@ -70,8 +72,8 @@ export default function Home() {
 
         <div className="grid-wrap">
           <div className="grid6">
-            {projects.filter((p) => !p.current).map((p) => (
-              <div className="item" key={p.slug} data-reveal>
+            {[...projects.filter((p) => !p.current), ...projects.filter((p) => p.current)].map((p) => (
+              <div className={p.current ? "item item-wide" : "item"} key={p.slug} data-reveal>
                 <div className="item-title">
                   <ProjectLogo slug={p.slug} />
                   {getStudy(p.slug) ? (

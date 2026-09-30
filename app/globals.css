@@ -524,17 +524,5 @@ footer { margin-top: 104px; }
   .pb-stats dt { font-size: 28px; line-height: 30px; }
 }
 
-/* "Now" card: current, confidential work spanning the grid. */
-.now-card { position: relative; overflow: hidden; margin: 28px 0 8px; padding: 22px 24px; border: 1px solid var(--underline); border-radius: 18px; background: var(--field); isolation: isolate; }
-.now-redacted { position: absolute; inset: 22px 28px 22px 60%; display: flex; flex-direction: column; justify-content: center; gap: 10px; z-index: -1; }
-.now-redacted span { display: block; height: 9px; border-radius: 5px; background: color-mix(in srgb, var(--strong) 9%, transparent); }
-.now-mark { position: absolute; right: -26px; bottom: -34px; width: 190px; height: auto; color: var(--strong); opacity: 0.05; z-index: -1; transform: rotate(-8deg); }
-.now-copy { max-width: 54%; }
-@media (max-width: 560px) { .now-copy { max-width: none; } }
-.now-kicker { margin: 0 0 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--low); }
-.now-title { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; font-size: inherit; font-weight: inherit; color: var(--strong); }
-.now-lock { width: 14px; height: 14px; color: var(--icon); }
-.now-copy p { margin: 0; color: var(--dim); }
-.now-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px !important; }
-.now-actions a { color: var(--strong); }
-@media (max-width: 560px) { .now-redacted { display: none; } .now-card { padding: 18px; } }
+.item-wide { grid-column: 1 / -1; min-height: 0; }
+.item-logo-jane svg { display: block; width: 19px; height: auto; color: #00c1ca; }
