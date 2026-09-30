@@ -36,7 +36,7 @@ export type Project = {
 
 // Order is the grid order: three across.
 export const projects: Project[] = [
-  { slug: "scan", title: "Scan.com", summary: "Booking and charting portals for imaging.", url: "https://scan.com", locked: true },
+  { slug: "scan", title: "Scan.com", summary: "Referral, booking and centre worklist for imaging.", url: "https://scan.com", locked: true },
   { slug: "squiz", title: "Squiz", summary: "Merging a suite of CMS products into one DXP.", url: "https://squiz.net", locked: true },
   { slug: "uk-government", title: "UK Government", summary: "29 departments, one hub, £300m saved.", url: "https://www.gov.uk", locked: true },
   { slug: "papa-johns", title: "Papa John's", summary: "Ordering flow and global design system.", url: "https://papajohns.com", locked: true },

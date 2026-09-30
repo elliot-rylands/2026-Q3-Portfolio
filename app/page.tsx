@@ -4,12 +4,14 @@ import { PostList } from "@/components/PostList";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JaneLogo } from "@/components/JaneLogo";
 import { PhotoStrip } from "@/components/photography/PhotoStrip";
+import { CaseTitleLink } from "@/components/unlock/CaseTitleLink";
 import { LockLink } from "@/components/unlock/LockLink";
 import { UnlockDialog } from "@/components/unlock/UnlockDialog";
 import { SiteFooter } from "@/components/SiteFooter";
 import { photos } from "@/lib/photos";
 import { posts } from "@/lib/posts";
 import { clients, projects, site } from "@/lib/site";
+import { getStudy } from "@/lib/work";
 
 export default function Home() {
   return (
@@ -36,7 +38,7 @@ export default function Home() {
         <div className="prose section">
           <div className="label-row" data-reveal>
             <h2 className="label">Previously</h2>
-            <span className="label-aside">Case studies coming soon</span>
+            <span className="label-aside">More case studies coming soon</span>
           </div>
         </div>
 
@@ -45,10 +47,16 @@ export default function Home() {
             {projects.map((p) => (
               <div className="item" key={p.slug} data-reveal>
                 <div className="item-title">
-                  <a href={p.url} target="_blank" rel="noopener">
-                    {p.title}
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </a>
+                  {getStudy(p.slug) ? (
+                    <CaseTitleLink slug={p.slug} title={p.title} locked={p.locked}>
+                      {p.title}
+                    </CaseTitleLink>
+                  ) : (
+                    <a href={p.url} target="_blank" rel="noopener">
+                      {p.title}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  )}
                   <LockLink slug={p.slug} title={p.title} locked={p.locked} />
                 </div>
                 <p>{p.summary}</p>
