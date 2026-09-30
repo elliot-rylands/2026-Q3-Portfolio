@@ -36,11 +36,74 @@ export function PostBody({ blocks }: { blocks: PostBlock[] }) {
             );
           case "quote":
             return (
-              <blockquote key={i}>
+              <figure key={i} className={b.cite ? "pb-quote" : undefined}>
+                <blockquote>
+                  <p>
+                    <Rich text={b.text} />
+                  </p>
+                </blockquote>
+                {b.cite ? (
+                  <figcaption>
+                    {b.cite.href ? (
+                      <a href={b.cite.href} target="_blank" rel="noopener">{b.cite.name}</a>
+                    ) : (
+                      b.cite.name
+                    )}
+                    {b.cite.role ? <span>, {b.cite.role}</span> : null}
+                  </figcaption>
+                ) : null}
+              </figure>
+            );
+          case "stats":
+            return (
+              <dl key={i} className="pb-stats">
+                {(b.stats ?? []).map((s) => (
+                  <div key={s.label}>
+                    <dt>{s.value}</dt>
+                    <dd>{s.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            );
+          case "compare":
+            return b.compare ? (
+              <div key={i} className="pb-compare">
+                {[b.compare.before, b.compare.after].map((side, j) => (
+                  <div key={side.label} className={j === 0 ? "pb-before" : "pb-after"}>
+                    <p className="pb-eyebrow">{side.label}</p>
+                    <ul>
+                      {side.items.map((it) => (
+                        <li key={it}>
+                          <Rich text={it} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : null;
+          case "timeline":
+            return (
+              <ol key={i} className="pb-timeline">
+                {(b.steps ?? []).map((s) => (
+                  <li key={s.title}>
+                    <span className="pb-when">{s.when}</span>
+                    <strong>{s.title}</strong>
+                    <p>
+                      <Rich text={s.text} />
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            );
+          case "callout":
+            return (
+              <aside key={i} className="pb-callout">
+                {b.label ? <p className="pb-eyebrow">{b.label}</p> : null}
                 <p>
                   <Rich text={b.text} />
                 </p>
-              </blockquote>
+              </aside>
             );
           case "code":
             return (

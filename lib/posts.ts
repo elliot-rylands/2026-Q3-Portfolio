@@ -7,12 +7,18 @@ import { theGapGetsSmaller } from "./posts/the-gap-gets-smaller";
 export type PostImage = { src: string; alt: string; caption?: string; width?: number; height?: number };
 
 export type PostBlock = {
-  type: "p" | "h2" | "code" | "demo" | "image" | "ul" | "quote" | "repo";
+  type: "p" | "h2" | "code" | "demo" | "image" | "ul" | "quote" | "repo" | "stats" | "compare" | "timeline" | "callout";
   text: string;
   lang?: string;
   demo?: string;
   image?: PostImage;
   items?: string[];
+  // Case study blocks for image-free stories
+  stats?: { value: string; label: string }[];
+  compare?: { before: { label: string; items: string[] }; after: { label: string; items: string[] } };
+  steps?: { when: string; title: string; text: string }[];
+  label?: string; // callout eyebrow, e.g. "The strategic call"
+  cite?: { name: string; role?: string; href?: string }; // quote attribution
 };
 
 export type Post = {

@@ -71,7 +71,7 @@ export default async function WorkPage({ params }: Props) {
           <p className="low" data-animate style={s(3)}>Case study in progress.</p>
         </section>
       ) : (
-        <article>
+        <article style={study.accent ? ({ "--accent": study.accent } as React.CSSProperties) : undefined}>
           <header className="post-header prose">
             <p className="case-kicker" data-animate style={s(1)}>
               <a href={project.url} target="_blank" rel="noopener">

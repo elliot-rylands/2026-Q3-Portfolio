@@ -4,6 +4,7 @@
 import type { PostBlock } from "./posts";
 import { scan } from "./work/scan";
 import { squiz } from "./work/squiz";
+import { ukGovernment } from "./work/uk-government";
 
 export type Stat = { value: string; label: string };
 
@@ -15,11 +16,12 @@ export type CaseStudy = {
   work: Stat[]; // what I did, counted from the work itself
   scale?: { heading: string; note: string; stats: Stat[] }; // company context, never claimed as my result
   notice?: string; // shown in an alert box above the story
+  accent?: string; // subtle accent colour for stats, callouts and quotes
   body: PostBlock[];
   sources?: { label: string; href: string }[];
 };
 
-export const studies: CaseStudy[] = [scan, squiz];
+export const studies: CaseStudy[] = [scan, squiz, ukGovernment];
 
 export function getStudy(slug: string) {
   return studies.find((s) => s.slug === slug);
