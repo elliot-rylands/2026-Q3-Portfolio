@@ -72,6 +72,8 @@ export const squiz: CaseStudy = {
       text: "Each had its own sign-in, its own header and its own idea of where the settings lived. A customer would buy Matrix and never find out Funnelback was sitting next door. The suite was the thing being sold. Nobody could actually see it.",
     },
 
+    { type: "demo", text: "", demo: "flow-squiz" },
+
     { type: "h2", text: "The obvious answer was the wrong one" },
     {
       type: "p",
@@ -195,6 +197,8 @@ export const squiz: CaseStudy = {
       type: "p",
       text: "There wasn't a fight to win. Everyone agreed one platform was the right idea, which is exactly how good ideas quietly die. What moved it from agreement to action was a coded prototype of the shell, running on the real tokens: something you could click through, put in front of customers in usability sessions, and plan a sprint around. **Clickable beats agreeable.**",
     },
+
+    { type: "callout", label: "Prototyped in GitHub, shipped small", text: "The shell started as a coded prototype on the real tokens, kept in GitHub, and that prototype is what turned agreement into action. It shipped a piece at a time: sign-in first, then the shell and launchpad, then products moved in one by one on shared tokens and components, without freezing a single roadmap." },
 
     { type: "h2", text: "What I could point to" },
     {

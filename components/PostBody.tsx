@@ -1,10 +1,27 @@
 import Image from "next/image";
 import type { PostBlock } from "@/lib/posts";
 import GapDemo from "./gap-demo";
+import GctvFlow from "./flows/GctvFlow";
+import GovFlow from "./flows/GovFlow";
+import PapaFlow from "./flows/PapaFlow";
+import ScanFlow from "./flows/ScanFlow";
+import SquizFlow from "./flows/SquizFlow";
+import TitanFlow from "./flows/TitanFlow";
+
+const FLOWS: Record<string, () => React.JSX.Element> = {
+  "flow-scan": ScanFlow,
+  "flow-squiz": SquizFlow,
+  "flow-gov": GovFlow,
+  "flow-papa": PapaFlow,
+  "flow-gctv": GctvFlow,
+  "flow-titan": TitanFlow,
+};
 import { Rich } from "./Rich";
 
 function Demo({ id }: { id?: string }) {
   if (id === "gap") return <GapDemo />;
+  const Flow = id ? FLOWS[id] : undefined;
+  if (Flow) return <Flow />;
   // The booking demo is still being moved over from the old site.
   return (
     <div className="demo-placeholder">

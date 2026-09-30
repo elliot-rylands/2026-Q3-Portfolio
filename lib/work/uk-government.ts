@@ -53,6 +53,8 @@ export const ukGovernment: CaseStudy = {
       text: "The competition wasn't another portal. It was the phone. If the digital route wasn't genuinely faster than calling, nothing else we designed would matter, so every decision got measured against that one question.",
     },
 
+    { type: "demo", text: "", demo: "flow-gov" },
+
     { type: "h2", text: "Nobody needed a fancy website" },
     {
       type: "p",
@@ -163,6 +165,8 @@ export const ukGovernment: CaseStudy = {
       label: "The strategic call",
       text: "Adoption is a design problem too. A phased rollout isn't caution for its own sake: it's how you change the habits of people who've been phoning for years, one successful task at a time.",
     },
+
+    { type: "callout", label: "Shipped small, on purpose", text: "Nothing launched all at once. Features arrived a step at a time so each one could become a habit before the next, while agencies moved off their old intranets. In November 2022 the first form wired into SSCL's back office went live, and SSCL reported £300m saved in the platform's first three years." },
 
     { type: "h2", text: "What I could point to" },
     {

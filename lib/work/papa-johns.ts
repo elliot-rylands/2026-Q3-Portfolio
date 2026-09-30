@@ -72,6 +72,8 @@ export const papaJohns: CaseStudy = {
       ],
     },
 
+    { type: "demo", text: "", demo: "flow-papa" },
+
     { type: "h2", text: "Answer where and when first" },
     {
       type: "p",
@@ -187,6 +189,8 @@ export const papaJohns: CaseStudy = {
       "One question first. Happy people are asked for a review; unhappy ones are asked what went wrong.",
     ),
     aim("the app rating", "Ask at a good moment, and give unhappy customers somewhere better to go than a one-star review: straight to the people who can fix it."),
+
+    { type: "callout", label: "Prototyped in GitHub, shipped small", text: "Every change started as a coded prototype, kept in GitHub, and went out one change at a time with A/B testing, not as a big-bang redesign. Store timing, deals, the Treat yourself row, the basket control and the rating prompt could each be measured against the number it was built to move." },
 
     { type: "h2", text: "What I could point to" },
     {

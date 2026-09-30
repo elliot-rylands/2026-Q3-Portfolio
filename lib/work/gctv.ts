@@ -76,6 +76,8 @@ export const gctv: CaseStudy = {
       ],
     },
 
+    { type: "demo", text: "", demo: "flow-gctv" },
+
     { type: "h2", text: "Every ring, one strip" },
     {
       type: "p",
@@ -240,6 +242,8 @@ export const gctv: CaseStudy = {
       "Four screenshots from Safari on a phone at gctv.gcglobalchampions.com: join, select your pass, select payment method and confirm email.",
       "Live on the real site, in Safari on a phone.",
     ),
+
+    { type: "callout", label: "Prototyped in GitHub, shipped small", text: "The flows were prototyped in code and kept in GitHub, then shipped in steps rather than one launch. The pass picker shows it best: version one went live, then version two replaced it, with the price as the button. Sign-up, passes, payment and onboarding are live on the site." },
 
     { type: "h2", text: "What I could point to" },
     {

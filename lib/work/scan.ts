@@ -43,6 +43,8 @@ export const scan: CaseStudy = {
       text: "There was no product on either side of the booking. I joined as the first design hire to build one, for patients and for the centres that scan them.",
     },
 
+    { type: "demo", text: "", demo: "flow-scan" },
+
     { type: "h2", text: "The referral fills in the form" },
     {
       type: "p",
@@ -155,6 +157,8 @@ export const scan: CaseStudy = {
       type: "p",
       text: "The founders wanted features fast, and a design system looked like a delay. I built coded prototypes in Cursor on the real tokens and put them in front of patients and centre staff in usability sessions. Working screens changed the conversation. One token system was how a patient flow and a centre worklist could ship quickly without drifting apart: a status means the same colour and the same words on both sides.",
     },
+
+    { type: "callout", label: "Prototyped in GitHub, shipped small", text: "Every journey started as a coded prototype on the real tokens, kept in GitHub, and went in front of patients and centre staff before engineering picked it up. The first booking flow failed on price in those sessions, not in production. Then the referral journey, booking flow, mobile search and centre worklist shipped as separate pieces, and the worklist was piloted with imaging centres." },
 
     { type: "h2", text: "What I could point to" },
     {

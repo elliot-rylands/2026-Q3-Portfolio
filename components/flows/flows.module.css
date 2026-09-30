@@ -1,0 +1,87 @@
+/* Shared mechanics. Every skin below sets its own palette, type and shape. */
+.frame {
+  --f-bg: var(--bg);
+  --f-ink: var(--strong);
+  --f-dim: var(--low);
+  --f-line: var(--underline);
+  --f-panel: var(--field);
+  --f-accent: var(--strong);
+  --f-on-accent: var(--bg);
+  --f-font: var(--sans);
+  --f-radius: 16px;
+  margin: 0.4rem 0 1.6rem;
+  padding: 18px 18px 14px;
+  border: 1px solid var(--f-line);
+  border-radius: var(--f-radius);
+  background: var(--f-bg);
+  color: var(--f-dim);
+  font-family: var(--f-font);
+}
+.head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px 16px; margin-bottom: 12px; }
+.eyebrow { margin: 0 0 4px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--f-accent); }
+.problem { margin: 0; max-width: 34ch; font-size: 15px; line-height: 1.35; color: var(--f-ink); }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.scroll { overflow-x: auto; overscroll-behavior-x: contain; margin: 0 -4px; padding: 0 4px; }
+.scroll svg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--f-font); }
+.detail { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; min-height: 48px; margin-top: 12px; padding: 10px 12px; border-radius: calc(var(--f-radius) * 0.6); background: var(--f-panel); font-size: 13.5px; line-height: 1.45; color: var(--f-dim); }
+.detail strong { color: var(--f-ink); font-weight: 600; }
+.hint { color: var(--f-dim); }
+.tag { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--f-accent); }
+
+.toggle { display: inline-flex; padding: 2px; border: 1px solid var(--f-line); border-radius: 999px; }
+.toggle button, .btn { appearance: none; border: 0; background: transparent; color: var(--f-dim); font: inherit; font-size: 12.5px; padding: 4px 11px; border-radius: 999px; cursor: pointer; }
+.toggle button[aria-checked="true"] { background: var(--f-accent); color: var(--f-on-accent); }
+.btn { border: 1px solid var(--f-line); color: var(--f-ink); }
+.btn[aria-pressed="true"] { background: var(--f-accent); border-color: var(--f-accent); color: var(--f-on-accent); }
+.btn:hover, .toggle button:hover { color: var(--f-ink); }
+.toggle button[aria-checked="true"]:hover, .btn[aria-pressed="true"]:hover { color: var(--f-on-accent); }
+.toggle button:focus-visible, .btn:focus-visible, .range:focus-visible { outline: 2px solid var(--f-accent); outline-offset: 2px; }
+
+.node { cursor: pointer; outline: none; }
+.node:focus-visible :global(.ring) { stroke: var(--f-accent); stroke-width: 3; }
+.fade { transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), fill 0.25s ease, stroke 0.25s ease; }
+.range { width: 100%; margin: 10px 0 0; accent-color: var(--f-accent); }
+
+.ship { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; list-style: none; margin: 12px 0 0; padding: 0; counter-reset: ship; font-size: 12px; line-height: 1.3; }
+.ship li { position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border: 1px solid var(--f-line); border-radius: 999px; color: var(--f-ink); }
+.ship li + li { margin-left: 12px; }
+.ship li + li::before { content: "→"; position: absolute; left: -16px; color: var(--f-dim); }
+.ship li:first-child { border-color: var(--f-accent); color: var(--f-accent); }
+.ordered li:not(:first-child) { counter-increment: ship; }
+.ordered li:not(:first-child)::after { content: counter(ship); order: -1; font-family: var(--mono); font-size: 10px; color: var(--f-dim); }
+
+/* Scan.com: soft clinical cards, pink. */
+.scan { --f-accent: #d9477a; --f-on-accent: #fff; --f-panel: color-mix(in srgb, #f5a3c0 14%, var(--bg)); --f-line: color-mix(in srgb, #f5a3c0 45%, var(--bg)); --f-radius: 22px; }
+
+/* Squiz: navy blueprint, mono, square corners. */
+.squiz {
+  --f-bg: #0b1c36; --f-ink: #e8f1ff; --f-dim: #86a2c7; --f-line: #23406b; --f-panel: #102749;
+  --f-accent: #4fb0ff; --f-on-accent: #0b1c36; --f-font: var(--mono); --f-radius: 2px;
+  background-image: linear-gradient(#16325a 1px, transparent 1px), linear-gradient(90deg, #16325a 1px, transparent 1px);
+  background-size: 24px 24px; background-position: -1px -1px;
+}
+.squiz .problem { font-size: 13.5px; }
+.squiz .toggle, .squiz .toggle button, .squiz .btn, .squiz .ship li { border-radius: 2px; }
+
+/* UK Gov: GOV.UK plainness. Black rule, bold type, yellow focus, no radius. */
+.gov { --f-accent: var(--strong); --f-on-accent: var(--bg); --f-radius: 0px; border: 0; border-left: 5px solid var(--strong); padding-left: 20px; }
+.gov .problem { font-weight: 700; font-size: 17px; }
+.gov .toggle, .gov .toggle button, .gov .btn, .gov .ship li, .gov .detail { border-radius: 0; }
+.gov .node:focus-visible :global(.ring) { stroke: #ffdd00; stroke-width: 5; }
+.gov .toggle button:focus-visible, .gov .btn:focus-visible { outline: 3px solid #ffdd00; outline-offset: 0; box-shadow: inset 0 -3px 0 #0b0c0c; }
+
+/* Papa John's: cream transit map, green line. */
+.papa { --f-bg: #f6f1e4; --f-ink: #1d2b22; --f-dim: #5d6b61; --f-line: #d9d0b8; --f-panel: #ece4cf; --f-accent: #0b7a4b; --f-on-accent: #fff; --f-radius: 12px; }
+@media (prefers-color-scheme: dark) {
+  .papa { --f-bg: #1b1a15; --f-ink: #f2ecdc; --f-dim: #a8a28f; --f-line: #3a372c; --f-panel: #25231c; --f-accent: #3fbf85; --f-on-accent: #10140f; }
+}
+
+/* GCTV: broadcast control room. */
+.gctv { --f-bg: #0c0c0f; --f-ink: #f4f4f6; --f-dim: #8b8b96; --f-line: #26262d; --f-panel: #15151b; --f-accent: #ff3b4a; --f-on-accent: #fff; --f-radius: 6px; }
+
+/* Titan: night court, lime. */
+.titan { --f-bg: #0f110c; --f-ink: #f1f5e8; --f-dim: #8e977e; --f-line: #2a3120; --f-panel: #171b12; --f-accent: #c4f23a; --f-on-accent: #11140c; --f-radius: 28px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade { transition: none; }
+}

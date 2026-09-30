@@ -76,6 +76,8 @@ export const titanTennis: CaseStudy = {
       ],
     },
 
+    { type: "demo", text: "", demo: "flow-titan" },
+
     { type: "h2", text: "Out of the box, onto the court" },
     {
       type: "p",
@@ -211,6 +213,8 @@ export const titanTennis: CaseStudy = {
       text: "Super easy to use.",
       cite: { name: "Titan customer review", href: "https://titanballmachines.com/products/titan-tennis-ball-machine" },
     },
+
+    { type: "callout", label: "Prototyped in GitHub, shipped small", text: "The app was prototyped in code and kept in GitHub, then shipped in small steps. The drill list alone went through three versions, from memory slots to names. It's live on iOS and Android, and in customers' own words, “super easy to use”." },
 
     { type: "h2", text: "What I could point to" },
     {
