@@ -83,7 +83,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .item-title { display: flex; align-items: center; gap: 6px; color: var(--strong); }
 .item-title a { color: var(--strong); }
 .item p { color: var(--dim); }
-.item-logo { display: flex; align-items: flex-end; height: 24px; margin-bottom: 10px; }
+.item-logo { display: inline-flex; align-items: center; flex: none; margin-right: 4px; }
 .item-logo img { display: block; }
 .ic { width: 12px; height: 12px; color: var(--icon); flex: none; }
 

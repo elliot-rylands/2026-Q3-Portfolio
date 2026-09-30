@@ -15,12 +15,12 @@ import { getStudy } from "@/lib/work";
 
 // Small client marks beside each project. Sizes are the display size; the files are 3x.
 const logos: Record<string, { w: number; h: number; dark?: boolean }> = {
-  scan: { w: 21, h: 24 },
-  squiz: { w: 20, h: 20 },
-  "uk-government": { w: 21, h: 20, dark: true },
-  "papa-johns": { w: 67, h: 13 },
-  gctv: { w: 49, h: 15, dark: true },
-  "titan-tennis": { w: 30, h: 24, dark: true },
+  scan: { w: 14, h: 16 },
+  squiz: { w: 16, h: 16 },
+  "uk-government": { w: 17, h: 16, dark: true },
+  "papa-johns": { w: 55, h: 11 },
+  gctv: { w: 39, h: 12, dark: true },
+  "titan-tennis": { w: 20, h: 16, dark: true },
 };
 
 function ProjectLogo({ slug }: { slug: string }) {
@@ -68,8 +68,8 @@ export default function Home() {
           <div className="grid6">
             {projects.map((p) => (
               <div className="item" key={p.slug} data-reveal>
-                <ProjectLogo slug={p.slug} />
                 <div className="item-title">
+                  <ProjectLogo slug={p.slug} />
                   {getStudy(p.slug) ? (
                     <CaseTitleLink slug={p.slug} title={p.title} locked={p.locked}>
                       {p.title}
