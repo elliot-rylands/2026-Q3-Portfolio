@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -39,6 +40,10 @@ const personJsonLd = {
   email: site.links.email,
 };
 
+// Google Analytics 4. Set NEXT_PUBLIC_GA_ID (e.g. G-XXXXXXXXXX) in Vercel to switch
+// it on; without it, no tracking script loads at all.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${sans.variable} ${mono.variable} ${serif.variable}`} suppressHydrationWarning>
@@ -58,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
       </body>
     </html>
   );
