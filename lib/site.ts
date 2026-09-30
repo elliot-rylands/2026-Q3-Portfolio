@@ -41,7 +41,7 @@ export const projects: Project[] = [
   { slug: "uk-government", title: "UK Government", summary: "29 departments, one hub, £300m saved.", url: "https://www.gov.uk", locked: false },
   { slug: "papa-johns", title: "Papa John's", summary: "Ordering flow and global design system.", url: "https://papajohns.com", locked: false },
   { slug: "gctv", title: "GCTV", summary: "Onboarding and multi-race live viewing.", url: "https://gctv.gcglobalchampions.com", locked: false },
-  { slug: "titan-tennis", title: "Titan Tennis", summary: "Native app for a smart ball machine.", url: "https://titanballmachines.com/", locked: true },
+  { slug: "titan-tennis", title: "Titan Tennis", summary: "Native app for a smart ball machine.", url: "https://titanballmachines.com/", locked: false },
 ];
 
 // "Also worked with" line. Leave url empty to show a name without a link.
