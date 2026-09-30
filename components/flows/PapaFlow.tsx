@@ -22,10 +22,13 @@ const STOPS: Stop[] = [
   { id: "more", x: 600, y: 228, label: "Want more?", m: ["basket"], after: true, text: "A 45p dip or a reward you've earned, and Apple Pay above Checkout." },
   { id: "pay", x: 650, y: Y, label: "Checkout", m: ["finish"], big: true, text: "Pay without typing a card number." },
   { id: "dead", x: 650, y: 236, label: "Store closed", m: ["finish"], before: true, text: "The worst time to find out the store is shut: at checkout, with a full basket." },
-  { id: "rate", x: 740, y: Y, label: "Enjoying it?", m: ["rating"], big: true, text: "One question first, at a good moment." },
-  { id: "review", x: 790, y: 90, label: "Review", m: ["rating"], after: true, up: true, text: "Happy customers are invited to leave a review." },
-  { id: "fb", x: 790, y: 210, label: "Feedback", m: ["rating"], after: true, text: "Unhappy ones get a private form, straight to the people who can fix it." },
+  { id: "rate", x: 760, y: Y, label: "Enjoying it?", m: ["rating"], big: true, text: "One question first, at a good moment." },
+  { id: "review", x: 815, y: 90, label: "Review", m: ["rating"], after: true, up: true, text: "Happy customers are invited to leave a review." },
+  { id: "fb", x: 815, y: 210, label: "Feedback", m: ["rating"], after: true, text: "Unhappy ones get a private form, straight to the people who can fix it." },
 ];
+
+// Labels that sit above the line, clear of the branches that drop below it.
+const ABOVE = ["menu", "pizza", "basket", "pay"];
 
 const METRICS: { value: "all" | Metric; label: string }[] = [
   { value: "all", label: "All" },
@@ -64,13 +67,13 @@ export default function PapaFlow() {
       detail={stop ? { tag: stop.m.map((m) => METRICS.find((x) => x.value === m)?.label).join(" · "), title: stop.label, text: stop.text } : null}
       ship={{ steps: ["Coded prototypes, kept in GitHub", "A/B tested", "Shipped one change at a time"] }}
     >
-      <svg viewBox="0 0 860 280" role="group" aria-label="Papa John's ordering journey as a transit map">
-        {line(`M50 ${Y} H740`, true, "main", metric === "all")}
+      <svg viewBox="0 44 880 236" role="group" aria-label="Papa John's ordering journey as a transit map">
+        {line(`M50 ${Y} H760`, true, "main", metric === "all")}
         {line(`M50 ${Y} V92 Q50 72 70 72 H270 Q290 72 290 92 V${Y}`, after, "timing", branchOn("finish"))}
         {line(`M450 ${Y} V208 Q450 228 470 228 H530 Q550 228 550 208 V${Y}`, after, "extra", branchOn("basket"))}
         {line(`M550 ${Y} V208 Q550 228 570 228 H630 Q650 228 650 208 V${Y}`, after, "more", branchOn("basket"))}
-        {line(`M740 ${Y} Q760 ${Y} 770 125 L790 90`, after, "rev", branchOn("rating"))}
-        {line(`M740 ${Y} Q760 ${Y} 770 175 L790 210`, after, "fb", branchOn("rating"))}
+        {line(`M760 ${Y} Q780 ${Y} 790 125 L815 90`, after, "rev", branchOn("rating"))}
+        {line(`M760 ${Y} Q780 ${Y} 790 175 L815 210`, after, "fb", branchOn("rating"))}
         {line(`M650 ${Y} V236`, !after, "dead", false)}
 
         {STOPS.map((st) => {
@@ -89,7 +92,7 @@ export default function PapaFlow() {
                 ) : (
                   <circle className="ring" cx={st.x} cy={st.y} r={on ? r + 2 : r} fill={on ? "var(--f-accent)" : "var(--f-bg)"} stroke={glow ? "var(--f-accent)" : "var(--f-line)"} strokeWidth={st.big ? 4 : 3} />
                 )}
-                <text x={st.id === "dead" ? st.x + 18 : st.id === "rate" ? st.x - 4 : st.x} y={st.id === "dead" ? st.y + 4 : st.id === "open" ? st.y + 26 : st.up ? st.y - 18 : st.y + (st.big ? 30 : 26)} textAnchor={st.id === "dead" ? "start" : st.id === "rate" ? "end" : "middle"} fontSize={st.big ? 12.5 : 11} fontWeight={st.big ? 700 : 500} fill="var(--f-ink)">
+                <text x={st.id === "dead" ? st.x + 18 : st.id === "rate" ? st.x + 8 : st.x} y={st.id === "dead" ? st.y + 4 : st.id === "open" ? st.y + 26 : st.up || ABOVE.includes(st.id) ? st.y - (st.big ? 20 : 16) : st.y + (st.big ? 30 : 26)} textAnchor={st.id === "dead" ? "start" : st.id === "rate" ? "end" : "middle"} fontSize={st.big ? 12.5 : 11} fontWeight={st.big ? 700 : 500} fill="var(--f-ink)">
                   {st.label}
                 </text>
               </g>
