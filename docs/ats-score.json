@@ -1,0 +1,210 @@
+{
+  "score": 94,
+  "out_of": 100,
+  "categories": {
+    "Identity": [
+      20.0,
+      20
+    ],
+    "Work history": [
+      20.0,
+      20
+    ],
+    "Skills": [
+      18.8,
+      25
+    ],
+    "Structure": [
+      15.0,
+      15
+    ],
+    "Metadata": [
+      20.0,
+      20
+    ]
+  },
+  "pages_checked": [
+    "/",
+    "/work/gctv",
+    "/work/papa-johns",
+    "/work/scan",
+    "/work/squiz",
+    "/work/titan-tennis",
+    "/work/uk-government"
+  ],
+  "locked_on_purpose": [
+    "/work/jane"
+  ],
+  "too_short": [],
+  "checks": [
+    {
+      "category": "Identity",
+      "check": "Name in the page title and H1",
+      "possible": 5,
+      "earned": 5,
+      "detail": "title: 'Elliot Rylands \u00b7 Design engineer'; h1: ['Elliot Rylands']",
+      "fix": ""
+    },
+    {
+      "category": "Identity",
+      "check": "Standard job title as plain text",
+      "possible": 5,
+      "earned": 5,
+      "detail": "Looks for the exact phrase 'product designer'",
+      "fix": ""
+    },
+    {
+      "category": "Identity",
+      "check": "Location as text",
+      "possible": 3,
+      "earned": 3,
+      "detail": "",
+      "fix": ""
+    },
+    {
+      "category": "Identity",
+      "check": "Email, LinkedIn and GitHub as real links",
+      "possible": 4,
+      "earned": 4.0,
+      "detail": "Parsers pick up hrefs, not icons.",
+      "fix": ""
+    },
+    {
+      "category": "Identity",
+      "check": "Current employer stated",
+      "possible": 3,
+      "earned": 3,
+      "detail": "",
+      "fix": ""
+    },
+    {
+      "category": "Work history",
+      "check": "Case studies readable as text",
+      "possible": 6,
+      "earned": 6.0,
+      "detail": "6 of 6 readable; too short: []; locked on purpose: ['/work/jane']",
+      "fix": ""
+    },
+    {
+      "category": "Work history",
+      "check": "Each study states your role",
+      "possible": 5,
+      "earned": 5.0,
+      "detail": "missing: []",
+      "fix": ""
+    },
+    {
+      "category": "Work history",
+      "check": "Each study has dates",
+      "possible": 5,
+      "earned": 5.0,
+      "detail": "missing: []",
+      "fix": ""
+    },
+    {
+      "category": "Work history",
+      "check": "Previous employers named on the home page",
+      "possible": 4,
+      "earned": 4,
+      "detail": "7 projects linked",
+      "fix": ""
+    },
+    {
+      "category": "Skills",
+      "check": "Core skills and tools mentioned in context",
+      "possible": 25,
+      "earned": 18.8,
+      "detail": "missing: ['accessibility', 'TypeScript', 'Next.js', 'product strategy']",
+      "fix": "Mention the missing ones where the work genuinely shows them. Never add a skill you can't back up."
+    },
+    {
+      "category": "Structure",
+      "check": "Exactly one H1 per page",
+      "possible": 4,
+      "earned": 4.0,
+      "detail": "off: []",
+      "fix": ""
+    },
+    {
+      "category": "Structure",
+      "check": "Section headings (H2) on case studies",
+      "possible": 3,
+      "earned": 3.0,
+      "detail": "",
+      "fix": ""
+    },
+    {
+      "category": "Structure",
+      "check": "Every image has alt text (empty only if decorative)",
+      "possible": 4,
+      "earned": 4.0,
+      "detail": "75/75 have alt",
+      "fix": ""
+    },
+    {
+      "category": "Structure",
+      "check": "Page language set",
+      "possible": 2,
+      "earned": 2,
+      "detail": "lang=en-GB",
+      "fix": ""
+    },
+    {
+      "category": "Structure",
+      "check": "Plain-text contact path for access",
+      "possible": 2,
+      "earned": 2,
+      "detail": "",
+      "fix": ""
+    },
+    {
+      "category": "Metadata",
+      "check": "Home meta description names role and focus",
+      "possible": 4,
+      "earned": 4,
+      "detail": "A product designer and design engineer with 16 years in product and growth, helping ideas find their feet and pushing th",
+      "fix": ""
+    },
+    {
+      "category": "Metadata",
+      "check": "Person structured data with job title",
+      "possible": 4,
+      "earned": 4,
+      "detail": "jobTitle: Design Engineer",
+      "fix": ""
+    },
+    {
+      "category": "Metadata",
+      "check": "Unique description on each case study",
+      "possible": 4,
+      "earned": 4.0,
+      "detail": "",
+      "fix": ""
+    },
+    {
+      "category": "Metadata",
+      "check": "Open Graph title and description",
+      "possible": 3,
+      "earned": 3,
+      "detail": "",
+      "fix": ""
+    },
+    {
+      "category": "Metadata",
+      "check": "sitemap.xml served",
+      "possible": 3,
+      "earned": 3,
+      "detail": "status 200",
+      "fix": ""
+    },
+    {
+      "category": "Metadata",
+      "check": "robots.txt served",
+      "possible": 2,
+      "earned": 2,
+      "detail": "status 200",
+      "fix": ""
+    }
+  ],
+  "note": "Recruiter and parser readability checklist. Not a vendor ATS score."
+}
