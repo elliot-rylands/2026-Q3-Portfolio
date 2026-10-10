@@ -48,7 +48,7 @@ export const projects: Project[] = [
   { slug: "jane", title: "Jane", summary: "Current work, shared on request.", url: "https://jane.app", locked: true, current: true },
   { slug: "scan", title: "Scan.com", summary: "First design hire after the Series B, shaping the booking platform behind the $220M Series C.", url: "https://scan.com", locked: false },
   { slug: "squiz", title: "Squiz", summary: "Eight products into one DXP. Customers on it reported up to 2× conversion.", url: "https://squiz.net", locked: false },
-  { slug: "uk-government", title: "UK Government", summary: "Self-service designed to make calling the slower option.", url: "https://www.gov.uk", locked: false },
+  { slug: "uk-government", title: "UK Government", summary: "One self-service hub for 300,000+ civil servants across 29 departments.", url: "https://www.gov.uk", locked: false },
   { slug: "papa-johns", title: "Papa John's", summary: "The UK app ordering journey, from store timing to checkout.", url: "https://papajohns.com", locked: false },
   { slug: "gctv", title: "GCTV", summary: "Following the competition, choosing a pass and getting back to the action.", url: "https://gctv.gcglobalchampions.com", locked: false },
   { slug: "titan-tennis", title: "Titan Tennis", summary: "Turning ball-machine settings into drills players can see.", url: "https://titanballmachines.com/", locked: false },
