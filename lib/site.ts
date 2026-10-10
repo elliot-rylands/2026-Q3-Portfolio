@@ -35,10 +35,18 @@ export type Project = {
   current?: boolean; // shown as the wide "Now" card, not in the Previously grid
 };
 
+// The three locked strands inside the wide Jane card. All open the Jane
+// password lightbox; descriptions stay high level on purpose.
+export const janeWork = [
+  { title: "Deployed", summary: "The jane.app relaunch: homepage, feature pages and mega menu." },
+  { title: "Building", summary: "What's next for jane.app, prototyped in code before it ships." },
+  { title: "Internal", summary: "An AI-assisted UX lab for card sorts and decision trees." },
+];
+
 // Order is the grid order: three across.
 export const projects: Project[] = [
-  { slug: "jane", title: "Jane", summary: "Now: the jane.app relaunch and the design tools behind it. Current work, shared on request.", url: "https://jane.app", locked: true, current: true },
-  { slug: "scan", title: "Scan.com", summary: "Patient booking and centre operations, joined around one referral.", url: "https://scan.com", locked: false },
+  { slug: "jane", title: "Jane", summary: "Current work, shared on request.", url: "https://jane.app", locked: true, current: true },
+  { slug: "scan", title: "Scan.com", summary: "First design hire after the Series B, shaping the booking platform behind the $220M Series C.", url: "https://scan.com", locked: false },
   { slug: "squiz", title: "Squiz", summary: "Eight products brought together without eight rebuilds.", url: "https://squiz.net", locked: false },
   { slug: "uk-government", title: "UK Government", summary: "Self-service designed to make calling the slower option.", url: "https://www.gov.uk", locked: false },
   { slug: "papa-johns", title: "Papa John's", summary: "The UK app ordering journey, from store timing to checkout.", url: "https://papajohns.com", locked: false },

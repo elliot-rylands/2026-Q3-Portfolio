@@ -10,7 +10,7 @@ import { UnlockDialog } from "@/components/unlock/UnlockDialog";
 import { SiteFooter } from "@/components/SiteFooter";
 import { photos } from "@/lib/photos";
 import { posts } from "@/lib/posts";
-import { clients, projects, site } from "@/lib/site";
+import { clients, janeWork, projects, site } from "@/lib/site";
 import { getStudy } from "@/lib/work";
 
 // Small client marks beside each project. Sizes are the display size; the files are 3x.
@@ -72,8 +72,8 @@ export default function Home() {
 
         <div className="grid-wrap">
           <div className="grid6">
-            {[...projects.filter((p) => !p.current), ...projects.filter((p) => p.current)].map((p) => (
-              <div className={p.current ? "item item-wide" : "item"} key={p.slug} data-reveal>
+            {projects.filter((p) => !p.current).map((p) => (
+              <div className="item" key={p.slug} data-reveal>
                 <div className="item-inner">
                 <div className="item-title">
                   <ProjectLogo slug={p.slug} />
@@ -90,6 +90,35 @@ export default function Home() {
                   {p.locked ? <LockLink slug={p.slug} title={p.title} locked={p.locked} /> : null}
                 </div>
                 <p>{p.summary}</p>
+                </div>
+              </div>
+            ))}
+            {projects.filter((p) => p.current).map((p) => (
+              <div className="item item-wide item-now" key={p.slug} data-reveal>
+                <div className="item-inner">
+                  <div className="now-head">
+                    <div className="item-title">
+                      <ProjectLogo slug={p.slug} />
+                      <a href={p.url} target="_blank" rel="noopener">
+                        {p.title}
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </div>
+                    <p>{p.summary}</p>
+                  </div>
+                  <ul className="now-grid">
+                    {janeWork.map((w) => (
+                      <li className="now-cell" key={w.title}>
+                        <div className="item-title">
+                          <CaseTitleLink slug={p.slug} title={`${p.title}: ${w.title}`} locked={p.locked}>
+                            {w.title}
+                          </CaseTitleLink>
+                          <LockLink slug={p.slug} title={`${p.title}: ${w.title}`} locked={p.locked} />
+                        </div>
+                        <p>{w.summary}</p>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}

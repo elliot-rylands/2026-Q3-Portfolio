@@ -568,3 +568,35 @@ footer { margin-top: 104px; }
 
 /* "Also worked with" sits directly under the project cards. */
 .grid-wrap + .note { margin-top: 14px; }
+
+/* Jane "Now" card: a header, a hairline, then three locked strands in columns.
+   Each strand is its own click target, so the whole-card link is switched off. */
+.grid6 .item-now .now-head .item-title a:first-of-type::after { content: none; }
+.item-now .item-inner { padding: 0; }
+.now-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; padding: 14px 16px; }
+.now-head .item-title { margin-bottom: 0; }
+.now-head p { color: var(--low); }
+.now-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid #ececec; }
+.now-cell { position: relative; padding: 14px 16px 16px; transition: background-color .2s ease; }
+.now-cell + .now-cell { border-left: 1px solid #ececec; }
+.now-cell:last-child { border-bottom-right-radius: 11px; }
+.now-cell:first-child { border-bottom-left-radius: 11px; }
+.now-cell:hover { background: #f2f2f2; }
+.now-cell .item-title a:first-of-type::after { content: ""; position: absolute; inset: 0; }
+.now-cell .lock-link { position: relative; z-index: 1; }
+.now-cell:has(a:focus-visible) { outline: 2px solid var(--strong); outline-offset: -2px; border-radius: 4px; }
+.grid6 .item-now:hover .item-inner { background: #fafafa; border-color: #efefef; }
+@media (prefers-color-scheme: dark) {
+  .now-grid, .now-cell + .now-cell { border-color: #222; }
+  .now-cell:hover { background: #1c1c1c; }
+  .grid6 .item-now:hover .item-inner { background: #161616; border-color: #222; }
+}
+@media (max-width: 560px) {
+  .now-grid { grid-template-columns: 1fr; }
+  .now-cell + .now-cell { border-left: 0; border-top: 1px solid #ececec; }
+  .now-cell:first-child { border-bottom-left-radius: 0; }
+  .now-cell:last-child { border-bottom-left-radius: 11px; }
+  .now-head, .now-cell { padding-inline: 14px; }
+}
+@media (max-width: 560px) and (prefers-color-scheme: dark) { .now-cell + .now-cell { border-color: #222; } }
+.grid6 .item-now:has(a:focus-visible) { outline: none; }
