@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const b = getBuild(slug);
   if (!b) return {};
   return {
-    title: `${b.name} · ${site.name}`,
+    title: `${b.name} ${b.title} · ${site.name}`,
     description: b.summary,
     openGraph: { title: b.name, description: b.summary, images: [b.cover.src] },
   };
@@ -38,18 +38,36 @@ export default async function BuildPage({ params }: Props) {
           <p className="case-kicker" data-animate style={s(1)}>
             Building · {b.status}
           </p>
-          <h1 className="lead build-title" data-animate style={s(2)}>
+          <p className="build-title" data-animate style={s(2)}>
             <span className="build-mark" aria-hidden="true" />
             {b.name}
-          </h1>
-          <p data-animate style={s(3)}>{b.tagline}</p>
-          <p className="post-meta" data-animate style={s(4)}>{b.stack}</p>
+          </p>
+          <h1 className="lead" data-animate style={s(3)}>{b.title}</h1>
+          <p data-animate style={s(4)}>{b.dek}</p>
         </header>
+        <dl className="case-meta" data-animate style={s(5)}>
+          {b.meta.map((m) => (
+            <div key={m.label}>
+              <dt>{m.label}</dt>
+              <dd>{m.value}</dd>
+            </div>
+          ))}
+        </dl>
         <div data-animate style={s(5)}>
+          <dl className="case-stats">
+            {b.work.map((st) => (
+              <div key={st.label} className="case-stat">
+                <dt>{st.value}</dt>
+                <dd>{st.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div className="case-body" data-animate style={s(6)}>
           <PostBody blocks={b.body} />
         </div>
       </article>
-      <SiteFooter stagger={6} />
+      <SiteFooter stagger={7} />
     </main>
   );
 }

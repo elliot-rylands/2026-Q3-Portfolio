@@ -85,6 +85,22 @@
 /* Titan: night court, lime. */
 .titan { --f-bg: #0f110c; --f-ink: #f1f5e8; --f-dim: #8e977e; --f-line: #2a3120; --f-panel: #171b12; --f-accent: #c4f23a; --f-on-accent: #11140c; --f-radius: 28px; }
 
+/* pebbl.: chalk and paper, ink text, slate-blue for evidence, clay for recording, moss for healthy. */
+.pebbl {
+  --f-bg: #f7f5f0; --f-ink: #252522; --f-dim: #5f6461; --f-line: #dcddd5; --f-panel: #efece5;
+  --f-accent: #3f5567; --f-on-accent: #fffefb; --f-radius: 16px;
+  --p-paper: #fffefb; --p-clay: #9c4f35; --p-clay-soft: #f5e6de; --p-moss: #4c5e4c; --p-moss-soft: #e4ebe2;
+  --p-ev: #3f5567; --p-ev-soft: #e5ecf1; --p-quiet: #c9c6bc;
+}
+@media (prefers-color-scheme: dark) {
+  .pebbl {
+    --f-bg: #202522; --f-ink: #f4f3ed; --f-dim: #bec5be; --f-line: #49534c; --f-panel: #1b1f1d;
+    --f-accent: #a6c1d5; --f-on-accent: #202522;
+    --p-paper: #2c322e; --p-clay: #eeb9a3; --p-clay-soft: #46342c; --p-moss: #bcd1b8; --p-moss-soft: #2f3a30;
+    --p-ev: #c3d6e4; --p-ev-soft: #2f3d47; --p-quiet: #5d675f;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fade { transition: none; }
 }

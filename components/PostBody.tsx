@@ -7,6 +7,14 @@ import PapaFlow from "./flows/PapaFlow";
 import ScanFlow from "./flows/ScanFlow";
 import SquizFlow from "./flows/SquizFlow";
 import TitanFlow from "./flows/TitanFlow";
+import PebblCapture from "./flows/pebbl/PebblCapture";
+import PebblDecisions from "./flows/pebbl/PebblDecisions";
+import PebblEvidence from "./flows/pebbl/PebblEvidence";
+import PebblJourney from "./flows/pebbl/PebblJourney";
+import PebblPrivacy from "./flows/pebbl/PebblPrivacy";
+import PebblPromises from "./flows/pebbl/PebblPromises";
+import PebblValidation from "./flows/pebbl/PebblValidation";
+import PebblWireframes from "./flows/pebbl/PebblWireframes";
 
 const FLOWS: Record<string, () => React.JSX.Element> = {
   "flow-scan": ScanFlow,
@@ -15,6 +23,14 @@ const FLOWS: Record<string, () => React.JSX.Element> = {
   "flow-papa": PapaFlow,
   "flow-gctv": GctvFlow,
   "flow-titan": TitanFlow,
+  "pebbl-journey": PebblJourney,
+  "pebbl-evidence": PebblEvidence,
+  "pebbl-promises": PebblPromises,
+  "pebbl-capture": PebblCapture,
+  "pebbl-privacy": PebblPrivacy,
+  "pebbl-decisions": PebblDecisions,
+  "pebbl-wireframes": PebblWireframes,
+  "pebbl-validation": PebblValidation,
 };
 import { Rich } from "./Rich";
 

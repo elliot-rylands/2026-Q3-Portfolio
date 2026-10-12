@@ -3,7 +3,7 @@
 import type { KeyboardEvent, ReactNode } from "react";
 import styles from "./flows.module.css";
 
-export type Skin = "scan" | "squiz" | "gov" | "papa" | "gctv" | "titan";
+export type Skin = "scan" | "squiz" | "gov" | "papa" | "gctv" | "titan" | "pebbl";
 
 // Shared mechanics for the case study flow maps. Each company gets its own skin
 // (colour, type, shape) and opens on its own problem, so no two maps look alike.
@@ -15,6 +15,7 @@ export function FlowFrame({
   detail,
   minWidth = 560,
   ship,
+  hint = "Select any step to see what it does.",
   children,
 }: {
   skin: Skin;
@@ -23,7 +24,8 @@ export function FlowFrame({
   controls?: ReactNode;
   detail?: { title: string; text: string; tag?: string } | null;
   minWidth?: number;
-  ship: { steps: string[]; ordered?: boolean };
+  ship?: { steps: string[]; ordered?: boolean };
+  hint?: string;
   children: ReactNode;
 }) {
   return (
@@ -46,14 +48,16 @@ export function FlowFrame({
             <span>{detail.text}</span>
           </>
         ) : (
-          <span className={styles.hint}>Select any step to see what it does.</span>
+          <span className={styles.hint}>{hint}</span>
         )}
       </div>
-      <ol className={`${styles.ship} ${ship.ordered ? styles.ordered : ""}`} aria-label="How it shipped">
-        {ship.steps.map((st, i) => (
-          <li key={i}>{st}</li>
-        ))}
-      </ol>
+      {ship ? (
+        <ol className={`${styles.ship} ${ship.ordered ? styles.ordered : ""}`} aria-label="How it shipped">
+          {ship.steps.map((st, i) => (
+            <li key={i}>{st}</li>
+          ))}
+        </ol>
+      ) : null}
     </figure>
   );
 }

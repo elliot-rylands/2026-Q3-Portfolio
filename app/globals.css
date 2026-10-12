@@ -623,3 +623,4 @@ footer { margin-top: 104px; }
   .build-status { border-color: #2a2a2a; }
 }
 @media (prefers-reduced-motion: reduce) { .build-cover img { transition: none; } }
+.build-title { color: var(--strong); margin: 0; }
