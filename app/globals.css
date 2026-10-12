@@ -600,3 +600,26 @@ footer { margin-top: 104px; }
 }
 @media (max-width: 560px) and (prefers-color-scheme: dark) { .now-cell + .now-cell { border-color: #222; } }
 .grid6 .item-now:has(a:focus-visible) { outline: none; }
+
+/* Building: side projects in progress. Same bezel as the project cards, with a cover image. */
+.build-mark { display: inline-block; flex: none; width: 1.15em; height: 1em; background: currentColor; -webkit-mask: url(/building/pebbl/mark.svg) center / contain no-repeat; mask: url(/building/pebbl/mark.svg) center / contain no-repeat; }
+.build-title { display: flex; align-items: center; gap: 8px; }
+.build-list { display: grid; gap: 16px; }
+.build-card { display: flex; padding: 4px; border: 1px solid #ececec; border-radius: 16px; color: inherit; text-decoration: none; }
+.build-card-inner { flex: 1; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #efefef; border-radius: 12px; background: #fafafa; transition: background-color .2s ease, border-color .2s ease; }
+.build-card:hover .build-card-inner { background: #f2f2f2; border-color: #e6e6e6; }
+.build-card:focus-visible { outline: 2px solid var(--strong); outline-offset: 2px; }
+.build-cover { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: #1a1714; }
+.build-cover img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.build-card:hover .build-cover img { transform: scale(1.015); }
+.build-text { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 16px; }
+.build-text .item-title { color: var(--strong); margin: 0; }
+.build-summary { color: var(--dim); }
+.build-status { margin-left: auto; font-family: var(--mono); font-size: 12px; line-height: 18px; font-weight: 400; color: var(--low); padding: 1px 8px; border: 1px solid #e6e6e6; border-radius: 999px; }
+@media (prefers-color-scheme: dark) {
+  .build-card { border-color: #1e1e1e; }
+  .build-card-inner { background: #161616; border-color: #222; }
+  .build-card:hover .build-card-inner { background: #1c1c1c; border-color: #2a2a2a; }
+  .build-status { border-color: #2a2a2a; }
+}
+@media (prefers-reduced-motion: reduce) { .build-cover img { transition: none; } }

@@ -9,6 +9,7 @@ import { LockLink } from "@/components/unlock/LockLink";
 import { UnlockDialog } from "@/components/unlock/UnlockDialog";
 import { SiteFooter } from "@/components/SiteFooter";
 import { photos } from "@/lib/photos";
+import { builds } from "@/lib/building";
 import { posts } from "@/lib/posts";
 import { clients, janeWork, projects, site } from "@/lib/site";
 import { getStudy } from "@/lib/work";
@@ -145,6 +146,33 @@ export default function Home() {
               Some case studies are password protected. <a href={site.links.accessEmail}>Email me</a> for access.
             </p>
           ) : null}
+        </div>
+
+        <div className="prose section">
+          <div className="label-row" data-reveal>
+            <h2 className="label" id="building">Building</h2>
+          </div>
+        </div>
+        <div className="grid-wrap">
+          <div className="build-list">
+            {builds.map((b) => (
+              <Link href={`/building/${b.slug}`} className="build-card" key={b.slug} data-reveal>
+                <span className="build-card-inner">
+                  <span className="build-cover">
+                    <Image src={b.cover.src} alt={b.cover.alt} width={1280} height={853} sizes="(max-width: 688px) 100vw, 640px" />
+                  </span>
+                  <span className="build-text">
+                    <span className="item-title">
+                      <span className="build-mark" aria-hidden="true" />
+                      {b.name}
+                      <span className="build-status">{b.status}</span>
+                    </span>
+                    <span className="build-summary">{b.summary}</span>
+                  </span>
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="prose section">

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { builds } from "@/lib/building";
 import { posts } from "@/lib/posts";
 
 // Only pages meant to be indexed. Case studies stay out: /work/ is disallowed
@@ -9,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base, changeFrequency: "monthly", priority: 1 },
     { url: `${base}/words`, changeFrequency: "monthly", priority: 0.7 },
     ...posts.map((p) => ({ url: `${base}/words/${p.slug}`, lastModified: p.date, priority: 0.6 })),
+    ...builds.map((b) => ({ url: `${base}/building/${b.slug}`, changeFrequency: "monthly" as const, priority: 0.6 })),
     { url: `${base}/photography`, changeFrequency: "yearly", priority: 0.4 },
   ];
 }
