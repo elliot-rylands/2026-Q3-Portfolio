@@ -57,6 +57,11 @@ export const builds: Build[] = [
         label: "The bet",
         text: "Every meeting tool can write a summary now. The gap is trust: you can't tell what was said from what was guessed. pebbl. competes on **proof, not prose**.",
       },
+      {
+        type: "video",
+        text: "The one-minute walkthrough: capture, receipts, decisions and Ask pebbl. Sound on.",
+        clip: { src: "/building/pebbl/walkthrough-film.mp4", poster: "/building/pebbl/walkthrough-film-poster.jpg", width: 1920, height: 1080, label: "pebbl. walkthrough video", film: true },
+      },
       img("light-and-dark", "A meeting in pebbl., in light and dark mode", "Notes, chapters, promises and decisions, with the transcript alongside. All screenshots use sample data."),
 
       { type: "h2", text: "The problem" },

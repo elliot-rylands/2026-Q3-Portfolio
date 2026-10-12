@@ -21,7 +21,7 @@ export type PostBlock = {
   cite?: { name: string; role?: string; href?: string }; // quote attribution
   videos?: { id: string; title: string; start?: number }[]; // YouTube embeds, side by side
   vertical?: boolean; // Shorts: narrow 9:16 players
-  clip?: { src: string; poster: string; width: number; height: number; label: string }; // silent looping screen recording
+  clip?: { src: string; poster: string; width: number; height: number; label: string; film?: boolean }; // silent looping screen recording, or a full-width film with sound
 };
 
 export type Post = {

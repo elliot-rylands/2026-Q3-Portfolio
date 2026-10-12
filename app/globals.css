@@ -624,3 +624,6 @@ footer { margin-top: 104px; }
 }
 @media (prefers-reduced-motion: reduce) { .build-cover img { transition: none; } }
 .build-title { color: var(--strong); margin: 0; }
+
+/* Full-width film with sound (controls, no autoplay). */
+.pb-film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 12px; background: #000; box-shadow: 0 0 0 1px var(--rule); }

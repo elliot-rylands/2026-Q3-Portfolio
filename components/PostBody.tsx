@@ -159,6 +159,14 @@ export function PostBody({ blocks }: { blocks: PostBlock[] }) {
               </figure>
             ) : null;
           case "video":
+            if (b.clip?.film) {
+              return (
+                <figure key={i} className="pb-film">
+                  <video src={b.clip.src} poster={b.clip.poster} width={b.clip.width} height={b.clip.height} aria-label={b.clip.label} controls playsInline preload="metadata" />
+                  {b.text ? <figcaption>{b.text}</figcaption> : null}
+                </figure>
+              );
+            }
             if (b.clip) {
               return (
                 <figure key={i} className="pb-clip">
