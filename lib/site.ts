@@ -48,6 +48,7 @@ export const janeWork = [
 const allProjects: Project[] = [
   { slug: "jane", title: "Jane", summary: "Current work, shared on request.", url: "https://jane.app", locked: true, current: true },
   { slug: "scan", title: "Scan.com", summary: "First design hire after Series B, shaping the platform behind the $220M Series C.", url: "https://scan.com", locked: false },
+  { slug: "terr-ai", title: "Terr.ai", summary: "The manager's side of an AI tenant agent: one inbox, a calendar and a website.", url: "https://www.terr.ai", locked: false, hidden: true },
   { slug: "squiz", title: "Squiz", summary: "Eight products into one DXP. Customers on it reported up to 2× conversion.", url: "https://squiz.net", locked: false },
   { slug: "uk-government", title: "UK Government", summary: "One self-service hub serving 300,000+ civil servants across 29 departments.", url: "https://www.gov.uk", locked: false },
   { slug: "papa-johns", title: "Papa John's", summary: "Oven-fresh ordering: custom offers, smart dietary choices and fast checkout.", url: "https://papajohns.com", locked: false },
