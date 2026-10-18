@@ -85,6 +85,12 @@
 /* Titan: night court, lime. */
 .titan { --f-bg: #0f110c; --f-ink: #f1f5e8; --f-dim: #8e977e; --f-line: #2a3120; --f-panel: #171b12; --f-accent: #c4f23a; --f-on-accent: #11140c; --f-radius: 28px; }
 
+/* Terr.ai: warm paper, terracotta, soft cards. */
+.terr { --f-bg: #fdf8f4; --f-ink: #2a1a14; --f-dim: #75625a; --f-line: #ecd9cd; --f-panel: #f7e9df; --f-accent: #a3220f; --f-on-accent: #fff; --f-radius: 14px; }
+@media (prefers-color-scheme: dark) {
+  .terr { --f-bg: #1d1512; --f-ink: #f6ece6; --f-dim: #b9a49a; --f-line: #3e2c25; --f-panel: #2a1e19; --f-accent: #ff8a70; --f-on-accent: #1d1512; }
+}
+
 /* pebbl.: chalk and paper, ink text, slate-blue for evidence, clay for recording, moss for healthy. */
 .pebbl {
   --f-bg: #f7f5f0; --f-ink: #252522; --f-dim: #5f6461; --f-line: #dcddd5; --f-panel: #efece5;

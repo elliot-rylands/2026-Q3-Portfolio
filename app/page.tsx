@@ -17,6 +17,7 @@ import { getStudy } from "@/lib/work";
 // Small client marks beside each project. Sizes are the display size; the files are 3x.
 const logos: Record<string, { w: number; h: number; dark?: boolean }> = {
   scan: { w: 14, h: 16 },
+  "terr-ai": { w: 57, h: 16, dark: true },
   squiz: { w: 16, h: 16 },
   "uk-government": { w: 17, h: 16, dark: true },
   "papa-johns": { w: 55, h: 11 },

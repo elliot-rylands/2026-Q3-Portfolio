@@ -3,7 +3,7 @@
 import type { KeyboardEvent, ReactNode } from "react";
 import styles from "./flows.module.css";
 
-export type Skin = "scan" | "squiz" | "gov" | "papa" | "gctv" | "titan" | "pebbl";
+export type Skin = "scan" | "squiz" | "gov" | "papa" | "gctv" | "titan" | "pebbl" | "terr";
 
 // Shared mechanics for the case study flow maps. Each company gets its own skin
 // (colour, type, shape) and opens on its own problem, so no two maps look alike.

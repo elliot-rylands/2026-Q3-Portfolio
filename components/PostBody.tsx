@@ -7,6 +7,8 @@ import PapaFlow from "./flows/PapaFlow";
 import ScanFlow from "./flows/ScanFlow";
 import SquizFlow from "./flows/SquizFlow";
 import TitanFlow from "./flows/TitanFlow";
+import TerrFlow from "./flows/TerrFlow";
+import TerrCalendar from "./flows/TerrCalendar";
 import PebblCapture from "./flows/pebbl/PebblCapture";
 import PebblDecisions from "./flows/pebbl/PebblDecisions";
 import PebblEvidence from "./flows/pebbl/PebblEvidence";
@@ -23,6 +25,8 @@ const FLOWS: Record<string, () => React.JSX.Element> = {
   "flow-papa": PapaFlow,
   "flow-gctv": GctvFlow,
   "flow-titan": TitanFlow,
+  "flow-terr": TerrFlow,
+  "terr-calendar": TerrCalendar,
   "pebbl-journey": PebblJourney,
   "pebbl-evidence": PebblEvidence,
   "pebbl-promises": PebblPromises,
