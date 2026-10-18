@@ -33,6 +33,7 @@ export type Project = {
   url: string;
   locked: boolean;
   current?: boolean; // shown as the wide "Now" card, not in the Previously grid
+  hidden?: boolean; // kept in the code but off the site: no card, and its page 404s
 };
 
 // The three locked strands inside the wide Jane card. All open the Jane
@@ -44,7 +45,7 @@ export const janeWork = [
 ];
 
 // Order is the grid order: three across.
-export const projects: Project[] = [
+const allProjects: Project[] = [
   { slug: "jane", title: "Jane", summary: "Current work, shared on request.", url: "https://jane.app", locked: true, current: true },
   { slug: "scan", title: "Scan.com", summary: "First design hire after Series B, shaping the platform behind the $220M Series C.", url: "https://scan.com", locked: false },
   { slug: "squiz", title: "Squiz", summary: "Eight products into one DXP. Customers on it reported up to 2× conversion.", url: "https://squiz.net", locked: false },
@@ -53,6 +54,9 @@ export const projects: Project[] = [
   { slug: "gctv", title: "GCTV", summary: "Concurrent event viewing, streamlined onboarding, improved sponsor distribution.", url: "https://gctv.gcglobalchampions.com", locked: false },
   { slug: "titan-tennis", title: "Titan Tennis", summary: "Turning ball-machine speed, height and placement into drills players can see.", url: "https://titanballmachines.com/", locked: false },
 ];
+
+// Remove `hidden: true` from a project to put it back on the site.
+export const projects = allProjects.filter((p) => !p.hidden);
 
 // "Also worked with" line. Leave url empty to show a name without a link.
 export const clients: { name: string; url: string }[] = [
