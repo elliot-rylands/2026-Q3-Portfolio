@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
-const serif = Instrument_Serif({
-  subsets: ["latin"],
-  style: ["italic"],
-  weight: ["400"],
+// Fonts are bundled in app/fonts (all SIL Open Font Licence), so the site
+// builds offline and never waits on Google Fonts. Helvetica Neue, used on
+// the homepage, comes from the visitor's Mac; Geist is its fallback.
+const sans = localFont({ src: "./fonts/Geist-Variable.woff2", weight: "100 900", variable: "--font-sans", display: "swap" });
+const mono = localFont({ src: "./fonts/GeistMono-Variable.woff2", weight: "100 900", variable: "--font-mono", display: "swap" });
+const serif = localFont({
+  src: "./fonts/InstrumentSerif-Italic.woff2",
+  weight: "400",
+  style: "italic",
   variable: "--font-serif",
   display: "swap",
 });
