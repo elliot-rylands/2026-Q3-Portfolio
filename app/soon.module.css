@@ -1,0 +1,70 @@
+/* Coming soon. Same quiet type as the rest of the site: one column of text,
+   then a full-width wall of photos drifting at different speeds. */
+
+.soon { padding-block: 40px 48px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 640px; margin: 0 auto; }
+.avatar { border-radius: 50%; box-shadow: 0 0 0 1px var(--underline); }
+.badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 10px;
+  border: 1px solid var(--underline); border-radius: 999px;
+  font-family: var(--mono); font-size: 12px; line-height: 20px; color: var(--dim);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #3f9d6a; animation: pulse 2.2s ease-out infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(63, 157, 106, 0.5); }
+  70%, 100% { box-shadow: 0 0 0 8px rgba(63, 157, 106, 0); }
+}
+
+.hero { max-width: 640px; margin: 0 auto; padding-top: 112px; display: flex; flex-direction: column; gap: 20px; }
+.title {
+  display: flex; flex-direction: column; gap: 4px; margin: 0;
+  font-size: clamp(34px, 6vw, 52px); line-height: 1.04; font-weight: 500; letter-spacing: -0.035em; color: var(--strong);
+}
+.role { color: var(--low); }
+.role em { font-size: 1.06em; color: var(--strong); }
+.lede { font-size: 17px; line-height: 28px; color: var(--text); }
+.lede a { color: var(--strong); }
+.ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; margin: 8px 0 0; padding: 0; list-style: none; }
+.ctas a { font-weight: 500; color: var(--strong); }
+.primary {
+  display: inline-block; padding: 8px 18px; border-radius: 999px; background: var(--strong); color: var(--bg) !important;
+  text-decoration: none !important; transition: transform .2s ease;
+}
+.primary:hover { transform: translateY(-1px); }
+
+.names { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--underline); }
+.namesTitle { margin: 0 0 10px; font-family: var(--mono); font-size: 12px; line-height: 20px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--low); }
+.names ul { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; list-style: none; color: var(--dim); }
+
+.photos { margin-top: 120px; }
+.photosHead { display: flex; align-items: baseline; justify-content: space-between; max-width: 640px; margin: 0 auto 28px; }
+.photosHead a { font-size: 14px; color: var(--dim); }
+
+/* The wall breaks out of the body's side padding and runs edge to edge. */
+.wall {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start;
+  margin-inline: -24px; padding: 0 14px; overflow: hidden; height: min(1500px, 165vh);
+  -webkit-mask: linear-gradient(transparent, #000 10%, #000 90%, transparent);
+  mask: linear-gradient(transparent, #000 10%, #000 90%, transparent);
+}
+.lane { display: flex; flex-direction: column; gap: 14px; margin: 0; padding: 0; list-style: none; will-change: transform; }
+.lane:nth-child(2) { margin-top: 120px; }
+.lane:nth-child(4) { margin-top: 60px; }
+.tile figure { margin: 0; overflow: hidden; border-radius: 10px; background: var(--field); }
+.tile img { display: block; width: 100%; height: auto; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.tile:hover img { transform: scale(1.04); }
+
+.foot {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; max-width: 640px; margin: 96px auto 0 !important;
+  font-size: 14px; line-height: 20px; color: var(--low);
+}
+
+@media (max-width: 700px) {
+  .hero { padding-top: 72px; }
+  .wall { grid-template-columns: repeat(2, 1fr); gap: 10px; padding-inline: 10px; height: min(1100px, 140vh); }
+  .lane { gap: 10px; }
+  .lane:nth-child(n + 3) { display: none; }
+  .photos { margin-top: 88px; }
+}
+@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }

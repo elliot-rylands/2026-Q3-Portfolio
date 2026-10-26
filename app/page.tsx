@@ -1,236 +1,91 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PostList } from "@/components/PostList";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { JaneLogo } from "@/components/JaneLogo";
-import { PhotoStrip } from "@/components/photography/PhotoStrip";
-import { CaseTitleLink } from "@/components/unlock/CaseTitleLink";
-import { LockLink } from "@/components/unlock/LockLink";
-import { UnlockDialog } from "@/components/unlock/UnlockDialog";
-import { SiteFooter } from "@/components/SiteFooter";
+import { Clock } from "./Clock";
+import { LandAck } from "@/components/LandAck";
+import { DriftingPhotos } from "@/components/DriftingPhotos";
 import { photos } from "@/lib/photos";
-import { builds } from "@/lib/building";
-import { posts } from "@/lib/posts";
-import { clients, janeWork, projects, site } from "@/lib/site";
-import { getStudy } from "@/lib/work";
+import { clients, site } from "@/lib/site";
+import s from "./soon.module.css";
 
-// Small client marks beside each project. Sizes are the display size; the files are 3x.
-const logos: Record<string, { w: number; h: number; dark?: boolean }> = {
-  scan: { w: 14, h: 16 },
-  "terr-ai": { w: 57, h: 16, dark: true },
-  squiz: { w: 16, h: 16 },
-  "uk-government": { w: 17, h: 16, dark: true },
-  "papa-johns": { w: 55, h: 11 },
-  gctv: { w: 39, h: 12, dark: true },
-  "titan-tennis": { w: 20, h: 16, dark: true },
-};
+// Coming soon. The portfolio is being rebuilt, so the homepage holds the
+// basics and a wall of photos while case studies stay offline
+// (showCaseStudies in lib/site.ts). The full homepage lives in git history
+// and on the quilo-redesign branch.
 
-function ProjectLogo({ slug }: { slug: string }) {
-  if (slug === "jane") {
-    return (
-      <span className="item-logo item-logo-jane">
-        <JaneLogo />
-      </span>
-    );
-  }
-  const l = logos[slug];
-  if (!l) return null;
-  return (
-    <picture className="item-logo">
-      {l.dark ? <source srcSet={`/logos/${slug}-dark.png`} media="(prefers-color-scheme: dark)" /> : null}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`/logos/${slug}.png`} alt="" width={l.w} height={l.h} loading="lazy" decoding="async" />
-    </picture>
-  );
-}
+const NAMES = ["Jane", "Scan.com", "Squiz", "UK Government", "Papa John's", ...clients.map((c) => c.name)];
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    url: site.url,
+    name: `${site.name} · Product designer and design engineer`,
+    mainEntity: {
+      "@type": "Person",
+      name: site.name,
+      jobTitle: "Product designer and design engineer",
+      description: site.intro,
+      worksFor: { "@type": "Organization", name: "Jane", url: "https://jane.app" },
+      homeLocation: { "@type": "Place", name: "Cochrane, Alberta, Canada" },
+      sameAs: [site.links.linkedin, site.links.github, site.links.dribbble],
+    },
+  };
+
   return (
-    <main className="page">
-      <article>
-        <div className="prose">
-          <h1 className="avatar-heading" data-reveal>
-            <Image src="/elliot.png" alt="" width={64} height={64} priority className="avatar" />
-            <span className="sr-only">{site.name}</span>
+    <div className={s.soon} data-soon>
+      <header className={s.top}>
+        <Image src="/elliot.png" alt="" width={36} height={36} className={s.avatar} priority />
+        <p className={s.badge}>
+          <span className={s.dot} aria-hidden="true" />
+          New portfolio coming soon
+        </p>
+      </header>
+
+      <main>
+        <section className={s.hero} aria-labelledby="title">
+          <h1 id="title" className={s.title}>
+            Elliot Rylands<span className="sr-only">,</span>
+            <span className={s.role}>
+              product designer <em>who builds.</em>
+            </span>
           </h1>
-          <p className="lead" data-reveal>
-            {site.intro}
+          <p className={s.lede}>
+            {site.intro} Currently designing and building at{" "}
+            <a href="https://jane.app" target="_blank" rel="noopener">Jane</a>, from Cochrane, near the Canadian Rockies.
           </p>
-          <p data-reveal>
-            {site.current.before}
-            <a href={site.current.link.href} target="_blank" rel="noopener" className="brand-link" title="Jane">
-              <JaneLogo className="brand-logo" />
-              <span className="sr-only">{site.current.link.label} (opens in a new tab)</span>
-            </a>
-            {site.current.after}
+          <p className={s.lede}>
+            I&apos;m rebuilding this site, so my case studies are offline for now. Happy to walk you through them on a call.
           </p>
-        </div>
+          <ul className={s.ctas}>
+            <li><a href={site.links.email} className={s.primary}>Email me</a></li>
+            <li><a href={site.links.linkedin} target="_blank" rel="noopener me">LinkedIn</a></li>
+            <li><a href={site.links.dribbble} target="_blank" rel="noopener me">Dribbble</a></li>
+            <li><Link href="/words">Words</Link></li>
+          </ul>
+          <section className={s.names} aria-labelledby="names-title">
+            <h2 id="names-title" className={s.namesTitle}>Worked with</h2>
+            <ul>
+              {NAMES.map((n) => <li key={n}>{n}</li>)}
+            </ul>
+          </section>
+        </section>
 
-        <div className="prose section">
-          <div className="label-row" data-reveal>
-            <h2 className="label">Previously</h2>
+        <section aria-labelledby="photos-title" className={s.photos}>
+          <div className={s.photosHead}>
+            <h2 id="photos-title" className={s.namesTitle}>Off the clock</h2>
+            <Link href="/photography">All photos →</Link>
           </div>
-        </div>
+          <DriftingPhotos photos={photos} />
+        </section>
+      </main>
 
-        <div className="grid-wrap">
-          <div className="grid6">
-            {projects.filter((p) => !p.current).map((p) => (
-              <div className="item" key={p.slug} data-reveal>
-                <div className="item-inner">
-                <div className="item-title">
-                  <ProjectLogo slug={p.slug} />
-                  {getStudy(p.slug) ? (
-                    <CaseTitleLink slug={p.slug} title={p.title} locked={p.locked}>
-                      {p.title}
-                    </CaseTitleLink>
-                  ) : (
-                    <a href={p.url} target="_blank" rel="noopener">
-                      {p.title}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
-                  )}
-                  {p.locked ? <LockLink slug={p.slug} title={p.title} locked={p.locked} /> : null}
-                </div>
-                <p>{p.summary}</p>
-                </div>
-              </div>
-            ))}
-            {projects.filter((p) => p.current).map((p) => (
-              <div className="item item-wide item-now" key={p.slug} data-reveal>
-                <div className="item-inner">
-                  <div className="now-head">
-                    <div className="item-title">
-                      <ProjectLogo slug={p.slug} />
-                      <a href={p.url} target="_blank" rel="noopener">
-                        {p.title}
-                        <span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    </div>
-                    <p>{p.summary}</p>
-                  </div>
-                  <ul className="now-grid">
-                    {janeWork.map((w) => (
-                      <li className="now-cell" key={w.title}>
-                        <div className="item-title">
-                          <CaseTitleLink slug={p.slug} title={`${p.title}: ${w.title}`} locked={p.locked}>
-                            {w.title}
-                          </CaseTitleLink>
-                          <LockLink slug={p.slug} title={`${p.title}: ${w.title}`} locked={p.locked} />
-                        </div>
-                        <p>{w.summary}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="note">
-          <p data-reveal>
-            Also worked with{" "}
-            {clients.map((c, i) => (
-              <span key={c.name}>
-                {c.url ? (
-                  <a href={c.url} target="_blank" rel="noopener">
-                    {c.name}
-                  </a>
-                ) : (
-                  c.name
-                )}
-                {i < clients.length - 2 ? ", " : i === clients.length - 2 ? " and " : "."}
-              </span>
-            ))}
-          </p>
-          {projects.some((p) => p.locked && !p.current) ? (
-            <p data-reveal>
-              Some case studies are password protected. <a href={site.links.accessEmail}>Email me</a> for access.
-            </p>
-          ) : null}
-        </div>
+      <footer className={s.foot}>
+        <p>© {new Date().getFullYear()} Elliot Rylands</p>
+        <LandAck />
+        <Clock />
+      </footer>
 
-        <div className="prose section">
-          <div className="label-row" data-reveal>
-            <h2 className="label" id="building">Building</h2>
-          </div>
-        </div>
-        <div className="grid-wrap">
-          <div className="build-list">
-            {builds.map((b) => (
-              <Link href={`/building/${b.slug}`} className="build-card" key={b.slug} data-reveal>
-                <span className="build-card-inner">
-                  <span className="build-cover">
-                    <Image src={b.cover.src} alt={b.cover.alt} width={1280} height={853} sizes="(max-width: 688px) 100vw, 640px" />
-                  </span>
-                  <span className="build-text">
-                    <span className="item-title">
-                      <span className="build-mark" aria-hidden="true" />
-                      {b.name}
-                      <span className="build-status">{b.status}</span>
-                    </span>
-                    <span className="build-summary">{b.summary}</span>
-                  </span>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="prose section">
-          <div className="label-row" data-reveal>
-            <h2 className="label" id="words">Words</h2>
-            <Link href="/words" className="label-link">All words</Link>
-          </div>
-          {posts.length === 0 ? (
-            <p className="low">Nothing yet. The first post is being written.</p>
-          ) : (
-            <PostList posts={posts} reveal />
-          )}
-        </div>
-
-        <div className="prose section">
-          <div className="label-row" data-reveal>
-            <h2 className="label">About</h2>
-          </div>
-          {site.about.map((para) => (
-            <p key={para.slice(0, 24)} data-reveal>
-              {para}
-            </p>
-          ))}
-        </div>
-
-        <div className="prose section">
-          <div className="label-row" data-reveal>
-            <h2 className="label">Photography</h2>
-            <Link href="/photography" className="label-link">All photos</Link>
-          </div>
-          <PhotoStrip photos={photos} />
-        </div>
-
-        <div className="prose section">
-          <div className="label-row" data-reveal>
-            <h2 className="label">Connect</h2>
-          </div>
-          <p data-reveal>
-            Find me on <a href={site.links.linkedin} target="_blank" rel="noopener">
-              LinkedIn
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>, <a href={site.links.github} target="_blank" rel="noopener">
-              GitHub
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a> and{" "}
-            <a href={site.links.dribbble} target="_blank" rel="noopener">
-              Dribbble
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>, or by <a href={site.links.email}>email</a>.
-          </p>
-          <p data-reveal>I built this site myself in Next.js and TypeScript, including the interactive flow maps in each case study.</p>
-        </div>
-      </article>
-
-      <SiteFooter reveal />
-      <ScrollReveal />
-      <UnlockDialog />
-    </main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+    </div>
   );
 }

@@ -5,7 +5,7 @@ import { PageNav } from "@/components/PageNav";
 import { PostBody } from "@/components/PostBody";
 import { SiteFooter } from "@/components/SiteFooter";
 import { hasAccess } from "@/lib/access";
-import { projects, site } from "@/lib/site";
+import { projects, showCaseStudies, site } from "@/lib/site";
 import { getStudy, type Stat } from "@/lib/work";
 import { UnlockForm } from "./UnlockForm";
 
@@ -46,7 +46,7 @@ function Stats({ stats }: { stats: Stat[] }) {
 export default async function WorkPage({ params }: Props) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
-  if (!project) notFound();
+  if (!project || !showCaseStudies) notFound();
 
   // The check happens on the server: without access, no case study content is sent.
   const unlocked = !project.locked || (await hasAccess());

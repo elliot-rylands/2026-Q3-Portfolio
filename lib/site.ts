@@ -26,6 +26,10 @@ export const site = {
     "I live and work on Treaty 7 territory, the traditional lands of the Iyarhe Nakoda peoples of the Chiniki, Bearspaw and Goodstoney First Nations, and home to the Tsuut’ina, the Niitsitapi peoples of Siksika, Piikani and Kainai, and the Métis of the Rocky View Métis District.",
 };
 
+// Case study pages (/work/...) are offline while the site is rebuilt.
+// Set to true to bring every case study and its images back.
+export const showCaseStudies = false;
+
 export type Project = {
   slug: string;
   title: string;

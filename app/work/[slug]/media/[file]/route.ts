@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { hasAccess } from "@/lib/access";
-import { projects } from "@/lib/site";
+import { projects, showCaseStudies } from "@/lib/site";
 import { getStudy } from "@/lib/work";
 
 // Case study images live in content/work/<slug>/, outside public/, and are
@@ -10,7 +10,7 @@ const TYPES: Record<string, string> = { ".webp": "image/webp", ".png": "image/pn
 
 export async function GET(req: Request, { params }: { params: Promise<{ slug: string; file: string }> }) {
   const { slug, file } = await params;
-  if (!getStudy(slug) || !/^[\w-]+\.(webp|png|jpg|mp4)$/.test(file)) return new Response("Not found", { status: 404 });
+  if (!showCaseStudies || !getStudy(slug) || !/^[\w-]+\.(webp|png|jpg|mp4)$/.test(file)) return new Response("Not found", { status: 404 });
   const locked = projects.find((p) => p.slug === slug)?.locked ?? true;
   if (locked && !(await hasAccess())) return new Response("Locked", { status: 401 });
 
