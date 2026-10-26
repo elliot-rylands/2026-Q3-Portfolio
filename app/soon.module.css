@@ -1,86 +1,28 @@
-/* Coming soon, written as a letter: one wide reading column in large type,
-   a hand-drawn pointer, a big painted "Say hi.", then P.S. notes and a wall
-   of photos drifting at different speeds. */
+/* Coming soon: one full screen whose colour drifts slowly through a soft
+   palette. Stays on the first colour for anyone who prefers reduced motion. */
 
-.soon { padding-block: 32px 48px; }
+:global(body:has([data-soon])) { padding: 0; background: #f4d8cc; }
 
-.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 720px; margin: 0 auto; }
-.avatar { border-radius: 50%; box-shadow: 0 0 0 1px var(--underline); }
-.badge {
-  display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 10px;
-  border: 1px solid var(--underline); border-radius: 999px;
-  font-family: var(--mono); font-size: 12px; line-height: 20px; color: var(--dim);
+.screen {
+  position: fixed; inset: 0; display: grid; place-items: center; padding: 24px;
+  background: #f4d8cc; color: #1c1c1c;
+  animation: drift 40s ease-in-out infinite alternate;
 }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: #3f9d6a; animation: pulse 2.2s ease-out infinite; }
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(63, 157, 106, 0.5); }
-  70%, 100% { box-shadow: 0 0 0 8px rgba(63, 157, 106, 0); }
-}
-
-/* The letter */
-.letter {
-  max-width: 720px; margin: 0 auto; padding-top: 104px;
-  display: flex; flex-direction: column; gap: 26px;
-  font-size: clamp(20px, 2.4vw, 25px); line-height: 1.6; color: var(--strong); letter-spacing: -0.005em;
-}
-.letter p { margin: 0; }
-.letter a { color: inherit; text-decoration-thickness: 2px; }
-.hello { margin: 0; font-size: inherit; line-height: inherit; font-weight: 600; color: var(--strong); }
-.sign { font-family: var(--serif); font-style: italic; font-size: 1.25em; }
-.sign::before { content: "- "; }
-
-/* Pointer */
-.pointer { display: flex; justify-content: center; margin: 48px 0 -24px; }
-.pointer svg { width: 150px; height: auto; overflow: visible; }
-
-/* Say hi */
-.cta { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
-.cta :global(.painted) {
-  display: block; margin: 0 auto; width: min(100%, 560px); cursor: pointer;
-  text-decoration: none; transition: transform .35s cubic-bezier(.2,.7,.2,1);
-}
-.cta :global(.painted):hover { transform: rotate(-1.5deg) scale(1.03); }
-.cta :global(.painted):active { transform: scale(0.97); }
-.cta :global(.painted):focus-visible { outline: 3px solid #6b1fa8; outline-offset: 6px; border-radius: 12px; }
-.cta :global(.painted svg) { display: block; width: 100%; height: auto; }
-.cta :global(.painted-text) { font-family: var(--font-sans), "Geist", sans-serif; font-size: 250px; font-weight: 900; }
-.ctaText { font-size: clamp(20px, 2.4vw, 25px); line-height: 1.6; color: var(--strong); }
-.ctaText a { font-weight: 700; color: inherit; text-decoration-thickness: 2px; }
-.ps { margin: 0; font-size: 16px; line-height: 1.7; font-weight: 400; color: var(--text); }
-.ps a { color: var(--strong); }
-
-/* Photos */
-.photos { margin-top: 88px; }
-.photosHead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; max-width: 720px; margin: 0 auto 28px; }
-.allPhotos { flex: none; font-size: 14px; color: var(--dim); }
-
-/* The wall breaks out of the body's side padding and runs edge to edge. */
-.wall {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start;
-  margin-inline: -24px; padding: 0 14px; overflow: hidden; height: min(1500px, 165vh);
-  -webkit-mask: linear-gradient(transparent, #000 10%, #000 90%, transparent);
-  mask: linear-gradient(transparent, #000 10%, #000 90%, transparent);
-}
-.lane { display: flex; flex-direction: column; gap: 14px; margin: 0; padding: 0; list-style: none; will-change: transform; }
-.lane { margin-top: -260px !important; }
-.lane:nth-child(2) { margin-top: -120px !important; }
-.lane:nth-child(4) { margin-top: -190px !important; }
-.tile figure { margin: 0; overflow: hidden; border-radius: 10px; background: var(--field); }
-.tile img { display: block; width: 100%; height: auto; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
-.tile:hover img { transform: scale(1.04); }
-
-.foot {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; max-width: 720px; margin: 72px auto 0 !important;
-  font-size: 14px; line-height: 20px; color: var(--low);
+@keyframes drift {
+  0% { background-color: #f4d8cc; }
+  20% { background-color: #f2e4a8; }
+  40% { background-color: #c9e7d4; }
+  60% { background-color: #c7dbf2; }
+  80% { background-color: #ddd0f2; }
+  100% { background-color: #f3cfdc; }
 }
 
-@media (max-width: 700px) {
-  .letter { padding-top: 64px; gap: 20px; }
-  .pointer svg { width: 100px; }
-  .wall { grid-template-columns: repeat(2, 1fr); gap: 10px; padding-inline: 10px; height: min(1100px, 140vh); }
-  .lane { gap: 10px; }
-  .lane:nth-child(n + 3) { display: none; }
-  .photos { margin-top: 64px; }
-  .photosHead { flex-direction: column; gap: 6px; }
+.title {
+  margin: 0; font-size: clamp(44px, 9vw, 128px); line-height: 1; font-weight: 500;
+  letter-spacing: -0.045em; color: inherit; text-align: center;
 }
-@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+.title em { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .screen { animation: none; }
+}
