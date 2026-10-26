@@ -21,8 +21,8 @@ export function DriftingPhotos({ photos, columns = 4 }: { photos: Photo[]; colum
     const update = () => {
       frame = 0;
       const box = root.getBoundingClientRect();
-      // 0 when the wall's top reaches the bottom of the screen, growing as it scrolls up.
-      const progress = window.innerHeight - box.top;
+      // 0 when the wall is centred on screen, negative before, positive after.
+      const progress = window.innerHeight / 2 - (box.top + box.height / 2);
       cols.forEach((c) => {
         const speed = Number(c.dataset.drift);
         c.style.transform = `translate3d(0, ${(progress * speed).toFixed(1)}px, 0)`;
